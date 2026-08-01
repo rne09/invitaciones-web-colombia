@@ -9,6 +9,7 @@ cumpleanos y eventos personalizados.
 Empieza por:
 
 ```text
+AI_HANDOFF.md
 PROJECT_BRIEF.md
 TODO.md
 docs/01-estructura-web.md
@@ -19,7 +20,13 @@ docs/04-siguiente-fase-admin.md
 
 ## Estado actual
 
-MVP estatico en construccion.
+MVP estatico publicable.
+
+URL publica:
+
+```text
+https://rne09.github.io/invitaciones-web-colombia/
+```
 
 Documento principal:
 
@@ -45,38 +52,27 @@ docs/03-mapa-contenido.md
 - Landing publica en `index.html`.
 - Catalogo filtrable en `catalogo/index.html`.
 - Paginas SEO por tipo de evento.
-- Prototipo visual de panel privado en `admin/index.html`.
+- Prototipo de panel privado en `admin/index.html` con preview, guardado local y exportacion JSON.
 - Pagina de pedido/cotizacion en `pedido/index.html`.
+- Plantillas demo en `plantillas/`.
+- Demo completa anonima en `demos/baby-shower-azul/`.
+- Paginas basicas `politicas/` y `terminos/`.
+- Favicon y manifest.
 - Configuracion central en `js/config.js`.
 - `robots.txt` y `sitemap.xml` con dominio provisional.
 - `netlify.toml` y `_headers` para publicar como sitio estatico.
 - `PROJECT_BRIEF.md` para contexto rapido.
 - `TODO.md` como tablero de pendientes.
 
-## Primera meta
+## Siguiente paso recomendado
 
-Construir una pagina publica sencilla que venda el servicio y tenga:
+Convertir las plantillas conceptuales en demos completas vendibles, empezando por:
 
-- Inicio
-- Catalogo
-- Precios
-- Como funciona
-- Preguntas frecuentes
-- Contacto por WhatsApp
+1. `plantillas/boda-editorial/`
+2. `plantillas/quince-glam/`
+3. `plantillas/primera-comunion/`
 
-La parte privada funcional y premium se construye despues de validar la oferta.
-
-## Siguiente paso
-
-Completar el MVP visual de la landing page:
-
-- `index.html`
-- `css/estilos.css`
-- `js/app.js`
-- carpeta `assets/`
-
-La primera version debe incluir home, categorias, demos, precios, premium,
-preguntas frecuentes y boton a WhatsApp.
+Luego construir backend real para el admin.
 
 Nota: antes de publicar, reemplazar el numero temporal `573000000000` por el
 WhatsApp comercial real.

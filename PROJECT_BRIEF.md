@@ -16,7 +16,13 @@ Eventos objetivo:
 
 ## Estado actual
 
-MVP estatico en HTML, CSS y JavaScript puro. No requiere build ni framework.
+MVP estatico publicable en HTML, CSS y JavaScript puro. No requiere build ni framework.
+
+URL publica actual:
+
+```text
+https://rne09.github.io/invitaciones-web-colombia/
+```
 
 Se puede abrir localmente con:
 
@@ -59,6 +65,9 @@ index.html                         Landing principal
 catalogo/index.html                Catalogo filtrable
 pedido/index.html                  Formulario de cotizacion por WhatsApp
 admin/index.html                   Maqueta visual del panel privado
+plantillas/                        Plantillas demo por categoria
+politicas/index.html               Politicas base
+terminos/index.html                Terminos base
 css/estilos.css                    Estilos globales
 js/config.js                       Configuracion central
 js/templates.js                    Datos de plantillas del catalogo
@@ -109,6 +118,18 @@ Admin prototipo:
 /admin/
 ```
 
+Plantillas:
+
+```text
+/plantillas/boda-editorial/
+/plantillas/quince-glam/
+/plantillas/baby-safari/
+/plantillas/bautizo-capilla/
+/plantillas/revelacion-celeste-rosa/
+/plantillas/cumple-garden/
+/plantillas/primera-comunion/
+```
+
 Demo:
 
 ```text
@@ -117,7 +138,7 @@ Demo:
 
 ## Importante sobre el admin
 
-`admin/index.html` es solo una maqueta visual. No tiene login real, base de datos ni seguridad funcional.
+`admin/index.html` es un prototipo visual/local. Tiene preview, guardado en `localStorage` y exportacion JSON, pero no tiene login real, base de datos ni seguridad funcional.
 
 El admin real se debe construir despues con autenticacion y base de datos.
 
@@ -165,4 +186,3 @@ Antes de publicar como marca real, decidir:
 - WhatsApp comercial real.
 - Si el repo debe ser publico o privado.
 - Si Netlify se conectara al repo o se subira manualmente.
-
