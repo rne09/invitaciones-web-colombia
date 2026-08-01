@@ -17,6 +17,9 @@ Este archivo sirve como tablero simple para una IA o colaborador. A medida que s
 - [x] Crear demo anonima `baby-shower-azul`.
 - [x] Probar responsive movil/escritorio con Playwright.
 - [x] Verificar que la demo no tenga datos sensibles de la clienta anterior.
+- [x] Investigar referentes de invitaciones web y documentar estructura moderna.
+- [x] Crear primera version de logo para Invitaciones Web Colombia.
+- [x] Modernizar la landing principal con enfoque comercial y producto.
 
 ## Falta por hacer
 

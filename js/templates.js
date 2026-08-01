@@ -78,5 +78,65 @@ window.TEMPLATE_CATALOG = [
     href: "../invitaciones-web-bodas/",
     demoHref: "",
     preview: "preview--premium"
+  },
+  {
+    name: "Minimal Ivory",
+    event: "Boda",
+    style: "Minimalista",
+    package: "Personalizado",
+    price: "Desde $90.000",
+    href: "../invitaciones-web-bodas/",
+    demoHref: "",
+    preview: "preview--comunion"
+  },
+  {
+    name: "Noches de Gala",
+    event: "Quinceanos",
+    style: "Editorial",
+    package: "Personalizado",
+    price: "Desde $90.000",
+    href: "../invitaciones-web-quinceanos/",
+    demoHref: "",
+    preview: "preview--premium"
+  },
+  {
+    name: "Safari Suave",
+    event: "Baby Shower",
+    style: "Infantil elegante",
+    package: "Basico",
+    price: "Desde $50.000",
+    href: "../invitaciones-baby-shower/",
+    demoHref: "",
+    preview: "preview--baby"
+  },
+  {
+    name: "Garden Party",
+    event: "Cumpleanos",
+    style: "Tematico",
+    package: "Basico",
+    price: "Desde $50.000",
+    href: "../invitaciones-cumpleanos/",
+    demoHref: "",
+    preview: "preview--cumple"
+  },
+  {
+    name: "Capilla Blanca",
+    event: "Bautizo",
+    style: "Religioso",
+    package: "Personalizado",
+    price: "Desde $90.000",
+    href: "../invitaciones-bautizo/",
+    demoHref: "",
+    preview: "preview--comunion"
+  },
+  {
+    name: "Mesa & Galeria",
+    event: "Boda",
+    style: "Premium",
+    package: "Premium",
+    price: "Desde $180.000",
+    href: "../invitaciones-web-bodas/",
+    demoHref: "",
+    preview: "preview--premium"
   }
 ];
