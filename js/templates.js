@@ -46,7 +46,7 @@ window.TEMPLATE_CATALOG = [
     package: "Basico",
     price: "Desde $50.000",
     href: "../invitaciones-primera-comunion/",
-    demoHref: "../plantillas/bautizo-capilla/",
+    demoHref: "../plantillas/primera-comunion/",
     preview: "preview--comunion"
   },
   {

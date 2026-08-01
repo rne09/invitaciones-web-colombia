@@ -23,6 +23,9 @@ Este archivo sirve como tablero simple para una IA o colaborador. A medida que s
 - [x] Crear plantillas demo para boda, quinceanos, baby shower, bautizo, revelacion y cumpleanos.
 - [x] Conectar botones "Ver plantilla" desde el catalogo.
 - [x] Mejorar `/admin/` como prototipo de consola de produccion.
+- [x] Crear plantilla demo de primera comunion.
+- [x] Agregar favicon, manifest y paginas basicas de politicas/terminos.
+- [x] Agregar guardado local y exportacion JSON al admin demo.
 
 ## Falta por hacer
 
@@ -36,7 +39,7 @@ Este archivo sirve como tablero simple para una IA o colaborador. A medida que s
 - [ ] Crear imagen Open Graph final para compartir en WhatsApp.
 - [ ] Crear mas demos reales por categoria con imagenes/fotos finales.
 - [ ] Convertir cada demo en plantilla reutilizable desde datos JSON.
-- [ ] Crear plantilla especifica de primera comunion.
+- [ ] Reemplazar textos legales base por textos revisados por el negocio.
 - [ ] Revisar textos comerciales finales con tono de marca.
 - [ ] Agregar politicas de cambios, tiempos de entrega y pagos.
 - [ ] Publicar en Netlify.

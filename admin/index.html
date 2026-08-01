@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..800,60,1&display=swap" rel="stylesheet">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../css/estilos.css">
 </head>
 <body class="admin-body admin-body--v2">
@@ -35,7 +36,8 @@
         </div>
         <div class="admin-actions">
           <a class="btn btn--light" href="../catalogo/">Ver catalogo</a>
-          <button class="btn btn--primary" type="button">Nuevo evento</button>
+          <button class="btn btn--light" type="button" id="clearEvent">Nuevo evento</button>
+          <button class="btn btn--primary" type="button" id="saveEvent">Guardar demo</button>
         </div>
       </div>
 
@@ -109,6 +111,10 @@
             <label>Fuente<select><option>Editorial</option><option>Clasica</option><option>Moderna</option></select></label>
             <label class="admin-form__full">Mensaje<textarea>Con mucha alegria queremos compartir este momento contigo.</textarea></label>
           </form>
+          <div class="admin-output">
+            <button class="btn btn--light" type="button" id="exportEvent">Exportar JSON</button>
+            <pre id="eventJson">Guarda o exporta para ver la configuracion.</pre>
+          </div>
         </article>
 
         <article class="admin-card">
@@ -158,6 +164,8 @@
 
   <script>
     (function(){
+      const STORAGE_KEY = "iwc_admin_event_demo";
+      const form = document.querySelector("#adminDemoForm");
       const template = document.querySelector("#adminTemplate");
       const name = document.querySelector("#adminName");
       const date = document.querySelector("#adminDate");
@@ -165,12 +173,75 @@
       const outTemplate = document.querySelector("#previewTemplate");
       const outName = document.querySelector("#previewName");
       const outDate = document.querySelector("#previewDate");
+      const save = document.querySelector("#saveEvent");
+      const clear = document.querySelector("#clearEvent");
+      const exportBtn = document.querySelector("#exportEvent");
+      const eventJson = document.querySelector("#eventJson");
+
+      function data(){
+        const fields = {};
+        form.querySelectorAll("input, select, textarea").forEach((field) => {
+          const label = field.closest("label");
+          const key = label ? label.firstChild.textContent.trim() : field.name || field.id;
+          fields[key] = field.value;
+        });
+        return {
+          updatedAt: new Date().toISOString(),
+          template: template.value,
+          name: name.value,
+          date: date.value,
+          hour: hour.value,
+          fields
+        };
+      }
+
+      function paintJson(){
+        eventJson.textContent = JSON.stringify(data(), null, 2);
+      }
+
       function render(){
         outTemplate.textContent = template.value;
         outName.textContent = name.value;
         outDate.textContent = date.value + " · " + hour.value;
+        paintJson();
       }
-      [template, name, date, hour].forEach((field) => field.addEventListener("input", render));
+
+      function restore(){
+        try {
+          const stored = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
+          if (!stored || !stored.fields) return;
+          form.querySelectorAll("input, select, textarea").forEach((field) => {
+            const label = field.closest("label");
+            const key = label ? label.firstChild.textContent.trim() : field.name || field.id;
+            if (stored.fields[key] !== undefined) field.value = stored.fields[key];
+          });
+        } catch (error) {
+          localStorage.removeItem(STORAGE_KEY);
+        }
+      }
+
+      form.querySelectorAll("input, select, textarea").forEach((field) => field.addEventListener("input", render));
+      save.addEventListener("click", () => {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data()));
+        save.textContent = "Guardado";
+        setTimeout(() => { save.textContent = "Guardar demo"; }, 1400);
+      });
+      clear.addEventListener("click", () => {
+        localStorage.removeItem(STORAGE_KEY);
+        form.reset();
+        render();
+      });
+      exportBtn.addEventListener("click", async () => {
+        const text = JSON.stringify(data(), null, 2);
+        try {
+          await navigator.clipboard.writeText(text);
+          exportBtn.textContent = "JSON copiado";
+          setTimeout(() => { exportBtn.textContent = "Exportar JSON"; }, 1400);
+        } catch (error) {
+          eventJson.focus();
+        }
+      });
+      restore();
       render();
     })();
   </script>
