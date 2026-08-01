@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pedir invitacion web | Invitaciones Web Colombia</title>
+  <meta name="description" content="Solicita una invitacion web personalizada para boda, quinceanos, baby shower, bautizo, comunion, revelacion o cumpleanos.">
+  <meta name="theme-color" content="#fbf8f2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="../index.html#inicio" aria-label="Ir al inicio">
+      <span class="brand__mark">IW</span>
+      <span><strong>Invitaciones Web</strong><small>Colombia</small></span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav" id="nav" aria-label="Principal">
+      <a href="../index.html#catalogo">Catalogo</a>
+      <a href="../index.html#precios">Precios</a>
+      <a href="../index.html#premium">Premium</a>
+      <a href="../index.html#proceso">Como funciona</a>
+      <a href="../index.html#preguntas">Preguntas</a>
+    </nav>
+    <a class="header-cta" href="https://wa.me/573000000000?text=Hola%2C%20quiero%20una%20invitacion%20web%20para%20mi%20evento." target="_blank" rel="noopener">WhatsApp</a>
+  </header>
+
+  <main>
+    <section class="order-hero">
+      <div>
+        <p class="eyebrow">Cotizacion rapida</p>
+        <h1>Pide tu invitacion web</h1>
+        <p>Completa estos datos y la pagina prepara el mensaje para WhatsApp. Asi recibimos la informacion ordenada desde el primer contacto.</p>
+      </div>
+    </section>
+
+    <section class="section order-section">
+      <form class="order-form" id="orderForm">
+        <div class="order-form__grid">
+          <label>
+            Tipo de evento
+            <select id="eventType" name="eventType">
+              <option>Boda</option>
+              <option>Quinceanos</option>
+              <option>Baby Shower</option>
+              <option>Bautizo</option>
+              <option>Primera comunion</option>
+              <option>Revelacion de genero</option>
+              <option>Cumpleanos</option>
+              <option>Otro evento</option>
+            </select>
+          </label>
+          <label>
+            Paquete
+            <select id="packageType" name="packageType">
+              <option>Basico - desde $50.000</option>
+              <option>Personalizado - desde $90.000</option>
+              <option>Premium - desde $180.000</option>
+              <option>No estoy seguro</option>
+            </select>
+          </label>
+          <label>
+            Fecha del evento
+            <input id="eventDate" name="eventDate" type="date">
+          </label>
+          <label>
+            Ciudad
+            <input id="eventCity" name="eventCity" type="text" placeholder="Ej: Cartagena">
+          </label>
+          <label>
+            Nombre de contacto
+            <input id="clientName" name="clientName" type="text" autocomplete="name" placeholder="Tu nombre">
+          </label>
+          <label>
+            Estilo deseado
+            <select id="eventStyle" name="eventStyle">
+              <option>Elegante</option>
+              <option>Romantico</option>
+              <option>Infantil</option>
+              <option>Floral</option>
+              <option>Minimalista</option>
+              <option>Religioso</option>
+              <option>Tematico</option>
+              <option>No estoy seguro</option>
+            </select>
+          </label>
+          <label class="order-form__full">
+            Detalles o referencias
+            <textarea id="eventNotes" name="eventNotes" placeholder="Colores, musica, fotos, ejemplo que te gusto, cantidad aproximada de invitados..."></textarea>
+          </label>
+        </div>
+        <div class="order-actions">
+          <button class="btn btn--primary" type="submit">Enviar por WhatsApp</button>
+          <button class="btn btn--light" type="button" id="copyOrder">Copiar mensaje</button>
+        </div>
+      </form>
+
+      <aside class="order-preview">
+        <p class="eyebrow">Mensaje</p>
+        <h2>Resumen para WhatsApp</h2>
+        <pre id="orderMessage">Completa el formulario para ver el mensaje.</pre>
+      </aside>
+    </section>
+  </main>
+
+  <a class="float-wa" href="https://wa.me/573000000000?text=Hola%2C%20quiero%20una%20invitacion%20web%20para%20mi%20evento." target="_blank" rel="noopener" aria-label="Pedir por WhatsApp">WA</a>
+  <footer class="footer">
+    <p>Invitaciones Web Colombia</p>
+    <a href="https://www.instagram.com/andersonrene_ph/" target="_blank" rel="noopener">Hecho por @andersonrene_ph</a>
+  </footer>
+  <script src="../js/config.js"></script>
+  <script src="../js/app.js"></script>
+</body>
+</html>

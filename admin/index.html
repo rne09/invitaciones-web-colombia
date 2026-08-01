@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin prototipo | Invitaciones Web Colombia</title>
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body class="admin-body">
+  <main class="admin-shell">
+    <aside class="admin-sidebar">
+      <a class="brand" href="../index.html">
+        <span class="brand__mark">IW</span>
+        <span><strong>Invitaciones Web</strong><small>Admin demo</small></span>
+      </a>
+      <nav class="admin-nav">
+        <a href="#eventos">Eventos</a>
+        <a href="#editor">Editor</a>
+        <a href="#premium">Premium</a>
+        <a href="#publicacion">Publicacion</a>
+      </nav>
+      <p class="admin-note">Prototipo visual. El login real y guardado en base de datos se construyen despues.</p>
+    </aside>
+
+    <section class="admin-main">
+      <div class="admin-topbar">
+        <div>
+          <p class="eyebrow">Panel privado</p>
+          <h1>Gestion de invitaciones</h1>
+        </div>
+        <button class="btn btn--primary" type="button">Nuevo evento</button>
+      </div>
+
+      <section class="admin-grid" id="eventos">
+        <article class="admin-card admin-card--wide">
+          <div class="admin-card__head">
+            <h2>Eventos recientes</h2>
+            <span>Demo</span>
+          </div>
+          <div class="admin-table">
+            <div><strong>Cliente Demo</strong><span>Baby Shower</span><em>Publicado</em></div>
+            <div><strong>Ana & Carlos</strong><span>Boda</span><em>Diseno</em></div>
+            <div><strong>Valeria 15</strong><span>Quinceanos</span><em>Pendiente</em></div>
+          </div>
+        </article>
+
+        <article class="admin-card">
+          <h2>Estado</h2>
+          <div class="admin-metric"><strong>12</strong><span>Plantillas</span></div>
+          <div class="admin-metric"><strong>4</strong><span>Eventos activos</span></div>
+        </article>
+      </section>
+
+      <section class="admin-grid" id="editor">
+        <article class="admin-card admin-card--wide">
+          <div class="admin-card__head">
+            <h2>Editor de invitacion</h2>
+            <span>Campos base</span>
+          </div>
+          <form class="admin-form">
+            <label>Tipo de evento<input value="Baby Shower"></label>
+            <label>Nombre principal<input value="Mateo"></label>
+            <label>Fecha y hora<input value="2026-08-15 10:30"></label>
+            <label>Lugar<input value="Salon de eventos"></label>
+            <label>WhatsApp<input value="573000000000"></label>
+            <label>Paleta<select><option>Azul dorado</option><option>Rosa dorado</option><option>Verde sage</option></select></label>
+            <label class="admin-form__full">Mensaje<textarea>Texto de invitacion, regalos, dress code y confirmacion.</textarea></label>
+          </form>
+        </article>
+
+        <article class="admin-card">
+          <h2>Vista previa</h2>
+          <div class="admin-phone">
+            <span>Baby Shower</span>
+            <strong>Julian</strong>
+            <small>Musica · Mapa · RSVP</small>
+          </div>
+        </article>
+      </section>
+
+      <section class="admin-grid" id="premium">
+        <article class="admin-card">
+          <h2>Invitados y mesas</h2>
+          <p>Cargar CSV con nombre, telefono, codigo, mesa y acompanantes.</p>
+          <button class="btn btn--light" type="button">Importar lista</button>
+        </article>
+        <article class="admin-card">
+          <h2>Galeria de invitados</h2>
+          <p>Fotos visibles para todos, borrado solo por autor o administrador.</p>
+          <button class="btn btn--light" type="button">Configurar permisos</button>
+        </article>
+        <article class="admin-card">
+          <h2>Album profesional</h2>
+          <p>Enlace a Pixieset o galeria profesional del fotografo.</p>
+          <button class="btn btn--light" type="button">Agregar enlace</button>
+        </article>
+      </section>
+
+      <section class="admin-card" id="publicacion">
+        <div class="admin-card__head">
+          <h2>Publicacion</h2>
+          <span>Netlify</span>
+        </div>
+        <div class="publish-flow">
+          <span>Guardar cambios</span>
+          <span>Generar carpeta</span>
+          <span>Publicar en Netlify</span>
+          <span>Enviar link al cliente</span>
+        </div>
+      </section>
+    </section>
+  </main>
+</body>
+</html>

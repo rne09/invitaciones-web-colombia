@@ -1,0 +1,82 @@
+window.TEMPLATE_CATALOG = [
+  {
+    name: "Azul Toile",
+    event: "Baby Shower",
+    style: "Infantil elegante",
+    package: "Basico",
+    price: "Desde $50.000",
+    href: "../invitaciones-baby-shower/",
+    demoHref: "../demos/baby-shower-azul/",
+    preview: "preview--baby"
+  },
+  {
+    name: "Elegante Floral",
+    event: "Boda",
+    style: "Romantico",
+    package: "Personalizado",
+    price: "Desde $90.000",
+    href: "../invitaciones-web-bodas/",
+    demoHref: "",
+    preview: "preview--wedding"
+  },
+  {
+    name: "Rosa Dorado",
+    event: "Quinceanos",
+    style: "Glam",
+    package: "Personalizado",
+    price: "Desde $90.000",
+    href: "../invitaciones-web-quinceanos/",
+    demoHref: "",
+    preview: "preview--quince"
+  },
+  {
+    name: "Clasico Suave",
+    event: "Bautizo",
+    style: "Religioso",
+    package: "Basico",
+    price: "Desde $50.000",
+    href: "../invitaciones-bautizo/",
+    demoHref: "",
+    preview: "preview--bautizo"
+  },
+  {
+    name: "Blanco Comunion",
+    event: "Primera comunion",
+    style: "Religioso",
+    package: "Basico",
+    price: "Desde $50.000",
+    href: "../invitaciones-primera-comunion/",
+    demoHref: "",
+    preview: "preview--comunion"
+  },
+  {
+    name: "Dulce Revelacion",
+    event: "Revelacion de genero",
+    style: "Familiar",
+    package: "Basico",
+    price: "Desde $50.000",
+    href: "../invitaciones-revelacion-genero/",
+    demoHref: "",
+    preview: "preview--revelacion"
+  },
+  {
+    name: "Fiesta Tematica",
+    event: "Cumpleanos",
+    style: "Tematico",
+    package: "Personalizado",
+    price: "Desde $90.000",
+    href: "../invitaciones-cumpleanos/",
+    demoHref: "",
+    preview: "preview--cumple"
+  },
+  {
+    name: "Boda Premium",
+    event: "Boda",
+    style: "Elegante",
+    package: "Premium",
+    price: "Desde $180.000",
+    href: "../invitaciones-web-bodas/",
+    demoHref: "",
+    preview: "preview--premium"
+  }
+];
