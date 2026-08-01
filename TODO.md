@@ -54,6 +54,15 @@ Este archivo sirve como tablero simple para una IA o colaborador. A medida que s
 - [ ] Solo existe una demo real; las demas tarjetas son conceptuales.
 - [ ] La demo usa assets generados y derivados; antes de venta masiva conviene crear biblioteca propia por categoria.
 
+## Issues en GitHub
+
+- [ ] [#1 Preparar publicacion en Netlify con dominio propio](https://github.com/rne09/invitaciones-web-colombia/issues/1)
+- [ ] [#2 Convertir admin estatico en panel real protegido](https://github.com/rne09/invitaciones-web-colombia/issues/2)
+- [ ] [#3 Confirmar marca, dominio, Instagram y WhatsApp comercial](https://github.com/rne09/invitaciones-web-colombia/issues/3)
+- [ ] [#4 Crear sistema premium de invitados, mesas y galeria](https://github.com/rne09/invitaciones-web-colombia/issues/4)
+- [ ] [#5 Ampliar catalogo y demos por tipo de evento](https://github.com/rne09/invitaciones-web-colombia/issues/5)
+- [ ] [#6 Completar SEO, legales y medicion](https://github.com/rne09/invitaciones-web-colombia/issues/6)
+
 ## Prioridad sugerida
 
 1. Confirmar WhatsApp comercial.
@@ -61,4 +70,3 @@ Este archivo sirve como tablero simple para una IA o colaborador. A medida que s
 3. Publicar MVP en Netlify.
 4. Crear 2 demos mas: boda y quinceanos.
 5. Luego iniciar admin funcional.
-
