@@ -3,116 +3,176 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Admin prototipo | Invitaciones Web Colombia</title>
+  <title>Admin demo | Invitaciones Web Colombia</title>
   <meta name="robots" content="noindex,nofollow">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..800,60,1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/estilos.css">
 </head>
-<body class="admin-body">
-  <main class="admin-shell">
-    <aside class="admin-sidebar">
+<body class="admin-body admin-body--v2">
+  <main class="admin-shell admin-shell--v2">
+    <aside class="admin-sidebar admin-sidebar--v2">
       <a class="brand" href="../index.html">
         <span class="brand__mark">IW</span>
         <span><strong>Invitaciones Web</strong><small>Admin demo</small></span>
       </a>
       <nav class="admin-nav">
-        <a href="#eventos">Eventos</a>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#plantillas">Plantillas</a>
         <a href="#editor">Editor</a>
         <a href="#premium">Premium</a>
         <a href="#publicacion">Publicacion</a>
       </nav>
-      <p class="admin-note">Prototipo visual. El login real y guardado en base de datos se construyen despues.</p>
+      <p class="admin-note">Prototipo visual. La siguiente fase conecta login, base de datos, subida de archivos y deploy automatico.</p>
     </aside>
 
-    <section class="admin-main">
+    <section class="admin-main admin-main--v2">
       <div class="admin-topbar">
         <div>
           <p class="eyebrow">Panel privado</p>
-          <h1>Gestion de invitaciones</h1>
+          <h1>Centro de produccion</h1>
         </div>
-        <button class="btn btn--primary" type="button">Nuevo evento</button>
+        <div class="admin-actions">
+          <a class="btn btn--light" href="../catalogo/">Ver catalogo</a>
+          <button class="btn btn--primary" type="button">Nuevo evento</button>
+        </div>
       </div>
 
-      <section class="admin-grid" id="eventos">
+      <section class="admin-dashboard" id="dashboard">
+        <article><span>Eventos activos</span><strong>8</strong><em>3 por entregar</em></article>
+        <article><span>Plantillas</span><strong>14</strong><em>6 con demo</em></article>
+        <article><span>Confirmaciones</span><strong>326</strong><em>RSVP recibidos</em></article>
+        <article><span>Fotos premium</span><strong>912</strong><em>Galeria demo</em></article>
+      </section>
+
+      <section class="admin-board">
         <article class="admin-card admin-card--wide">
           <div class="admin-card__head">
-            <h2>Eventos recientes</h2>
-            <span>Demo</span>
+            <h2>Cola de eventos</h2>
+            <span>Produccion</span>
           </div>
-          <div class="admin-table">
-            <div><strong>Cliente Demo</strong><span>Baby Shower</span><em>Publicado</em></div>
-            <div><strong>Ana & Carlos</strong><span>Boda</span><em>Diseno</em></div>
-            <div><strong>Valeria 15</strong><span>Quinceanos</span><em>Pendiente</em></div>
+          <div class="admin-kanban">
+            <div><b>Nuevo pedido</b><strong>Quince glam</strong><small>Faltan fotos y musica</small></div>
+            <div><b>En diseno</b><strong>Boda editorial</strong><small>Revisar paleta ivory/sage</small></div>
+            <div><b>Publicado</b><strong>Baby safari</strong><small>Link enviado al cliente</small></div>
           </div>
         </article>
-
         <article class="admin-card">
-          <h2>Estado</h2>
-          <div class="admin-metric"><strong>12</strong><span>Plantillas</span></div>
-          <div class="admin-metric"><strong>4</strong><span>Eventos activos</span></div>
+          <h2>Checklist rapido</h2>
+          <label class="admin-check"><input type="checkbox" checked> Datos del evento</label>
+          <label class="admin-check"><input type="checkbox" checked> Musica</label>
+          <label class="admin-check"><input type="checkbox"> Fotos finales</label>
+          <label class="admin-check"><input type="checkbox"> Revisar movil</label>
+          <label class="admin-check"><input type="checkbox"> Publicar</label>
         </article>
       </section>
 
-      <section class="admin-grid" id="editor">
+      <section class="admin-card" id="plantillas">
+        <div class="admin-card__head">
+          <h2>Biblioteca de plantillas</h2>
+          <span>Seleccion inicial</span>
+        </div>
+        <div class="admin-template-grid">
+          <a href="../plantillas/boda-editorial/"><strong>Boda editorial</strong><span>Premium / RSVP / mesas</span></a>
+          <a href="../plantillas/quince-glam/"><strong>Quince glam</strong><span>Fotos / vals / dress code</span></a>
+          <a href="../plantillas/baby-safari/"><strong>Baby safari</strong><span>Musica / regalos / mapa</span></a>
+          <a href="../plantillas/bautizo-capilla/"><strong>Bautizo capilla</strong><span>Ceremonia / recepcion</span></a>
+          <a href="../plantillas/revelacion-celeste-rosa/"><strong>Revelacion</strong><span>Votos / countdown</span></a>
+          <a href="../plantillas/cumple-garden/"><strong>Cumple garden</strong><span>Fotos / fiesta / RSVP</span></a>
+        </div>
+      </section>
+
+      <section class="admin-editor-grid" id="editor">
         <article class="admin-card admin-card--wide">
           <div class="admin-card__head">
-            <h2>Editor de invitacion</h2>
-            <span>Campos base</span>
+            <h2>Editor base</h2>
+            <span>Demo local</span>
           </div>
-          <form class="admin-form">
-            <label>Tipo de evento<input value="Baby Shower"></label>
-            <label>Nombre principal<input value="Mateo"></label>
-            <label>Fecha y hora<input value="2026-08-15 10:30"></label>
-            <label>Lugar<input value="Salon de eventos"></label>
+          <form class="admin-form admin-form--v2" id="adminDemoForm">
+            <label>Plantilla
+              <select id="adminTemplate">
+                <option>Boda editorial</option>
+                <option>Quince glam</option>
+                <option>Baby safari</option>
+                <option>Bautizo capilla</option>
+                <option>Revelacion celeste rosa</option>
+                <option>Cumple garden</option>
+              </select>
+            </label>
+            <label>Nombre principal<input id="adminName" value="Isabella & Tomas"></label>
+            <label>Fecha<input id="adminDate" value="Sabado 24 de octubre"></label>
+            <label>Hora<input id="adminHour" value="5:00 PM"></label>
+            <label>Lugar<input value="Casa Prado"></label>
             <label>WhatsApp<input value="573000000000"></label>
-            <label>Paleta<select><option>Azul dorado</option><option>Rosa dorado</option><option>Verde sage</option></select></label>
-            <label class="admin-form__full">Mensaje<textarea>Texto de invitacion, regalos, dress code y confirmacion.</textarea></label>
+            <label>Color principal<input value="#304967"></label>
+            <label>Fuente<select><option>Editorial</option><option>Clasica</option><option>Moderna</option></select></label>
+            <label class="admin-form__full">Mensaje<textarea>Con mucha alegria queremos compartir este momento contigo.</textarea></label>
           </form>
         </article>
 
         <article class="admin-card">
-          <h2>Vista previa</h2>
-          <div class="admin-phone">
-            <span>Baby Shower</span>
-            <strong>Julian</strong>
-            <small>Musica · Mapa · RSVP</small>
+          <h2>Preview movil</h2>
+          <div class="admin-live-phone">
+            <span id="previewTemplate">Boda editorial</span>
+            <strong id="previewName">Isabella & Tomas</strong>
+            <small id="previewDate">Sabado 24 de octubre · 5:00 PM</small>
+            <button type="button">Confirmar asistencia</button>
           </div>
         </article>
       </section>
 
-      <section class="admin-grid" id="premium">
+      <section class="admin-board" id="premium">
         <article class="admin-card">
           <h2>Invitados y mesas</h2>
-          <p>Cargar CSV con nombre, telefono, codigo, mesa y acompanantes.</p>
-          <button class="btn btn--light" type="button">Importar lista</button>
+          <p>Importar CSV con nombre, telefono, codigo, mesa y acompanantes.</p>
+          <button class="btn btn--light" type="button">Preparar importacion</button>
         </article>
         <article class="admin-card">
-          <h2>Galeria de invitados</h2>
-          <p>Fotos visibles para todos, borrado solo por autor o administrador.</p>
-          <button class="btn btn--light" type="button">Configurar permisos</button>
+          <h2>Galeria colaborativa</h2>
+          <p>Fotos visibles para invitados. Borrado solo por autor o administrador.</p>
+          <button class="btn btn--light" type="button">Configurar galeria</button>
         </article>
         <article class="admin-card">
           <h2>Album profesional</h2>
-          <p>Enlace a Pixieset o galeria profesional del fotografo.</p>
+          <p>Campo para Pixieset, galeria del fotografo o entrega final del evento.</p>
           <button class="btn btn--light" type="button">Agregar enlace</button>
         </article>
       </section>
 
       <section class="admin-card" id="publicacion">
         <div class="admin-card__head">
-          <h2>Publicacion</h2>
-          <span>Netlify</span>
+          <h2>Publicacion y entrega</h2>
+          <span>Flujo recomendado</span>
         </div>
-        <div class="publish-flow">
-          <span>Guardar cambios</span>
-          <span>Generar carpeta</span>
-          <span>Publicar en Netlify</span>
-          <span>Enviar link al cliente</span>
+        <div class="publish-flow publish-flow--v2">
+          <span>1. Guardar datos</span>
+          <span>2. Generar carpeta</span>
+          <span>3. Probar en movil</span>
+          <span>4. Publicar Netlify</span>
+          <span>5. Enviar link y QR</span>
         </div>
       </section>
     </section>
   </main>
+
+  <script>
+    (function(){
+      const template = document.querySelector("#adminTemplate");
+      const name = document.querySelector("#adminName");
+      const date = document.querySelector("#adminDate");
+      const hour = document.querySelector("#adminHour");
+      const outTemplate = document.querySelector("#previewTemplate");
+      const outName = document.querySelector("#previewName");
+      const outDate = document.querySelector("#previewDate");
+      function render(){
+        outTemplate.textContent = template.value;
+        outName.textContent = name.value;
+        outDate.textContent = date.value + " · " + hour.value;
+      }
+      [template, name, date, hour].forEach((field) => field.addEventListener("input", render));
+      render();
+    })();
+  </script>
 </body>
 </html>

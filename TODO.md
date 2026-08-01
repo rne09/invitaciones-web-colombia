@@ -20,6 +20,9 @@ Este archivo sirve como tablero simple para una IA o colaborador. A medida que s
 - [x] Investigar referentes de invitaciones web y documentar estructura moderna.
 - [x] Crear primera version de logo para Invitaciones Web Colombia.
 - [x] Modernizar la landing principal con enfoque comercial y producto.
+- [x] Crear plantillas demo para boda, quinceanos, baby shower, bautizo, revelacion y cumpleanos.
+- [x] Conectar botones "Ver plantilla" desde el catalogo.
+- [x] Mejorar `/admin/` como prototipo de consola de produccion.
 
 ## Falta por hacer
 
@@ -31,9 +34,9 @@ Este archivo sirve como tablero simple para una IA o colaborador. A medida que s
 - [ ] Crear logo final.
 - [ ] Crear favicon.
 - [ ] Crear imagen Open Graph final para compartir en WhatsApp.
-- [ ] Crear mas demos reales por categoria.
-- [ ] Convertir cada demo en plantilla reutilizable.
-- [ ] Agregar botones de demo reales para boda, quinceanos, bautizo, comunion, revelacion y cumpleanos.
+- [ ] Crear mas demos reales por categoria con imagenes/fotos finales.
+- [ ] Convertir cada demo en plantilla reutilizable desde datos JSON.
+- [ ] Crear plantilla especifica de primera comunion.
 - [ ] Revisar textos comerciales finales con tono de marca.
 - [ ] Agregar politicas de cambios, tiempos de entrega y pagos.
 - [ ] Publicar en Netlify.

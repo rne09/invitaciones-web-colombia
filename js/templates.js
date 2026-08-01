@@ -16,7 +16,7 @@ window.TEMPLATE_CATALOG = [
     package: "Personalizado",
     price: "Desde $90.000",
     href: "../invitaciones-web-bodas/",
-    demoHref: "",
+    demoHref: "../plantillas/boda-editorial/",
     preview: "preview--wedding"
   },
   {
@@ -26,7 +26,7 @@ window.TEMPLATE_CATALOG = [
     package: "Personalizado",
     price: "Desde $90.000",
     href: "../invitaciones-web-quinceanos/",
-    demoHref: "",
+    demoHref: "../plantillas/quince-glam/",
     preview: "preview--quince"
   },
   {
@@ -36,7 +36,7 @@ window.TEMPLATE_CATALOG = [
     package: "Basico",
     price: "Desde $50.000",
     href: "../invitaciones-bautizo/",
-    demoHref: "",
+    demoHref: "../plantillas/bautizo-capilla/",
     preview: "preview--bautizo"
   },
   {
@@ -46,7 +46,7 @@ window.TEMPLATE_CATALOG = [
     package: "Basico",
     price: "Desde $50.000",
     href: "../invitaciones-primera-comunion/",
-    demoHref: "",
+    demoHref: "../plantillas/bautizo-capilla/",
     preview: "preview--comunion"
   },
   {
@@ -56,7 +56,7 @@ window.TEMPLATE_CATALOG = [
     package: "Basico",
     price: "Desde $50.000",
     href: "../invitaciones-revelacion-genero/",
-    demoHref: "",
+    demoHref: "../plantillas/revelacion-celeste-rosa/",
     preview: "preview--revelacion"
   },
   {
@@ -66,7 +66,7 @@ window.TEMPLATE_CATALOG = [
     package: "Personalizado",
     price: "Desde $90.000",
     href: "../invitaciones-cumpleanos/",
-    demoHref: "",
+    demoHref: "../plantillas/cumple-garden/",
     preview: "preview--cumple"
   },
   {
@@ -76,7 +76,7 @@ window.TEMPLATE_CATALOG = [
     package: "Premium",
     price: "Desde $180.000",
     href: "../invitaciones-web-bodas/",
-    demoHref: "",
+    demoHref: "../plantillas/boda-editorial/",
     preview: "preview--premium"
   },
   {
@@ -86,7 +86,7 @@ window.TEMPLATE_CATALOG = [
     package: "Personalizado",
     price: "Desde $90.000",
     href: "../invitaciones-web-bodas/",
-    demoHref: "",
+    demoHref: "../plantillas/boda-editorial/",
     preview: "preview--comunion"
   },
   {
@@ -96,7 +96,7 @@ window.TEMPLATE_CATALOG = [
     package: "Personalizado",
     price: "Desde $90.000",
     href: "../invitaciones-web-quinceanos/",
-    demoHref: "",
+    demoHref: "../plantillas/quince-glam/",
     preview: "preview--premium"
   },
   {
@@ -106,7 +106,7 @@ window.TEMPLATE_CATALOG = [
     package: "Basico",
     price: "Desde $50.000",
     href: "../invitaciones-baby-shower/",
-    demoHref: "",
+    demoHref: "../plantillas/baby-safari/",
     preview: "preview--baby"
   },
   {
@@ -116,7 +116,7 @@ window.TEMPLATE_CATALOG = [
     package: "Basico",
     price: "Desde $50.000",
     href: "../invitaciones-cumpleanos/",
-    demoHref: "",
+    demoHref: "../plantillas/cumple-garden/",
     preview: "preview--cumple"
   },
   {
@@ -126,7 +126,7 @@ window.TEMPLATE_CATALOG = [
     package: "Personalizado",
     price: "Desde $90.000",
     href: "../invitaciones-bautizo/",
-    demoHref: "",
+    demoHref: "../plantillas/bautizo-capilla/",
     preview: "preview--comunion"
   },
   {
@@ -136,7 +136,7 @@ window.TEMPLATE_CATALOG = [
     package: "Premium",
     price: "Desde $180.000",
     href: "../invitaciones-web-bodas/",
-    demoHref: "",
+    demoHref: "../plantillas/boda-editorial/",
     preview: "preview--premium"
   }
 ];
