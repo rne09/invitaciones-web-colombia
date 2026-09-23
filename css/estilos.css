@@ -2571,3 +2571,36 @@ h1,h2{
     grid-template-columns:1fr;
   }
 }
+
+/* Inicio simplificado */
+.brand__logo{ width:40px; height:40px; border-radius:12px; display:block; }
+.simple-how{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+.simple-how div{ display:flex; align-items:center; gap:12px; padding:18px; border:1px solid var(--line); border-radius:18px; background:var(--white); }
+.simple-how span{ display:grid; place-items:center; flex:0 0 36px; height:36px; border-radius:50%; background:var(--ink); color:var(--white); font-weight:700; }
+.simple-chips{ display:flex; flex-wrap:wrap; gap:8px; margin:0 0 28px; }
+.simple-chips a{ padding:10px 16px; border-radius:999px; border:1px solid var(--line); background:var(--white); color:var(--ink); text-decoration:none; font-weight:600; font-size:15px; }
+.simple-group{ margin-bottom:32px; scroll-margin-top:90px; }
+.simple-group h3{ margin:0 0 12px; font-size:24px; }
+.simple-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:14px; }
+.simple-card{ display:flex; flex-direction:column; gap:6px; padding:12px; border:1px solid var(--line); border-radius:18px; background:var(--white); color:var(--ink); text-decoration:none; }
+.simple-card .template-card__preview{ aspect-ratio:3/4; min-height:0; border-radius:12px; }
+.simple-card span{ color:var(--gold); font-size:14px; font-weight:600; }
+@media (max-width:640px){
+  .simple-how{ grid-template-columns:1fr; }
+  .simple-grid{ grid-template-columns:repeat(2,1fr); }
+}
+.price-card--featured li{ color:#fffaf2; }
+
+/* Iconos */
+.ic{ width:1.15em; height:1.15em; flex:0 0 auto; vertical-align:-.2em; }
+.btn .ic{ margin-right:8px; }
+.simple-chips a{ display:inline-flex; align-items:center; gap:6px; }
+.simple-chips .ic{ color:var(--gold); }
+.simple-group h3{ display:flex; align-items:center; gap:10px; }
+.ic-badge{ display:inline-grid; place-items:center; width:40px; height:40px; border-radius:12px; background:#f3e9d8; color:var(--gold); }
+.ic-badge .ic{ width:22px; height:22px; }
+.price-card .ic-badge{ margin-bottom:10px; }
+.price-card--featured .ic-badge{ background:rgba(255,255,255,.12); color:#f7d98f; }
+.simple-how span .ic{ width:18px; height:18px; }
+.simple-card span{ display:inline-flex; align-items:center; gap:4px; }
+.float-wa .ic{ width:28px; height:28px; }

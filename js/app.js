@@ -58,7 +58,7 @@
     form.addEventListener("change", render);
     form.addEventListener("submit", (event) => {
       event.preventDefault();
-      const phone = config.whatsapp || "573000000000";
+      const phone = config.whatsapp || "573025299255";
       window.open("https://wa.me/" + phone + "?text=" + encodeURIComponent(buildMessage()), "_blank", "noopener");
     });
 
