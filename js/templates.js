@@ -14,7 +14,7 @@ window.TEMPLATE_CATALOG = [
     event: "Baby Shower",
     style: "Infantil elegante",
     package: "Basico",
-    price: "Desde $50.000",
+    price: "Desde $70.000",
     href: "../invitaciones-baby-shower/",
     demoHref: "../plantillas/baby-shower-thiago/",
     preview: "preview--baby"
@@ -44,7 +44,7 @@ window.TEMPLATE_CATALOG = [
     event: "Bautizo",
     style: "Religioso",
     package: "Basico",
-    price: "Desde $50.000",
+    price: "Desde $70.000",
     href: "../invitaciones-bautizo/",
     demoHref: "../plantillas/bautizo-capilla/",
     preview: "preview--bautizo"
@@ -54,7 +54,7 @@ window.TEMPLATE_CATALOG = [
     event: "Primera comunion",
     style: "Religioso",
     package: "Basico",
-    price: "Desde $50.000",
+    price: "Desde $70.000",
     href: "../invitaciones-primera-comunion/",
     demoHref: "../plantillas/primera-comunion/",
     preview: "preview--comunion"
@@ -64,7 +64,7 @@ window.TEMPLATE_CATALOG = [
     event: "Revelacion de genero",
     style: "Familiar",
     package: "Basico",
-    price: "Desde $50.000",
+    price: "Desde $70.000",
     href: "../invitaciones-revelacion-genero/",
     demoHref: "../plantillas/revelacion-celeste-rosa/",
     preview: "preview--revelacion"
@@ -114,7 +114,7 @@ window.TEMPLATE_CATALOG = [
     event: "Baby Shower",
     style: "Infantil elegante",
     package: "Basico",
-    price: "Desde $50.000",
+    price: "Desde $70.000",
     href: "../invitaciones-baby-shower/",
     demoHref: "../plantillas/baby-safari/",
     preview: "preview--baby"
@@ -124,7 +124,7 @@ window.TEMPLATE_CATALOG = [
     event: "Cumpleanos",
     style: "Tematico",
     package: "Basico",
-    price: "Desde $50.000",
+    price: "Desde $70.000",
     href: "../invitaciones-cumpleanos/",
     demoHref: "../plantillas/cumple-garden/",
     preview: "preview--cumple"

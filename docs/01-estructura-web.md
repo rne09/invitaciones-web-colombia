@@ -150,7 +150,7 @@ Lista clara:
 
 ### Seccion 5 - Paquetes
 
-#### Basico - 50.000 COP
+#### Basico - 70.000 COP
 
 Para clientes que quieren una invitacion bonita y rapida.
 
