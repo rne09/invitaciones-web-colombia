@@ -20,44 +20,53 @@
   "dressCodeNota": "Mujeres: vestido largo, unicolor.\nHombres: camisa manga larga y pantalón.",
   "whatsapp": "573025299255",
   "whatsappMensaje": "Hola, Caroll y Mateo. Soy {nombre} y confirmo con mucha alegría mi asistencia a su boda. Muchas gracias por la invitación; será un gusto acompañarlos en este día tan especial.",
-  "fraseIntro": "Tenemos el honor de invitarte a celebrar el inicio de nuestra vida juntos. Tu presencia hará parte de un día que guardaremos para siempre.",
+  "fraseIntro": "Tenemos el honor de invitarte a celebrar el amor que hemos construido y la bendición de unir nuestras vidas ante Dios. Tu presencia hará parte de un día que guardaremos para siempre.",
   "fraseConfirmar": "Agradecemos confirmar tu asistencia para preparar cada detalle con mucho cariño.",
   "fraseRegalos": "Lluvia de sobres",
   "fraseCierre": "¡Te esperamos!",
   "timeline": [
-    {
-      "hora": "3:00 PM",
-      "texto": "Eucaristía"
-    },
-    {
-      "hora": "6:00 PM",
-      "texto": "Recepción"
-    },
-    {
-      "hora": "6:30 PM",
-      "texto": "Entrada de novios"
-    },
-    {
-      "hora": "7:00 PM",
-      "texto": "Brindis y cena"
-    },
-    {
-      "hora": "8:30 PM",
-      "texto": "Primer baile"
-    },
-    {
-      "hora": "9:00 PM",
-      "texto": "Ramo"
-    },
-    {
-      "hora": "9:30 PM",
-      "texto": "Apertura de pista de baile"
-    }
+    [
+      "3:00 PM",
+      "Eucaristía"
+    ],
+    [
+      "6:00 PM",
+      "Recepción"
+    ],
+    [
+      "6:30 PM",
+      "Entrada de novios"
+    ],
+    [
+      "7:00 PM",
+      "Brindis y cena"
+    ],
+    [
+      "8:30 PM",
+      "Primer baile"
+    ],
+    [
+      "9:00 PM",
+      "Ramo"
+    ],
+    [
+      "9:30 PM",
+      "Apertura de pista de baile"
+    ]
   ],
   "fotos": [
-    "img/foto-1-web.webp",
-    "img/foto-2-web.webp",
-    "img/foto-3-web.webp"
+    "img/dsc04232-web.webp",
+    "img/dsc03986-web.webp",
+    "img/dsc04451-web.webp",
+    "img/dsc04282-web.webp",
+    "img/dsc04253-web.webp",
+    "img/dsc04388-web.webp",
+    "img/dsc04069-web.webp",
+    "img/dsc04318-web.webp",
+    "img/dsc04467-web.webp",
+    "img/dsc04417-web.webp",
+    "img/dsc04181-web.webp",
+    "img/dsc04268-web.webp"
   ],
   "musica": "img/musica.mp3",
   "volumenInicial": 0.5

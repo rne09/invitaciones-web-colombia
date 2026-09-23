@@ -1,0 +1,242 @@
+/* Ajustes finales de composicion: Caroll & Mateo, foto, iconos sin flores y titulos */
+
+/* La foto de apertura antigua se habia generado con ::before. Se elimina. */
+.bloque--intro::before{
+  content:none!important;
+  display:none!important;
+}
+
+/* ========================= PORTADA: CAROLL & MATEO ========================= */
+.portada__nombres{
+  position:relative!important;
+  top:54px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:0!important;
+  line-height:.88!important;
+  margin:auto 0 34px!important;
+  text-align:center!important;
+  text-shadow:
+    0 4px 16px rgba(0,0,0,.62),
+    0 2px 6px rgba(0,0,0,.56),
+    0 0 1px rgba(0,0,0,.72)!important;
+}
+.portada__nombres .nombre-caroll{
+  display:block!important;
+  transform:translateX(-5px)!important;
+  margin:0 0 2px!important;
+}
+.portada__nombres .amp-ajustado{
+  display:block!important;
+  margin:4px 0 3px!important;
+  line-height:.92!important;
+  color:#f0d6a3!important;
+}
+.portada__nombres .nombre-mateo{
+  display:block!important;
+  transform:translateX(5px)!important;
+  margin:2px 0 0!important;
+  text-transform:none!important;
+  white-space:nowrap!important;
+}
+
+/* La M se construye separada para que visualmente sea inequívocamente mayúscula. */
+.nombre-mateo .mateo-inicial{
+  display:inline-block!important;
+  margin-right:-.03em!important;
+  color:inherit!important;
+  font-family:"Cormorant Garamond",Georgia,serif!important;
+  font-size:1.04em!important;
+  font-style:italic!important;
+  font-weight:500!important;
+  line-height:.8!important;
+  vertical-align:.02em!important;
+}
+.nombre-mateo .mateo-resto{
+  font-family:var(--f-script)!important;
+  font-size:inherit!important;
+  font-style:normal!important;
+}
+
+/* ========================= INTERIOR: CAROLL & MATEO ========================= */
+.nombres-interior{
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:0!important;
+  line-height:.92!important;
+  margin:8px 0 20px!important;
+  text-align:center!important;
+}
+.nombres-interior .nombre-caroll{
+  display:block!important;
+  transform:translateX(-3px)!important;
+  margin:0 0 3px!important;
+}
+.nombres-interior .amp-ajustado{
+  display:block!important;
+  margin:4px 0 3px!important;
+  line-height:.94!important;
+}
+.nombres-interior .nombre-mateo{
+  display:block!important;
+  transform:translateX(3px)!important;
+  margin:2px 0 0!important;
+  text-transform:none!important;
+  white-space:nowrap!important;
+}
+
+/* ========================= SIN FLORES EN TODA LA TARJETA ========================= */
+.decoracion-esquina,
+.ornamento-encabezado,
+.separador-floral,
+.separador-floral--principal,
+.separador-floral--cierre,
+.bloque--galeria > .icono-seccion,
+.rsvp-ilustrado,
+.pastel-cierre{
+  display:none!important;
+}
+
+.abrir-carta{
+  background:none!important;
+}
+.abrir-carta__papel{
+  background:
+    linear-gradient(rgba(255,253,248,.58),rgba(249,240,226,.64)),
+    url("../img/papel-opalina.webp") center/290px auto repeat!important;
+}
+
+/* ========================= ICONOS LINEALES SIN FLORES ========================= */
+.icono-seccion{
+  position:relative!important;
+  width:72px!important;
+  height:72px!important;
+  margin:0 auto 12px!important;
+  background:none!important;
+}
+.icono-seccion img{display:none!important}
+.icono-seccion::before{
+  content:"";
+  position:absolute;
+  inset:5px;
+  background-position:center;
+  background-repeat:no-repeat;
+  background-size:contain;
+  opacity:.92;
+}
+
+.bloque--intro .icono-seccion::before{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%23b58a47' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='26' cy='36' r='14'/%3E%3Ccircle cx='38' cy='36' r='14'/%3E%3Cpath d='M32 10l5 6-5 6-5-6z'/%3E%3Cpath d='M29 22h6'/%3E%3C/g%3E%3C/svg%3E")!important;
+}
+.bloque--fecha .icono-seccion::before{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%23b58a47' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='12' y='15' width='40' height='37' rx='3'/%3E%3Cpath d='M20 10v10M44 10v10M12 25h40'/%3E%3C/g%3E%3Ctext x='32' y='43' text-anchor='middle' font-size='15' font-family='Georgia' fill='%23b58a47'%3E31%3C/text%3E%3C/svg%3E")!important;
+}
+.bloque--cuenta .icono-seccion::before{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%23b58a47' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 10h28M18 54h28M21 11c0 11 4 15 11 21-7 6-11 10-11 21M43 11c0 11-4 15-11 21 7 6 11 10 11 21'/%3E%3Cpath d='M26 21h12M27 43h10'/%3E%3C/g%3E%3C/svg%3E")!important;
+}
+.bloque--ceremonia .icono-seccion::before{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%23b58a47' stroke-width='2.1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 54h40M18 54V30l14-11 14 11v24M27 54V40h10v14M32 7v12M27 12h10'/%3E%3Cpath d='M18 34h-6v20M46 34h6v20'/%3E%3C/g%3E%3C/svg%3E")!important;
+}
+.bloque--recepcion .icono-seccion::before{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%23b58a47' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 12h17l-2 16c-1 7-12 7-13 0zM22.5 34v14M16 52h13M33 12h17l-2 16c-1 7-12 7-13 0zM41.5 34v14M35 52h13'/%3E%3C/g%3E%3C/svg%3E")!important;
+}
+
+/* Vestimenta: chaleco masculino + vestido femenino. */
+.bloque--dress .icono-seccion::before{
+  inset:1px!important;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 76 64'%3E%3Cg fill='none' stroke='%23b58a47' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3C!-- chaleco --%3E%3Cpath d='M8 15l10-5 7 8 7-8 9 5-4 10 2 28H12l2-28z'/%3E%3Cpath d='M18 10l7 17 7-17M25 27v26M19 36h-4M31 36h5'/%3E%3Ccircle cx='25' cy='34' r='1'/%3E%3Ccircle cx='25' cy='41' r='1'/%3E%3C!-- vestido --%3E%3Cpath d='M52 10h10l-2 11 4 8 7 24H43l7-24 4-8z'/%3E%3Cpath d='M52 10l5 8 5-8M50 29h14'/%3E%3C/g%3E%3C/svg%3E")!important;
+}
+.bloque--regalos .icono-seccion::before{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%23b58a47' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='10' y='17' width='44' height='31' rx='3'/%3E%3Cpath d='M11 20l21 16 21-16M11 46l15-13M53 46L38 33'/%3E%3C/g%3E%3C/svg%3E")!important;
+}
+
+/* ========================= TITULOS PRINCIPALES EN CURSIVA ========================= */
+/* Minuto a Minuto y Nuestra Historia ahora siguen la misma familia visual de Recepción. */
+.bloque--timeline .titulo-mixto,
+.bloque--galeria .titulo-mixto{
+  font-family:var(--f-script)!important;
+  font-size:47px!important;
+  font-weight:400!important;
+  line-height:.94!important;
+  letter-spacing:0!important;
+  color:var(--dorado-osc)!important;
+  text-transform:none!important;
+  text-align:center!important;
+}
+.bloque--timeline .titulo-mixto > span,
+.bloque--galeria .titulo-mixto > span{
+  display:inline!important;
+  font-family:inherit!important;
+  font-size:inherit!important;
+  font-weight:inherit!important;
+  font-style:normal!important;
+  line-height:inherit!important;
+  letter-spacing:inherit!important;
+  text-transform:none!important;
+  color:inherit!important;
+}
+.bloque--timeline .titulo-mixto > span + span::before,
+.bloque--galeria .titulo-mixto > span + span::before{
+  content:" ";
+}
+
+.foto-despues-separador{
+  position:relative;
+  z-index:1;
+  width:min(94%,430px);
+  margin:26px auto 34px;
+  overflow:hidden;
+  border-radius:12px;
+  box-shadow:0 11px 27px rgba(60,40,20,.12);
+}
+.foto-despues-separador::before{
+  content:"";
+  display:block;
+  width:92px;
+  height:1px;
+  margin:0 auto 20px;
+  background:linear-gradient(90deg,transparent,#c39a53,transparent);
+}
+.foto-despues-separador img{
+  display:block;
+  width:100%;
+  height:auto;
+  border:0;
+  border-radius:inherit;
+}
+.foto-despues-separador video{
+  display:block;
+  width:100%;
+  height:auto;
+  border:0;
+  border-radius:inherit;
+  object-fit:contain;
+}
+
+@media (max-width:420px){
+  .portada__nombres{
+    top:64px!important;
+    margin-bottom:36px!important;
+    line-height:.90!important;
+  }
+  .portada__nombres .nombre-caroll{transform:translateX(-4px)!important}
+  .portada__nombres .nombre-mateo{transform:translateX(4px)!important}
+  .nombres-interior{line-height:.94!important}
+  .nombres-interior .nombre-caroll{transform:translateX(-2px)!important}
+  .nombres-interior .nombre-mateo{transform:translateX(2px)!important}
+
+  .icono-seccion{width:68px!important;height:68px!important}
+  .bloque--dress .icono-seccion{width:78px!important;height:68px!important}
+  .bloque--timeline .titulo-mixto,
+  .bloque--galeria .titulo-mixto{font-size:44px!important}
+
+  .foto-despues-separador{
+    width:96%;
+    margin:23px auto 30px;
+    border-radius:10px;
+  }
+}

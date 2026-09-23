@@ -1,0 +1,350 @@
+/* ==========================================================================
+   SOBRE DE APERTURA — CAROLL & MATEO
+   Sobre matrimonial marfil + sello de lacre C & M, sin flores.
+   ========================================================================== */
+
+.portada__contenido{
+  width:min(100% - 30px,560px);
+  padding:calc(42px + env(safe-area-inset-top)) 0 calc(26px + env(safe-area-inset-bottom));
+}
+
+.portada__eyebrow{
+  position:relative;
+  padding-bottom:12px;
+  color:#fffaf1;
+  font-size:11px;
+  letter-spacing:.34em;
+}
+.portada__eyebrow::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:0;
+  width:86px;
+  height:1px;
+  transform:translateX(-50%);
+  background:linear-gradient(90deg,transparent,#e9cf98,transparent);
+}
+
+/* ========================= CONTENEDOR ========================= */
+.abrir-carta{
+  position:relative;
+  width:min(84vw,320px);
+  height:232px;
+  min-height:0;
+  margin-top:auto;
+  padding:0;
+  border:0;
+  border-radius:0;
+  background:none!important;
+  box-shadow:none;
+  color:#fff8ea;
+  display:block;
+  cursor:pointer;
+  perspective:1400px;
+  overflow:visible;
+  backdrop-filter:none;
+  animation:none;
+  isolation:isolate;
+}
+.abrir-carta:hover{box-shadow:none}
+.abrir-carta:focus-visible{
+  outline:2px solid rgba(239,216,159,.9);
+  outline-offset:7px;
+  border-radius:16px;
+}
+
+/* Pulso suave alrededor del lacre. */
+.abrir-carta::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:43%;
+  width:72px;
+  height:72px;
+  border:1.5px solid rgba(239,216,159,.88);
+  border-radius:50%;
+  transform:translate(-50%,-50%) scale(.72);
+  box-shadow:0 0 18px rgba(239,216,159,.18);
+  animation:pulso-lacre-boda 1.6s ease-out infinite;
+  z-index:14;
+  pointer-events:none;
+}
+
+/* ========================= SOBRE ========================= */
+.abrir-carta__sobre{
+  position:absolute;
+  left:5%;
+  right:5%;
+  top:15px;
+  width:auto;
+  height:168px;
+  filter:drop-shadow(0 18px 22px rgba(20,14,9,.28));
+  transform-style:preserve-3d;
+  animation:sobre-boda-flota 3.5s ease-in-out infinite;
+  z-index:5;
+}
+
+/* Cuerpo de papel marfil. */
+.abrir-carta__sobre::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:6px;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.46),rgba(234,223,205,.52)),
+    repeating-linear-gradient(0deg,rgba(120,100,75,.018) 0 1px,transparent 1px 5px),
+    url("../img/papel-opalina.webp") center/340px auto repeat;
+  border:1px solid rgba(162,139,105,.50);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.54),
+    inset 0 -16px 30px rgba(106,81,46,.06);
+  z-index:2;
+}
+
+/* Bolsillo inferior. */
+.abrir-carta__sobre::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:61%;
+  border-radius:0 0 6px 6px;
+  background:
+    linear-gradient(180deg,rgba(234,224,209,.82),rgba(208,190,164,.86)),
+    url("../img/papel-opalina.webp") center/320px auto repeat;
+  clip-path:polygon(0 100%,50% 0,100% 100%);
+  border-bottom:1px solid rgba(131,104,67,.32);
+  z-index:7;
+}
+
+/* Pliegues laterales reales. */
+.sobre-pliegue{
+  position:absolute;
+  top:0;
+  bottom:0;
+  width:50%;
+  z-index:5;
+  pointer-events:none;
+  opacity:.78;
+}
+.sobre-pliegue--izq{
+  left:0;
+  background:linear-gradient(34deg,transparent 49.25%,rgba(125,102,71,.27) 49.7%,rgba(125,102,71,.27) 50.2%,transparent 50.7%);
+}
+.sobre-pliegue--der{
+  right:0;
+  background:linear-gradient(146deg,transparent 49.25%,rgba(125,102,71,.27) 49.7%,rgba(125,102,71,.27) 50.2%,transparent 50.7%);
+}
+
+/* Solapa superior 3D. */
+.abrir-carta__solapa{
+  position:absolute;
+  left:0;
+  right:0;
+  top:0;
+  height:55%;
+  background:
+    linear-gradient(180deg,rgba(255,253,248,.92),rgba(222,207,184,.78)),
+    url("../img/papel-opalina.webp") center/320px auto repeat;
+  clip-path:polygon(0 0,100% 0,50% 100%);
+  transform-origin:top center;
+  transform-style:preserve-3d;
+  transition:transform .66s cubic-bezier(.18,.75,.2,1);
+  z-index:9;
+  backface-visibility:hidden;
+  filter:drop-shadow(0 1px 0 rgba(105,82,51,.28));
+}
+
+/* Tarjeta interior. */
+.abrir-carta__papel{
+  position:absolute;
+  left:10%;
+  right:10%;
+  top:8%;
+  bottom:17%;
+  overflow:hidden;
+  border-radius:4px;
+  background:
+    linear-gradient(rgba(255,253,248,.66),rgba(248,239,226,.74)),
+    url("../img/papel-opalina.webp") center/300px auto repeat!important;
+  border:1px solid rgba(181,147,91,.46);
+  box-shadow:0 10px 20px rgba(74,52,24,.12),inset 0 0 0 1px rgba(255,255,255,.34);
+  transform:translateY(34%) scale(.88);
+  opacity:0;
+  transition:transform .72s cubic-bezier(.16,.82,.28,1) .10s,opacity .22s ease .12s;
+  z-index:4;
+}
+.abrir-carta__papel::before{
+  content:"Caroll & Mateo";
+  position:absolute;
+  left:10px;
+  right:10px;
+  top:18px;
+  color:#94703d;
+  font-family:var(--f-script);
+  font-size:27px;
+  font-weight:400;
+  line-height:1;
+  text-align:center;
+}
+.abrir-carta__papel::after{
+  content:"31 · OCTUBRE · 2026";
+  position:absolute;
+  left:10px;
+  right:10px;
+  top:56px;
+  color:#766650;
+  font-family:var(--f-display);
+  font-size:7px;
+  font-weight:500;
+  letter-spacing:.21em;
+  text-align:center;
+}
+
+/* ========================= SELLO DE LACRE ========================= */
+.abrir-carta__sello{
+  position:absolute;
+  left:50%;
+  top:51%;
+  z-index:13;
+  width:66px;
+  height:66px;
+  transform:translate(-50%,-50%) rotate(-1.5deg);
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(255,229,162,.40);
+  border-radius:48% 52% 51% 49% / 52% 47% 53% 48%;
+  background:
+    radial-gradient(circle at 31% 24%,rgba(255,235,176,.92) 0 5%,transparent 6%),
+    radial-gradient(circle at 66% 72%,rgba(108,59,16,.20) 0 10%,transparent 11%),
+    radial-gradient(circle at 34% 29%,#edc464 0 18%,#c38a2f 50%,#925b20 77%,#704217 100%);
+  color:#fff5d9;
+  font-family:var(--f-display);
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:.075em;
+  text-shadow:0 1px 2px rgba(70,40,10,.48);
+  box-shadow:
+    0 8px 14px rgba(58,32,8,.38),
+    inset 2px 3px 6px rgba(255,238,192,.38),
+    inset -3px -5px 9px rgba(92,48,14,.34),
+    3px 1px 0 rgba(137,84,26,.18),
+    -2px 2px 0 rgba(162,103,31,.16);
+  transition:transform .34s ease,opacity .26s ease;
+}
+.abrir-carta__sello::before{
+  content:"";
+  position:absolute;
+  inset:8px;
+  border:1px solid rgba(255,238,196,.40);
+  border-radius:50%;
+  box-shadow:inset 0 0 0 1px rgba(110,59,18,.13);
+}
+.abrir-carta__sello::after{
+  content:"";
+  position:absolute;
+  inset:15px;
+  border:1px dashed rgba(255,240,209,.20);
+  border-radius:50%;
+}
+
+/* Texto de interacción. */
+.abrir-carta__texto{
+  position:absolute;
+  left:50%;
+  bottom:0;
+  min-width:190px;
+  transform:translateX(-50%);
+  padding:8px 16px 9px;
+  border:1px solid rgba(241,217,163,.50);
+  border-radius:999px;
+  background:rgba(28,21,15,.40);
+  color:#fff7e8;
+  font-family:var(--f-display);
+  font-size:8px;
+  font-weight:500;
+  line-height:1.15;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  text-shadow:0 2px 8px rgba(0,0,0,.35);
+  box-shadow:0 6px 18px rgba(0,0,0,.15);
+  backdrop-filter:blur(5px);
+  transition:opacity .22s ease,transform .22s ease;
+  z-index:15;
+}
+.abrir-carta__texto::before{
+  content:"Toca el sello";
+  display:block;
+  margin-bottom:3px;
+  color:#f2d79e;
+  font-size:9px;
+  letter-spacing:.20em;
+  animation:llamada-sello 1.4s ease-in-out infinite;
+}
+.abrir-carta__texto::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:100%;
+  width:1px;
+  height:20px;
+  margin-left:-.5px;
+  background:linear-gradient(transparent,rgba(239,216,159,.86));
+}
+
+/* ========================= APERTURA ========================= */
+.abrir-carta.abierto .abrir-carta__sobre{animation:none}
+.abrir-carta.abierto .abrir-carta__solapa{
+  transform:rotateX(177deg);
+  z-index:1;
+}
+.abrir-carta.abierto .abrir-carta__papel{
+  transform:translateY(-66%) scale(1);
+  opacity:1;
+}
+.abrir-carta.abierto .abrir-carta__sello{
+  transform:translate(-50%,-50%) scale(.36) rotate(-8deg);
+  opacity:0;
+}
+.abrir-carta.abierto .abrir-carta__texto{
+  opacity:0;
+  transform:translateX(-50%) translateY(8px);
+}
+.abrir-carta.abierto::after{
+  opacity:0;
+  animation:none;
+}
+
+@keyframes pulso-lacre-boda{
+  0%{opacity:.95;transform:translate(-50%,-50%) scale(.68)}
+  72%{opacity:0;transform:translate(-50%,-50%) scale(1.56)}
+  100%{opacity:0;transform:translate(-50%,-50%) scale(1.56)}
+}
+@keyframes sobre-boda-flota{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-4px)}
+}
+@keyframes llamada-sello{
+  0%,100%{opacity:.68;letter-spacing:.18em}
+  50%{opacity:1;letter-spacing:.22em}
+}
+
+@media (max-width:420px){
+  .portada__contenido{padding-top:calc(30px + env(safe-area-inset-top))}
+  .abrir-carta{width:min(86vw,304px);height:220px}
+  .abrir-carta__sobre{left:6%;right:6%;top:16px;height:160px}
+  .abrir-carta__sello{width:62px;height:62px}
+  .abrir-carta::after{top:42.5%;width:68px;height:68px}
+}
+
+@media (min-width:720px){
+  .abrir-carta{width:326px;height:236px}
+  .abrir-carta__sobre{height:172px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .abrir-carta__sobre,.abrir-carta::after,.abrir-carta__texto::before{animation:none}
+  .abrir-carta__solapa,.abrir-carta__papel,.abrir-carta__sello,.abrir-carta__texto{transition-duration:.01ms}
+}
