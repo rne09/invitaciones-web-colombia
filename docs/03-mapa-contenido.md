@@ -141,7 +141,7 @@ Paquetes para empezar sencillo o hacerlo completo
 Precio:
 
 ```text
-Desde $50.000 COP
+Desde $70.000 COP
 ```
 
 Incluye:

@@ -27,7 +27,7 @@ Investigacion realizada para orientar la pagina comercial de Invitaciones Web Co
 
 - No copiar plantillas ni assets de terceros.
 - Crear tarjetas visuales originales inspiradas por categorias de mercado.
-- Mantener el precio base de $50.000 COP.
+- Mantener el precio base de $70.000 COP.
 - Mostrar un paquete premium para vender funciones avanzadas.
 - Usar paginas SEO por evento para posicionar busquedas como "invitaciones web para bodas" e "invitaciones baby shower".
 - Preparar la pagina para conectar luego con Netlify y un admin real.
