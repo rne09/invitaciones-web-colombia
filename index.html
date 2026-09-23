@@ -4,283 +4,1572 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Invitaciones Web Colombia | Tarjetas digitales boutique</title>
-  <meta name="description" content="Invitaciones web boutique para bodas, quinceanos, baby showers y eventos. Un link elegante con musica, mapa, cuenta regresiva y confirmacion por WhatsApp.">
-  <meta name="theme-color" content="#f6efe6">
+  <meta name="description" content="Invitaciones web boutique para bodas, quinceaños, baby showers y eventos. Un link elegante con música, mapa, cuenta regresiva y confirmación por WhatsApp.">
+  <meta name="theme-color" content="#FAF4EC">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Invitaciones Web Colombia">
   <meta property="og:description" content="Un link bonito que emociona, informa y confirma. Invitaciones digitales desde $50.000 COP.">
   <meta property="og:image" content="assets/hero-boutique-invitaciones.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..800,60,1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;0,9..40,800;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="site.webmanifest">
-  <link rel="stylesheet" href="css/estilos.css">
+  <style>
+    /* =============================================
+       LANDING V2 — INVITACIONES WEB COLOMBIA
+       ============================================= */
+
+    /* — Reset — */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      font-family: 'DM Sans', system-ui, sans-serif;
+      line-height: 1.55;
+      overflow-x: hidden;
+      background: #FAF4EC;
+      color: #1C1714;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+    p { margin: 0; overflow-wrap: break-word; }
+    ul { margin: 0; padding: 0; list-style: none; }
+    h1, h2, h3 {
+      margin: 0;
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 400;
+      overflow-wrap: break-word;
+    }
+
+    /* — Tokens — */
+    :root {
+      --bg:     #FAF4EC;
+      --bg2:    #F1E9DC;
+      --ink:    #1C1714;
+      --muted:  #7A6E64;
+      --line:   #E0D3C0;
+      --gold:   #C8902D;
+      --terra:  #C45E3A;
+      --sage:   #4D7A6B;
+      --cream:  #FFFAF3;
+      --sh-sm:  0 4px 16px rgba(28,23,20,.08);
+      --sh-md:  0 12px 40px rgba(28,23,20,.11);
+      --sh-lg:  0 28px 72px rgba(28,23,20,.15);
+      --rad:    24px;
+      --max:    1120px;
+    }
+
+    /* — Scroll reveal — */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .7s cubic-bezier(.22,1,.36,1),
+                  transform .7s cubic-bezier(.22,1,.36,1);
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .rd1 { transition-delay: 80ms; }
+    .rd2 { transition-delay: 160ms; }
+    .rd3 { transition-delay: 240ms; }
+    .rd4 { transition-delay: 320ms; }
+    .rd5 { transition-delay: 400ms; }
+    .rd6 { transition-delay: 480ms; }
+
+    /* — Layout helpers — */
+    .wrap {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+    .sec {
+      padding: clamp(64px, 9vw, 112px) 0;
+    }
+    .sec-head { margin-bottom: 48px; }
+    .eyebrow {
+      display: inline-block;
+      color: var(--terra);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .h1 {
+      font-size: clamp(52px, 8.5vw, 100px);
+      line-height: .9;
+      letter-spacing: -.02em;
+    }
+    .h2 {
+      font-size: clamp(36px, 5.5vw, 64px);
+      line-height: .94;
+      letter-spacing: -.015em;
+    }
+    .lead {
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: clamp(17px, 2.2vw, 21px);
+      line-height: 1.65;
+      max-width: 600px;
+    }
+
+    /* — Buttons — */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 26px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 15px;
+      transition: transform .18s ease, box-shadow .2s ease;
+      position: relative;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      left: -100%;
+      width: 50%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.2), transparent);
+      transform: skewX(-18deg);
+      transition: none;
+    }
+    .btn:hover::after { animation: shine .55s ease forwards; }
+    .btn-ink {
+      background: var(--ink);
+      color: var(--cream);
+      box-shadow: 0 8px 28px rgba(28,23,20,.22);
+    }
+    .btn-ink:hover { transform: translateY(-2px); box-shadow: 0 14px 38px rgba(28,23,20,.28); }
+    .btn-terra {
+      background: var(--terra);
+      color: #fff;
+      box-shadow: 0 8px 28px rgba(196,94,58,.28);
+    }
+    .btn-terra:hover { transform: translateY(-2px); box-shadow: 0 14px 38px rgba(196,94,58,.38); }
+    .btn-ghost {
+      border: 1.5px solid rgba(28,23,20,.18);
+      background: rgba(255,250,243,.65);
+      color: var(--ink);
+      backdrop-filter: blur(10px);
+    }
+    .btn-ghost:hover { border-color: var(--terra); color: var(--terra); transform: translateY(-2px); }
+    .btn-ghost-light {
+      border: 1.5px solid rgba(255,250,243,.25);
+      background: rgba(255,250,243,.06);
+      color: var(--cream);
+    }
+    .btn-ghost-light:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+
+    /* ==================== HEADER ==================== */
+    .hdr {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 20px;
+      padding: 13px clamp(18px,4vw,48px);
+      background: rgba(250,244,236,.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(224,211,192,.55);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--ink);
+    }
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      background: var(--ink);
+      color: var(--cream);
+      font-family: 'Fraunces', serif;
+      font-size: 16px;
+      border-radius: 11px;
+      flex-shrink: 0;
+    }
+    .brand-name strong { display: block; font-size: 14px; font-weight: 700; }
+    .brand-name small {
+      display: block;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      margin-top: -1px;
+    }
+    .hdr-nav {
+      display: flex;
+      justify-content: center;
+      gap: 26px;
+    }
+    .hdr-nav a {
+      text-decoration: none;
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 500;
+      transition: color .18s;
+    }
+    .hdr-nav a:hover { color: var(--terra); }
+    .hdr-cta {
+      display: inline-flex;
+      align-items: center;
+      padding: 9px 18px;
+      background: var(--ink);
+      color: var(--cream);
+      text-decoration: none;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 800;
+      transition: background .18s, transform .15s;
+    }
+    .hdr-cta:hover { background: var(--terra); transform: translateY(-1px); }
+    .menu-btn {
+      display: none;
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--line);
+      background: var(--cream);
+      border-radius: 10px;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      padding: 0;
+    }
+    .menu-btn span {
+      display: block;
+      width: 17px;
+      height: 2px;
+      background: var(--ink);
+      border-radius: 2px;
+      transition: transform .22s, opacity .22s;
+    }
+    .menu-btn[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .menu-btn[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .menu-btn[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ==================== HERO ==================== */
+    .hero {
+      width: min(1220px, calc(100% - 40px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr minmax(300px,.9fr);
+      gap: clamp(32px,6vw,80px);
+      align-items: center;
+      padding: clamp(60px,8vw,116px) 0 clamp(44px,6vw,88px);
+    }
+    .hero-text .h1 { max-width: 11ch; }
+    .trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 24px;
+    }
+    .trust span {
+      padding: 8px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,250,243,.75);
+      color: #4d4640;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    /* Phone visual */
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 560px;
+    }
+    .phone {
+      width: 290px;
+      max-width: 76vw;
+      padding: 11px;
+      background: #171411;
+      border-radius: 46px;
+      box-shadow: var(--sh-lg), 0 0 0 1px rgba(255,255,255,.05) inset;
+      position: relative;
+      z-index: 2;
+      animation: phone-float 5s ease-in-out infinite;
+    }
+    .phone::before {
+      content: '';
+      position: absolute;
+      top: 13px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 72px;
+      height: 7px;
+      background: #272320;
+      border-radius: 999px;
+      z-index: 10;
+    }
+    .phone-screen {
+      border-radius: 36px;
+      overflow: hidden;
+      min-height: 508px;
+    }
+    .invite-mock {
+      min-height: 508px;
+      padding: 34px 18px 22px;
+      text-align: center;
+      background:
+        radial-gradient(circle at 50% 0, rgba(200,144,45,.18), transparent 38%),
+        linear-gradient(180deg, #fffaf3, #f4ecde);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .invite-seal {
+      width: 48px;
+      height: 48px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+      color: #fff;
+      margin-bottom: 14px;
+    }
+    .invite-kicker {
+      color: var(--gold);
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+    }
+    .invite-title {
+      font-family: 'Fraunces', serif;
+      font-size: 40px;
+      line-height: .92;
+      font-weight: 400;
+      color: var(--ink);
+      margin: 6px 0 10px;
+    }
+    .invite-date {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .07em;
+      margin-bottom: 14px;
+    }
+    .invite-arch {
+      width: 64%;
+      aspect-ratio: 1/1.28;
+      border-radius: 50% 50% 8px 8px / 30% 30% 8px 8px;
+      border: 1.5px solid rgba(200,144,45,.55);
+      background:
+        radial-gradient(circle at 50% 38%, rgba(77,122,107,.22) 0 13%, transparent 14%),
+        linear-gradient(145deg, rgba(200,144,45,.1), rgba(196,94,58,.09)),
+        #fffaf3;
+      margin: 0 auto 14px;
+    }
+    .invite-count {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 4px;
+      width: 100%;
+      margin-bottom: 14px;
+    }
+    .count-num {
+      font-family: 'Fraunces', serif;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 1;
+      display: block;
+      color: var(--ink);
+    }
+    .count-lbl {
+      color: var(--muted);
+      font-size: 8px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+    .invite-rsvp {
+      width: 100%;
+      min-height: 40px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--ink);
+      color: var(--cream);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 800;
+      font-size: 12px;
+      cursor: pointer;
+    }
+
+    /* Floating context cards */
+    .fc {
+      position: absolute;
+      padding: 11px 14px;
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      background: rgba(255,250,243,.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: var(--sh-md);
+      z-index: 3;
+    }
+    .fc strong { display: block; font-size: 13px; font-weight: 700; color: var(--ink); }
+    .fc span { display: block; margin-top: 2px; color: var(--muted); font-size: 11px; }
+    .fc-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
+    .fc-rsvp  { left: -18px; top: 22%; animation: fc-a 4.2s ease-in-out infinite; }
+    .fc-timer { right: 6%; top: 8%;  animation: fc-b 5.5s ease-in-out infinite; }
+    .fc-music { right: -12px; bottom: 20%; animation: fc-c 3.8s ease-in-out infinite; }
+
+    /* ==================== STATS BAR ==================== */
+    .statsbar {
+      background: var(--ink);
+    }
+    .statsbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 24px 0;
+    }
+    .stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 clamp(20px,4vw,54px);
+    }
+    .stat strong {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(36px,4.5vw,56px);
+      font-weight: 300;
+      line-height: 1;
+      color: var(--cream);
+    }
+    .stat span {
+      color: rgba(255,250,243,.52);
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+    .stat-sep {
+      width: 1px;
+      height: 38px;
+      background: rgba(255,250,243,.18);
+      flex-shrink: 0;
+    }
+
+    /* ==================== COMPARE ==================== */
+    .compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px;
+      background: var(--line);
+      border-radius: var(--rad);
+      overflow: hidden;
+      box-shadow: var(--sh-md);
+    }
+    .cmp-col {
+      padding: clamp(26px,4vw,50px);
+      background: var(--cream);
+    }
+    .cmp-col--b {
+      background: var(--ink);
+      color: var(--cream);
+    }
+    .cmp-tag {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .cmp-tag-dot { width: 8px; height: 8px; border-radius: 50%; }
+    .cmp-col .cmp-tag { color: var(--muted); }
+    .cmp-col .cmp-tag-dot { background: var(--muted); opacity: .5; }
+    .cmp-col--b .cmp-tag { color: var(--gold); }
+    .cmp-col--b .cmp-tag-dot { background: var(--gold); }
+    .cmp-h { font-size: clamp(24px,3.2vw,38px); line-height: 1.04; margin-bottom: 14px; }
+    .cmp-col--b .cmp-h { color: var(--cream); }
+    .cmp-p { color: var(--muted); font-size: 15px; line-height: 1.7; }
+    .cmp-col--b .cmp-p { color: rgba(255,250,243,.62); }
+    .cmp-list { display: grid; gap: 10px; margin-top: 22px; }
+    .cmp-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+    .cmp-list li::before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .cmp-col .cmp-list li::before { background: var(--muted); opacity: .45; }
+    .cmp-col--b .cmp-list li { color: rgba(255,250,243,.8); }
+    .cmp-col--b .cmp-list li::before { background: var(--gold); }
+
+    /* ==================== FEATURES ==================== */
+    .feat-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 14px;
+    }
+    .feat {
+      padding: 28px 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--rad);
+      background: rgba(255,250,243,.72);
+      box-shadow: var(--sh-sm);
+      transition: transform .22s ease, box-shadow .22s ease;
+    }
+    .feat:hover { transform: translateY(-4px); box-shadow: var(--sh-md); }
+    .feat-ico {
+      display: inline-grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 13px;
+      margin-bottom: 18px;
+      font-size: 19px;
+    }
+    .ico-gold  { background: rgba(200,144,45,.13); color: var(--gold); }
+    .ico-sage  { background: rgba(77,122,107,.12);  color: var(--sage); }
+    .ico-terra { background: rgba(196,94,58,.11);   color: var(--terra); }
+    .feat h3 { font-size: 21px; margin-bottom: 8px; }
+    .feat p { color: var(--muted); font-size: 14px; line-height: 1.7; }
+
+    /* ==================== RIBBON ==================== */
+    .ribbon-wrap {
+      overflow: hidden;
+      background: var(--terra);
+    }
+    .ribbon {
+      display: flex;
+      width: max-content;
+      animation: marquee 26s linear infinite;
+      padding: 15px 0;
+    }
+    .ribbon:hover { animation-play-state: paused; }
+    .ribbon-set { display: flex; white-space: nowrap; }
+    .ribbon-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 28px;
+      color: rgba(255,255,255,.9);
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .ribbon-item::before { content: '◆'; font-size: 7px; opacity: .55; }
+
+    /* ==================== DEMOS ==================== */
+    .demos-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 14px;
+    }
+    .demo-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      min-height: 320px;
+      padding: 24px;
+      border-radius: var(--rad);
+      border: 1px solid var(--line);
+      color: var(--ink);
+      text-decoration: none;
+      overflow: hidden;
+      position: relative;
+      transition: transform .22s ease, box-shadow .22s ease;
+    }
+    .demo-card:hover { transform: translateY(-5px); box-shadow: var(--sh-lg); }
+    .demo-tag {
+      display: inline-block;
+      margin-bottom: 8px;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    .demo-card h3 { font-size: 28px; line-height: .96; margin-bottom: 8px; }
+    .demo-card p { font-size: 13px; line-height: 1.5; opacity: .72; }
+    .dc-featured {
+      grid-row: span 2;
+      min-height: 480px;
+      background:
+        linear-gradient(180deg, rgba(255,250,243,.06) 0%, rgba(28,23,20,.58) 100%),
+        url('demos/baby-shower-azul/assets/patron-toile-soft.jpg') center/cover;
+      color: #fff;
+    }
+    .dc-featured .demo-tag { color: #f7d98f; }
+    .dc-featured h3, .dc-featured p { color: inherit; }
+    .dc-featured p { opacity: .82; }
+    .dc-boda {
+      background:
+        radial-gradient(circle at 26% 18%, rgba(200,144,45,.24), transparent 32%),
+        linear-gradient(145deg, #fffaf3, #f3e8d3);
+    }
+    .dc-boda .demo-tag { color: var(--gold); }
+    .dc-quince {
+      background: linear-gradient(145deg, #2c1c33, #f4d0e0);
+      color: #fff;
+    }
+    .dc-quince .demo-tag { color: #ffd7e8; }
+    .dc-quince h3 { color: #fff; }
+    .dc-quince p { color: rgba(255,255,255,.7); }
+    .dc-bautizo {
+      background: linear-gradient(145deg, #e8f1fa, #c6d9ef);
+    }
+    .dc-bautizo .demo-tag { color: var(--sage); }
+    .dc-cumple {
+      background: linear-gradient(145deg, #fff8e0, #fde5c8);
+    }
+    .dc-cumple .demo-tag { color: var(--terra); }
+
+    /* ==================== PROCESS ==================== */
+    .proc-grid {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 14px;
+      counter-reset: proc;
+    }
+    .proc-step {
+      padding: 26px 22px;
+      border-radius: var(--rad);
+      background: rgba(255,250,243,.78);
+      border: 1px solid var(--line);
+      box-shadow: var(--sh-sm);
+      counter-increment: proc;
+      transition: transform .22s ease;
+    }
+    .proc-step:hover { transform: translateY(-3px); }
+    .proc-step::before {
+      content: '0' counter(proc);
+      display: block;
+      margin-bottom: 18px;
+      font-family: 'Fraunces', serif;
+      font-size: 52px;
+      font-weight: 300;
+      line-height: 1;
+      color: var(--line);
+    }
+    .proc-step h3 { font-size: 20px; margin-bottom: 8px; }
+    .proc-step p { color: var(--muted); font-size: 14px; line-height: 1.68; }
+
+    /* ==================== PRICING ==================== */
+    .price-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 14px;
+      align-items: start;
+    }
+    .price-card {
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--rad);
+      background: rgba(255,250,243,.8);
+      box-shadow: var(--sh-sm);
+      transition: transform .2s ease;
+    }
+    .price-card:hover { transform: translateY(-4px); }
+    .pc-featured {
+      background: var(--ink);
+      color: var(--cream);
+      transform: translateY(-10px);
+      box-shadow: var(--sh-lg);
+    }
+    .pc-featured:hover { transform: translateY(-14px); }
+    .price-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 12px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .pb-base { background: rgba(200,144,45,.14); color: var(--gold); }
+    .pb-pop  { background: var(--terra); color: #fff; }
+    .pb-prem { background: rgba(77,122,107,.14); color: var(--sage); }
+    .price-num {
+      font-size: clamp(44px,5vw,60px);
+      font-weight: 300;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .pc-featured .price-num { color: var(--cream); }
+    .price-desc {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 22px;
+    }
+    .pc-featured .price-desc { color: rgba(255,250,243,.58); }
+    .price-list { display: grid; gap: 0; }
+    .price-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 0;
+      border-top: 1px solid rgba(28,23,20,.09);
+      font-size: 14px;
+    }
+    .pc-featured .price-list li {
+      border-top-color: rgba(255,255,255,.12);
+      color: rgba(255,250,243,.82);
+    }
+    .price-list li::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+    .price-cta {
+      display: flex;
+      margin-top: 22px;
+    }
+    .price-cta .btn { width: 100%; }
+    .pc-featured .btn-ghost {
+      border-color: rgba(255,250,243,.25);
+      background: rgba(255,250,243,.1);
+      color: var(--cream);
+    }
+    .pc-featured .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ==================== PREMIUM BOX ==================== */
+    .prem-box {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 24px;
+      align-items: center;
+      background: var(--cream);
+      border: 1px solid var(--line);
+      border-radius: calc(var(--rad) + 4px);
+      padding: clamp(28px,5vw,56px);
+      box-shadow: var(--sh-md);
+    }
+    .prem-checks {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 24px;
+    }
+    .prem-checks span {
+      padding: 13px 16px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--bg2);
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .guest-card {
+      padding: 24px;
+      background: var(--ink);
+      border-radius: 28px;
+      color: var(--cream);
+      box-shadow: var(--sh-lg);
+    }
+    .gc-label {
+      color: rgba(255,250,243,.5);
+      font-size: 10px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .gc-name { font-size: 44px; font-weight: 400; margin-bottom: 22px; }
+    .gc-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 13px 0;
+      border-top: 1px solid rgba(255,255,255,.12);
+    }
+    .gc-row span { color: rgba(255,250,243,.55); font-size: 14px; }
+    .gc-row strong { font-size: 18px; }
+    .gc-btn {
+      width: 100%;
+      margin-top: 18px;
+      min-height: 44px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 900;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background .18s;
+    }
+    .gc-btn:hover { background: var(--bg); }
+
+    /* ==================== TESTIMONIAL ==================== */
+    .testi-band {
+      background: var(--bg2);
+    }
+    .testi-inner {
+      display: grid;
+      grid-template-columns: 1.3fr .7fr;
+      gap: 20px;
+      align-items: center;
+      padding: clamp(52px,8vw,96px) 0;
+    }
+    .quote-block {
+      padding: clamp(26px,4vw,50px);
+      border-radius: var(--rad);
+      background: var(--cream);
+      border: 1px solid var(--line);
+      box-shadow: var(--sh-md);
+    }
+    .quote-block p {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(26px,3.8vw,50px);
+      line-height: 1.06;
+      font-style: italic;
+      color: var(--ink);
+    }
+    .quote-block cite {
+      display: block;
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 700;
+    }
+    .proof-list { display: grid; gap: 12px; }
+    .proof-item {
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--cream);
+      box-shadow: var(--sh-sm);
+    }
+    .proof-item strong { display: block; font-size: 16px; margin-bottom: 4px; }
+    .proof-item span { color: var(--muted); font-size: 13px; line-height: 1.55; }
+
+    /* ==================== FAQ ==================== */
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 11px;
+    }
+    .faq-item {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: rgba(255,250,243,.8);
+      overflow: hidden;
+    }
+    .faq-item summary {
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 20px 22px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 15px;
+      user-select: none;
+      transition: color .18s;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: '+';
+      display: grid;
+      place-items: center;
+      width: 27px; height: 27px;
+      border-radius: 50%;
+      background: var(--bg2);
+      font-size: 17px;
+      flex-shrink: 0;
+      transition: transform .22s ease, background .2s, color .2s;
+    }
+    .faq-item[open] summary { color: var(--terra); }
+    .faq-item[open] summary::after {
+      content: '−';
+      background: var(--terra);
+      color: #fff;
+      transform: rotate(180deg);
+    }
+    .faq-item p {
+      padding: 0 22px 20px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.72;
+      border-top: 1px solid var(--line);
+      padding-top: 15px;
+    }
+
+    /* ==================== CTA FINAL ==================== */
+    .cta-section {
+      position: relative;
+      background: var(--ink);
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 70%;
+      height: 70%;
+      background: radial-gradient(ellipse, rgba(200,144,45,.2), transparent 65%);
+      pointer-events: none;
+    }
+    .cta-inner {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: clamp(68px,9vw,116px) 0;
+    }
+    .cta-inner .eyebrow { color: var(--gold); }
+    .cta-inner .h2 { max-width: 760px; margin: 0 auto; color: var(--cream); }
+    .cta-inner .lead {
+      max-width: 520px;
+      margin: 18px auto 0;
+      color: rgba(255,250,243,.58);
+      font-size: 17px;
+    }
+    .cta-inner .actions { justify-content: center; margin-top: 34px; }
+
+    /* ==================== FOOTER ==================== */
+    .footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      padding: 30px 0 38px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .footer p { margin: 0; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 18px; }
+    .footer-links a {
+      text-decoration: none;
+      font-weight: 700;
+      color: var(--muted);
+      transition: color .18s;
+    }
+    .footer-links a:hover { color: var(--terra); }
+
+    /* ==================== FLOAT WA ==================== */
+    .wa-float {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 300;
+      width: 58px; height: 58px;
+      display: grid;
+      place-items: center;
+      background: #25D366;
+      border-radius: 50%;
+      text-decoration: none;
+      animation: wa-pulse 2.6s ease-in-out infinite;
+    }
+    .wa-float svg { width: 26px; height: 26px; fill: #fff; }
+
+    /* ==================== KEYFRAMES ==================== */
+    @keyframes phone-float {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-9px); }
+    }
+    @keyframes fc-a {
+      0%,100% { transform: translateY(0) rotate(-1.5deg); }
+      50%      { transform: translateY(-11px) rotate(-1.5deg); }
+    }
+    @keyframes fc-b {
+      0%,100% { transform: translateY(0) rotate(-2.5deg); }
+      50%      { transform: translateY(-8px) rotate(-2.5deg); }
+    }
+    @keyframes fc-c {
+      0%,100% { transform: translateY(0) rotate(2deg); }
+      50%      { transform: translateY(10px) rotate(2deg); }
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    @keyframes shine {
+      from { left: -100%; }
+      to   { left: 200%; }
+    }
+    @keyframes wa-pulse {
+      0%,100% { box-shadow: 0 6px 22px rgba(37,211,102,.32), 0 0 0 0 rgba(37,211,102,.3); }
+      50%      { box-shadow: 0 6px 22px rgba(37,211,102,.32), 0 0 0 13px rgba(37,211,102,0); }
+    }
+
+    /* ==================== REDUCED MOTION ==================== */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+
+    /* ==================== RESPONSIVE ==================== */
+    @media (max-width: 980px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 48px;
+      }
+      .hero-visual { min-height: auto; }
+      .fc-rsvp  { left: 4%; }
+      .fc-music { right: 4%; }
+      .feat-grid  { grid-template-columns: repeat(2,1fr); }
+      .demos-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+      }
+      .dc-featured { grid-row: span 1; }
+      .proc-grid  { grid-template-columns: repeat(2,1fr); }
+      .price-grid { grid-template-columns: 1fr; gap: 16px; }
+      .pc-featured { transform: none; }
+      .pc-featured:hover { transform: translateY(-4px); }
+      .prem-box { grid-template-columns: 1fr; }
+      .testi-inner { grid-template-columns: 1fr; }
+      .faq-grid { grid-template-columns: 1fr; }
+      .compare  { grid-template-columns: 1fr; }
+      .hdr-nav  { display: none; }
+      .hdr-cta  { display: none; }
+      .menu-btn { display: flex; }
+      .hdr { grid-template-columns: auto auto; }
+      .hdr-nav.open {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 12px 0 6px;
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .feat-grid  { grid-template-columns: 1fr; }
+      .demos-grid { grid-template-columns: 1fr; }
+      .proc-grid  { grid-template-columns: 1fr; }
+      .prem-checks { grid-template-columns: 1fr; }
+      .stat       { padding: 0 clamp(12px,3vw,24px); }
+      .stat-sep   { display: none; }
+      .actions .btn { width: 100%; }
+      .trust span { flex: 1 1 calc(50% - 8px); text-align: center; }
+      .phone { width: 265px; max-width: 88vw; }
+      .fc   { display: none; }
+      .footer { flex-direction: column; align-items: flex-start; padding-bottom: 80px; }
+      .cta-inner .actions .btn { width: 100%; }
+    }
+  </style>
 </head>
-<body class="boutique-page">
-  <header class="site-header boutique-header" id="inicio">
-    <a class="brand" href="#inicio" aria-label="Ir al inicio">
-      <span class="brand__mark">IW</span>
-      <span>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="hdr" id="inicio">
+    <a class="brand" href="#inicio" aria-label="Inicio">
+      <div class="brand-mark">IW</div>
+      <div class="brand-name">
         <strong>Invitaciones Web</strong>
         <small>Colombia</small>
-      </span>
+      </div>
     </a>
-    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav">
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="hdr-nav" id="menuBtn">
       <span></span><span></span><span></span>
     </button>
-    <nav class="nav" id="nav" aria-label="Principal">
+    <nav class="hdr-nav" id="hdr-nav" aria-label="Principal">
       <a href="#demos">Demos</a>
       <a href="#precios">Precios</a>
       <a href="#premium">Premium</a>
       <a href="#proceso">Proceso</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <a class="header-cta" href="pedido/">Pedir por WhatsApp</a>
+    <a class="hdr-cta" href="pedido/">Pedir por WhatsApp</a>
   </header>
 
   <main>
-    <section class="boutique-hero" aria-labelledby="hero-title">
-      <img class="boutique-hero__image" src="assets/hero-boutique-invitaciones.png" alt="Mesa elegante con celular mostrando una invitacion digital">
-      <div class="boutique-hero__shade"></div>
-      <div class="boutique-hero__content">
-        <p class="eyebrow">Invitaciones digitales boutique</p>
-        <h1 id="hero-title">Un link bonito que emociona, informa y confirma.</h1>
-        <p>Para bodas, quinceanos, baby showers y eventos familiares. Tu invitacion abre en cualquier celular con musica, mapa, cuenta regresiva y confirmacion por WhatsApp.</p>
-        <div class="hero__actions">
-          <a class="btn btn--primary" href="pedido/">Pedir mi invitacion</a>
-          <a class="btn btn--glass" href="#demos">Ver demos</a>
+
+    <!-- ========== HERO ========== -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-text">
+        <span class="eyebrow">Invitaciones digitales boutique</span>
+        <h1 class="h1" id="hero-title">Un link que emociona antes del evento.</h1>
+        <p class="lead">Para bodas, quinceañeros y baby showers. Llega por WhatsApp, abre en segundos y deja a los invitados con ganas de ir.</p>
+        <div class="actions">
+          <a class="btn btn-ink" href="pedido/">Pedir mi invitación</a>
+          <a class="btn btn-ghost" href="#demos">Ver demos en vivo</a>
         </div>
-        <div class="hero-proof">
+        <div class="trust">
           <span>Desde $50.000 COP</span>
+          <span>Lista en 24–48 h</span>
           <span>Sin apps</span>
-          <span>Lista para WhatsApp</span>
+          <span>Mobile first</span>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <!-- Tarjetas flotantes de contexto -->
+        <div class="fc fc-rsvp">
+          <strong><span class="fc-dot" style="background:#4D7A6B;"></span>Laura confirmó</strong>
+          <span>Asistirá con 2 personas</span>
+        </div>
+        <div class="fc fc-timer">
+          <strong>⏱ 12d 4h 22m</strong>
+          <span>Para el evento</span>
+        </div>
+        <!-- Teléfono con invitación -->
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="invite-mock">
+              <div class="invite-seal">✦</div>
+              <p class="invite-kicker">Nos casamos</p>
+              <h2 class="invite-title">María &amp;<br>Sebastián</h2>
+              <p class="invite-date">Sábado · 14 Feb · 6:00 PM</p>
+              <div class="invite-arch"></div>
+              <div class="invite-count">
+                <div><span class="count-num">12</span><span class="count-lbl">Días</span></div>
+                <div><span class="count-num">04</span><span class="count-lbl">Horas</span></div>
+                <div><span class="count-num">22</span><span class="count-lbl">Min</span></div>
+              </div>
+              <button class="invite-rsvp">Confirmar asistencia</button>
+            </div>
+          </div>
+        </div>
+        <div class="fc fc-music">
+          <strong>♪ Música activada</strong>
+          <span>Ed Sheeran · Perfect</span>
         </div>
       </div>
     </section>
 
-    <section class="problem-band" aria-label="Problema y solucion">
-      <div>
-        <span>Antes</span>
-        <p>Una imagen que se pierde en el chat y no confirma asistencia.</p>
-      </div>
-      <div>
-        <span>Ahora</span>
-        <p>Una pagina elegante que se abre, se escucha, guia al mapa y confirma.</p>
-      </div>
-    </section>
-
-    <section class="section boutique-intro">
-      <div class="section__head">
-        <p class="eyebrow">Todo en una sola experiencia</p>
-        <h2>La invitacion deja de ser un archivo y se vuelve el primer momento del evento.</h2>
-      </div>
-      <div class="experience-layout">
-        <div class="experience-copy">
-          <article>
-            <strong>01</strong>
-            <h3>Apertura especial</h3>
-            <p>Sobre, sello, musica y animaciones suaves para que el invitado sienta que recibio algo cuidado.</p>
-          </article>
-          <article>
-            <strong>02</strong>
-            <h3>Informacion sin desorden</h3>
-            <p>Fecha, hora, dress code, regalos, ubicacion y fotos organizados para leer facil desde el celular.</p>
-          </article>
-          <article>
-            <strong>03</strong>
-            <h3>Confirmacion directa</h3>
-            <p>El invitado escribe su nombre y confirma por WhatsApp con un mensaje listo.</p>
-          </article>
-        </div>
-        <div class="invitation-stack" aria-label="Tarjetas conceptuales">
-          <div class="stack-card stack-card--one">
-            <span>Baby Shower</span>
-            <strong>Safari azul</strong>
-          </div>
-          <div class="stack-card stack-card--two">
-            <span>Boda</span>
-            <strong>Editorial ivory</strong>
-          </div>
-          <div class="stack-card stack-card--three">
-            <span>XV anos</span>
-            <strong>Gala rosa</strong>
-          </div>
+    <!-- ========== STATS BAR ========== -->
+    <div class="statsbar">
+      <div class="wrap">
+        <div class="statsbar-inner">
+          <div class="stat"><strong>+500</strong><span>invitaciones</span></div>
+          <div class="stat-sep"></div>
+          <div class="stat"><strong>$50K</strong><span>precio base</span></div>
+          <div class="stat-sep"></div>
+          <div class="stat"><strong>24h</strong><span>entrega</span></div>
+          <div class="stat-sep"></div>
+          <div class="stat"><strong>7</strong><span>tipos de evento</span></div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <section class="section demo-section" id="demos">
-      <div class="section__head section__head--split">
+    <!-- ========== COMPARE ========== -->
+    <div class="wrap sec">
+      <div class="sec-head reveal">
+        <span class="eyebrow">El cambio</span>
+        <h2 class="h2">De imagen de chat<br>a experiencia que impresiona.</h2>
+      </div>
+      <div class="compare reveal">
+        <div class="cmp-col">
+          <div class="cmp-tag">
+            <span class="cmp-tag-dot"></span>Antes
+          </div>
+          <h3 class="cmp-h">Una imagen JPG<br>por WhatsApp</h3>
+          <p class="cmp-p">Se pierde entre los chats, no confirma asistencia y si hay un cambio de hora toca reenviar todo.</p>
+          <ul class="cmp-list">
+            <li>Se pixela en pantallas grandes</li>
+            <li>No confirma asistencia</li>
+            <li>Sin mapa ni música</li>
+            <li>Imposible actualizar</li>
+            <li>Sin cuenta regresiva</li>
+          </ul>
+        </div>
+        <div class="cmp-col cmp-col--b">
+          <div class="cmp-tag">
+            <span class="cmp-tag-dot"></span>Ahora
+          </div>
+          <h3 class="cmp-h">Una página elegante<br>que vive en un link</h3>
+          <p class="cmp-p">Abre sola, suena, muestra el mapa, cuenta los días y confirma la asistencia por WhatsApp con un toque.</p>
+          <ul class="cmp-list">
+            <li>Perfecta en cualquier celular</li>
+            <li>Confirmación directa por WhatsApp</li>
+            <li>Música, mapa y galería</li>
+            <li>Actualizable en cualquier momento</li>
+            <li>Cuenta regresiva en tiempo real</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== FEATURES ========== -->
+    <div class="wrap sec" style="padding-top:0;">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Qué incluye</span>
+        <h2 class="h2">Todo en una sola experiencia.</h2>
+      </div>
+      <div class="feat-grid">
+        <div class="feat reveal rd1">
+          <div class="feat-ico ico-gold">♪</div>
+          <h3>Música al abrir</h3>
+          <p>La canción que elegiste suena desde el primer segundo. Los invitados pueden pausarla o subir el volumen.</p>
+        </div>
+        <div class="feat reveal rd2">
+          <div class="feat-ico ico-sage">📍</div>
+          <h3>Mapa integrado</h3>
+          <p>Dirección completa del evento. Un toque y abre Google Maps con la ruta lista para navegar.</p>
+        </div>
+        <div class="feat reveal rd3">
+          <div class="feat-ico ico-terra">⏱</div>
+          <h3>Cuenta regresiva</h3>
+          <p>Días, horas y minutos en vivo para que los invitados sientan la emoción crecer con el tiempo.</p>
+        </div>
+        <div class="feat reveal rd4">
+          <div class="feat-ico ico-gold">✉</div>
+          <h3>RSVP por WhatsApp</h3>
+          <p>El invitado escribe su nombre y confirma por WhatsApp con un mensaje listo para enviar.</p>
+        </div>
+        <div class="feat reveal rd5">
+          <div class="feat-ico ico-sage">⊞</div>
+          <h3>Galería de fotos</h3>
+          <p>Agrega imágenes de la pareja, el bebé o los quinceañeros. Se ven perfectas en móvil.</p>
+        </div>
+        <div class="feat reveal rd6">
+          <div class="feat-ico ico-terra">⟳</div>
+          <h3>Link actualizable</h3>
+          <p>Si cambia algo, lo actualizamos sin reenviar imagen ni contactar de nuevo a todos los invitados.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== RIBBON ========== -->
+    <div class="ribbon-wrap" aria-hidden="true">
+      <div class="ribbon">
+        <div class="ribbon-set">
+          <span class="ribbon-item">Música personalizada</span>
+          <span class="ribbon-item">Cuenta regresiva</span>
+          <span class="ribbon-item">Mapa integrado</span>
+          <span class="ribbon-item">RSVP por WhatsApp</span>
+          <span class="ribbon-item">Galería de fotos</span>
+          <span class="ribbon-item">Link actualizable</span>
+          <span class="ribbon-item">Código QR</span>
+          <span class="ribbon-item">Sin apps</span>
+          <span class="ribbon-item">Mobile first</span>
+          <span class="ribbon-item">Bodas</span>
+          <span class="ribbon-item">Quinceañeros</span>
+          <span class="ribbon-item">Baby Shower</span>
+          <span class="ribbon-item">Bautizos</span>
+          <span class="ribbon-item">Comunión</span>
+          <span class="ribbon-item">Revelación</span>
+        </div>
+        <div class="ribbon-set" aria-hidden="true">
+          <span class="ribbon-item">Música personalizada</span>
+          <span class="ribbon-item">Cuenta regresiva</span>
+          <span class="ribbon-item">Mapa integrado</span>
+          <span class="ribbon-item">RSVP por WhatsApp</span>
+          <span class="ribbon-item">Galería de fotos</span>
+          <span class="ribbon-item">Link actualizable</span>
+          <span class="ribbon-item">Código QR</span>
+          <span class="ribbon-item">Sin apps</span>
+          <span class="ribbon-item">Mobile first</span>
+          <span class="ribbon-item">Bodas</span>
+          <span class="ribbon-item">Quinceañeros</span>
+          <span class="ribbon-item">Baby Shower</span>
+          <span class="ribbon-item">Bautizos</span>
+          <span class="ribbon-item">Comunión</span>
+          <span class="ribbon-item">Revelación</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== DEMOS ========== -->
+    <div class="wrap sec" id="demos">
+      <div class="sec-head reveal" style="display:flex;justify-content:space-between;align-items:flex-end;max-width:none;">
         <div>
-          <p class="eyebrow">Demos y estilos</p>
-          <h2>Empieza desde una base y la hacemos tuya.</h2>
+          <span class="eyebrow">Demos en vivo</span>
+          <h2 class="h2">Elige una base,<br>la hacemos tuya.</h2>
         </div>
-        <a class="text-link" href="catalogo/">Ver catalogo completo</a>
+        <a href="catalogo/" class="btn btn-ghost" style="flex-shrink:0;">Ver catálogo</a>
       </div>
-      <div class="demo-grid">
-        <a class="demo-card demo-card--featured" href="demos/baby-shower-azul/">
-          <span>Demo real</span>
-          <h3>Baby Shower Azul Toile</h3>
-          <p>Con sobre animado, musica, mapa, RSVP y cuenta regresiva.</p>
+      <div class="demos-grid">
+        <a class="demo-card dc-featured reveal" href="demos/baby-shower-azul/">
+          <span class="demo-tag">Demo real completa</span>
+          <h3>Baby Shower<br>Azul Toile</h3>
+          <p>Con sobre animado, música, mapa, RSVP y cuenta regresiva.</p>
         </a>
-        <a class="demo-card" href="plantillas/boda-editorial/">
-          <span>Bodas</span>
-          <h3>Editorial Floral</h3>
-          <p>Historia, itinerario, fotos, mapa y confirmacion.</p>
+        <a class="demo-card dc-boda reveal rd1" href="plantillas/boda-editorial/">
+          <span class="demo-tag">Bodas</span>
+          <h3>Editorial<br>Floral</h3>
+          <p>Historia, fotos, mapa y confirmación.</p>
         </a>
-        <a class="demo-card" href="plantillas/quince-glam/">
-          <span>Quinceanos</span>
-          <h3>Glam Night</h3>
-          <p>Sesion de fotos, vals, dress code y ubicacion.</p>
+        <a class="demo-card dc-quince reveal rd2" href="plantillas/quince-glam/">
+          <span class="demo-tag">Quinceañeros</span>
+          <h3>Glam<br>Night</h3>
+          <p>Sesión de fotos, vals y dress code.</p>
         </a>
-        <a class="demo-card" href="plantillas/cumple-garden/">
-          <span>Cumpleanos</span>
-          <h3>Fiesta Tematica</h3>
-          <p>Una tarjeta divertida, clara y facil de compartir.</p>
+        <a class="demo-card dc-bautizo reveal rd3" href="plantillas/bautizo-capilla/">
+          <span class="demo-tag">Bautizos</span>
+          <h3>Capilla<br>Celeste</h3>
+          <p>Elegante, clara y fácil de compartir.</p>
+        </a>
+        <a class="demo-card dc-cumple reveal rd4" href="plantillas/cumple-garden/">
+          <span class="demo-tag">Cumpleaños</span>
+          <h3>Garden<br>Fest</h3>
+          <p>Divertida, colorida y directa al punto.</p>
         </a>
       </div>
-    </section>
+    </div>
 
-    <section class="section feature-ribbon">
-      <span>Musica</span>
-      <span>Mapa</span>
-      <span>Cuenta regresiva</span>
-      <span>RSVP</span>
-      <span>Fotos</span>
-      <span>QR</span>
-      <span>Link personalizado</span>
-    </section>
-
-    <section class="section pricing-story" id="precios">
-      <div class="section__head">
-        <p class="eyebrow">Paquetes</p>
-        <h2>Precios claros para vender sin explicar mil cosas.</h2>
+    <!-- ========== PROCESS ========== -->
+    <div class="wrap sec" id="proceso">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Proceso</span>
+        <h2 class="h2">De tu idea al link<br>en menos de 48 horas.</h2>
       </div>
-      <div class="pricing-grid pricing-grid--boutique">
-        <article class="price-card">
-          <p class="price-card__tag">Base</p>
-          <h3>$50.000</h3>
-          <p>Para una invitacion bonita, rapida y lista para compartir.</p>
-          <ul>
-            <li>Plantilla base personalizada</li>
-            <li>Musica, mapa y cuenta regresiva</li>
-            <li>Confirmacion por WhatsApp</li>
+      <div class="proc-grid">
+        <div class="proc-step reveal rd1">
+          <h3>Elige el estilo</h3>
+          <p>Escoge una demo o comparte una referencia visual de lo que tienes en mente.</p>
+        </div>
+        <div class="proc-step reveal rd2">
+          <h3>Nos envías los datos</h3>
+          <p>Nombres, fecha, lugar, música favorita, fotos y cualquier detalle especial del evento.</p>
+        </div>
+        <div class="proc-step reveal rd3">
+          <h3>Revisas en tu celular</h3>
+          <p>Te enviamos una vista previa para revisar en tu dispositivo antes del link final.</p>
+        </div>
+        <div class="proc-step reveal rd4">
+          <h3>Compartes el link</h3>
+          <p>Envías el enlace o código QR por WhatsApp a todos tus invitados. Así de simple.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== PRICING ========== -->
+    <div class="wrap sec" id="precios">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Paquetes</span>
+        <h2 class="h2">Precios claros<br>desde el primer día.</h2>
+      </div>
+      <div class="price-grid">
+        <div class="price-card reveal rd1">
+          <div class="price-badge pb-base">Base</div>
+          <div class="price-num">$50.000</div>
+          <p class="price-desc">Para una invitación bonita, rápida y lista para compartir.</p>
+          <ul class="price-list">
+            <li>Plantilla personalizada</li>
+            <li>Música, mapa y cuenta regresiva</li>
+            <li>Confirmación por WhatsApp</li>
             <li>1 ajuste incluido</li>
           </ul>
-        </article>
-        <article class="price-card price-card--featured">
-          <p class="price-card__tag">Mas pedido</p>
-          <h3>$90.000+</h3>
-          <p>Para una tarjeta con fotos, paleta, textos y detalles del evento.</p>
-          <ul>
-            <li>Direccion visual personalizada</li>
+          <div class="price-cta"><a class="btn btn-ghost" href="pedido/">Pedir este</a></div>
+        </div>
+        <div class="price-card pc-featured reveal rd2">
+          <div class="price-badge pb-pop">Más pedido</div>
+          <div class="price-num">$90.000+</div>
+          <p class="price-desc">Con fotos, paleta propia y detalles únicos del evento.</p>
+          <ul class="price-list">
+            <li>Dirección visual personalizada</li>
             <li>Fotos y secciones extra</li>
             <li>Animaciones suaves</li>
             <li>2 ajustes incluidos</li>
           </ul>
-        </article>
-        <article class="price-card">
-          <p class="price-card__tag">Premium</p>
-          <h3>$180.000+</h3>
-          <p>Para bodas o eventos que necesitan control de invitados y recuerdos.</p>
-          <ul>
+          <div class="price-cta"><a class="btn btn-terra" style="width:100%;justify-content:center;" href="pedido/">Pedir este</a></div>
+        </div>
+        <div class="price-card reveal rd3">
+          <div class="price-badge pb-prem">Premium</div>
+          <div class="price-num">$180.000+</div>
+          <p class="price-desc">Para bodas que necesitan control total de sus invitados.</p>
+          <ul class="price-list">
             <li>Credencial por invitado</li>
             <li>Consulta de mesa</li>
-            <li>Galeria colaborativa</li>
-            <li>Album profesional enlazado</li>
+            <li>Galería colaborativa</li>
+            <li>Álbum profesional enlazado</li>
           </ul>
-        </article>
-      </div>
-    </section>
-
-    <section class="premium premium--boutique section" id="premium">
-      <div class="premium__content">
-        <p class="eyebrow">Experiencia premium</p>
-        <h2>Para bodas: mesas, invitados y fotos en el mismo enlace.</h2>
-        <p>Cada invitado puede entrar con una credencial, ver su mesa, confirmar asistencia y subir fotos del evento. Los novios tienen una galeria viva y pueden enlazar el album profesional.</p>
-        <div class="premium__checks">
-          <span>Codigo por invitado</span>
-          <span>Asignacion de mesas</span>
-          <span>Galeria colaborativa</span>
-          <span>Album Pixieset</span>
+          <div class="price-cta"><a class="btn btn-ghost" href="pedido/">Pedir este</a></div>
         </div>
       </div>
-      <div class="guest-card">
-        <p>Invitado</p>
-        <h3>Laura Perez</h3>
-        <div><span>Mesa</span><strong>7</strong></div>
-        <div><span>Fotos subidas</span><strong>12</strong></div>
-        <button type="button">Ver mi lugar</button>
+    </div>
+
+    <!-- ========== PREMIUM BOX ========== -->
+    <div class="wrap" style="padding-bottom:clamp(64px,9vw,112px);" id="premium">
+      <div class="prem-box reveal">
+        <div>
+          <span class="eyebrow">Experiencia premium</span>
+          <h2 class="h2" style="font-size:clamp(30px,4vw,52px);margin-top:10px;">Para bodas: control total de invitados en el mismo link.</h2>
+          <p style="margin-top:14px;color:var(--muted);font-size:16px;line-height:1.72;">Cada invitado entra con una credencial propia, ve su mesa y puede subir fotos del evento. Los novios reciben una galería viva en tiempo real.</p>
+          <div class="prem-checks">
+            <span>Código por invitado</span>
+            <span>Asignación de mesas</span>
+            <span>Galería colaborativa</span>
+            <span>Álbum Pixieset</span>
+          </div>
+        </div>
+        <div class="guest-card">
+          <p class="gc-label">Invitado</p>
+          <h3 class="gc-name">Laura Pérez</h3>
+          <div class="gc-row"><span>Mesa</span><strong>7</strong></div>
+          <div class="gc-row"><span>Fotos subidas</span><strong>12</strong></div>
+          <button class="gc-btn">Ver mi lugar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== TESTIMONIAL ========== -->
+    <div class="testi-band">
+      <div class="wrap">
+        <div class="testi-inner">
+          <div class="quote-block reveal">
+            <p>"Quedó muy hermosa. Era exactamente lo que queríamos para compartir con la familia."</p>
+            <cite>Clienta — Baby Shower · Bogotá</cite>
+          </div>
+          <div class="proof-list">
+            <div class="proof-item reveal rd1">
+              <strong>Hechas para WhatsApp</strong>
+              <span>Texto claro, botones visibles y carga rápida incluso con señal débil.</span>
+            </div>
+            <div class="proof-item reveal rd2">
+              <strong>Mobile first</strong>
+              <span>La experiencia se diseña pensando primero en el celular de tus invitados.</span>
+            </div>
+            <div class="proof-item reveal rd3">
+              <strong>Boutique, no masivo</strong>
+              <span>Cada invitación es única. No es una plantilla genérica sin personalidad.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== FAQ ========== -->
+    <div class="wrap sec" id="faq">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Preguntas frecuentes</span>
+        <h2 class="h2">Todo lo que quieres saber antes de pedir.</h2>
+      </div>
+      <div class="faq-grid">
+        <details class="faq-item reveal rd1" open>
+          <summary>¿Cuánto tarda?</summary>
+          <p>Una invitación base puede estar lista entre 24 y 48 horas después de recibir la información completa.</p>
+        </details>
+        <details class="faq-item reveal rd2">
+          <summary>¿Se abre desde cualquier celular?</summary>
+          <p>Sí. Se comparte como link por WhatsApp y abre en el navegador sin instalar apps ni descargar nada.</p>
+        </details>
+        <details class="faq-item reveal rd3">
+          <summary>¿Puede tener música?</summary>
+          <p>Sí. La música puede iniciar automáticamente al abrir la invitación, con controles de pausa y volumen.</p>
+        </details>
+        <details class="faq-item reveal rd4">
+          <summary>¿Se puede corregir después?</summary>
+          <p>Sí. Al ser web, se pueden ajustar datos sin reenviar una imagen nueva a todos los invitados.</p>
+        </details>
+        <details class="faq-item reveal rd5">
+          <summary>¿Cómo se hace el pago?</summary>
+          <p>Trabajamos por WhatsApp. Acordamos el paquete, haces el depósito y arrancamos con la personalización.</p>
+        </details>
+        <details class="faq-item reveal rd6">
+          <summary>¿Funciona para cualquier evento?</summary>
+          <p>Sí. Hacemos para bodas, quinceañeros, baby showers, bautizos, comuniones, revelaciones y cumpleaños.</p>
+        </details>
+      </div>
+    </div>
+
+    <!-- ========== CTA FINAL ========== -->
+    <section class="cta-section">
+      <div class="wrap">
+        <div class="cta-inner reveal">
+          <span class="eyebrow">Lista para compartir</span>
+          <h2 class="h2">Convierte el evento en un link memorable.</h2>
+          <p class="lead">Cuéntanos qué celebras, la fecha, la ciudad y el estilo que tienes en mente. Nosotros hacemos el resto.</p>
+          <div class="actions">
+            <a class="btn btn-terra" href="pedido/">Pedir mi invitación</a>
+            <a class="btn btn-ghost-light" href="#demos">Ver ejemplos primero</a>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="section process process--boutique" id="proceso">
-      <div class="section__head">
-        <p class="eyebrow">Proceso</p>
-        <h2>Tu cliente no compra codigo. Compra tranquilidad.</h2>
-      </div>
-      <ol class="steps steps--boutique">
-        <li><span>1</span><strong>Elige estilo</strong><p>Selecciona una demo o comparte una referencia visual.</p></li>
-        <li><span>2</span><strong>Envia datos</strong><p>Nombres, fecha, lugar, musica, fotos y detalles importantes.</p></li>
-        <li><span>3</span><strong>Recibe vista previa</strong><p>Se revisa en celular antes de entregar el enlace final.</p></li>
-        <li><span>4</span><strong>Comparte</strong><p>Envias el link o QR por WhatsApp a todos tus invitados.</p></li>
-      </ol>
-    </section>
-
-    <section class="section social-proof">
-      <div class="quote-card">
-        <p>"Quedo muy hermosa. Eso era justo lo que queriamos para compartir con la familia."</p>
-        <span>Comentario de clienta</span>
-      </div>
-      <div class="proof-list">
-        <strong>Hechas para vender por WhatsApp</strong>
-        <span>Texto claro, botones visibles y carga rapida.</span>
-        <strong>Mobile first</strong>
-        <span>La experiencia se disena pensando primero en celular.</span>
-      </div>
-    </section>
-
-    <section class="section faq" id="faq">
-      <div class="section__head">
-        <p class="eyebrow">Preguntas frecuentes</p>
-        <h2>Lo que tus clientes van a querer saber.</h2>
-      </div>
-      <div class="faq-list">
-        <details open>
-          <summary>Cuanto tarda?</summary>
-          <p>Una invitacion base puede estar lista entre 24 y 48 horas despues de recibir la informacion completa.</p>
-        </details>
-        <details>
-          <summary>Se puede abrir desde cualquier celular?</summary>
-          <p>Si. Se comparte como link por WhatsApp y abre en navegador, sin instalar apps.</p>
-        </details>
-        <details>
-          <summary>Puede tener musica?</summary>
-          <p>Si. La musica puede iniciar al abrir la invitacion, con controles de pausa y volumen.</p>
-        </details>
-        <details>
-          <summary>Se puede corregir despues?</summary>
-          <p>Si. Al ser web, se pueden ajustar datos sin reenviar una imagen nueva.</p>
-        </details>
-      </div>
-    </section>
-
-    <section class="contact contact--boutique">
-      <p class="eyebrow">Lista para compartir</p>
-      <h2>Convierte el evento en un link memorable.</h2>
-      <p>Escribenos por WhatsApp y cuentanos que celebras, fecha, ciudad y estilo que tienes en mente.</p>
-      <a class="btn btn--primary" href="pedido/">Pedir mi invitacion</a>
-    </section>
   </main>
 
-  <a class="float-wa" href="https://wa.me/573000000000?text=Hola%2C%20quiero%20una%20invitacion%20web%20para%20mi%20evento." target="_blank" rel="noopener" aria-label="Pedir por WhatsApp">WA</a>
+  <!-- Float WhatsApp -->
+  <a class="wa-float" href="https://wa.me/573000000000?text=Hola%2C%20quiero%20una%20invitaci%C3%B3n%20web%20para%20mi%20evento." target="_blank" rel="noopener" aria-label="Chatear por WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+    </svg>
+  </a>
 
-  <footer class="footer">
-    <p>Invitaciones Web Colombia</p>
-    <span><a href="politicas/">Politicas</a> · <a href="terminos/">Terminos</a> · <a href="https://www.instagram.com/andersonrene_ph/" target="_blank" rel="noopener">Hecho por @andersonrene_ph</a></span>
+  <!-- Footer -->
+  <footer class="wrap footer">
+    <p>© 2025 Invitaciones Web Colombia</p>
+    <div class="footer-links">
+      <a href="politicas/">Políticas</a>
+      <a href="terminos/">Términos</a>
+      <a href="catalogo/">Catálogo</a>
+      <a href="https://www.instagram.com/andersonrene_ph/" target="_blank" rel="noopener">@andersonrene_ph</a>
+    </div>
   </footer>
 
+  <script>
+    (function () {
+      /* Scroll reveal */
+      var reveals = document.querySelectorAll('.reveal');
+      function checkReveals() {
+        var wh = window.innerHeight;
+        reveals.forEach(function (el) {
+          if (el.classList.contains('visible')) return;
+          var r = el.getBoundingClientRect();
+          if (r.top < wh * 0.94) el.classList.add('visible');
+        });
+      }
+      if (reveals.length) {
+        if ('IntersectionObserver' in window) {
+          var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                io.unobserve(e.target);
+              }
+            });
+          }, { threshold: 0.06, rootMargin: '0px 0px -20px 0px' });
+          reveals.forEach(function (el) { io.observe(el); });
+        }
+        /* Scroll fallback (covers static previews where IO may not fire) */
+        window.addEventListener('scroll', checkReveals, { passive: true });
+        /* Run on load after paint */
+        requestAnimationFrame(function () { setTimeout(checkReveals, 80); });
+      }
+
+      /* Mobile menu */
+      var btn = document.getElementById('menuBtn');
+      var nav = document.getElementById('hdr-nav');
+      if (btn && nav) {
+        btn.addEventListener('click', function () {
+          var open = nav.classList.toggle('open');
+          btn.setAttribute('aria-expanded', String(open));
+        });
+        nav.addEventListener('click', function (e) {
+          if (e.target.closest('a')) {
+            nav.classList.remove('open');
+            btn.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+    })();
+  </script>
   <script src="js/config.js"></script>
   <script src="js/templates.js"></script>
   <script src="js/app.js"></script>
