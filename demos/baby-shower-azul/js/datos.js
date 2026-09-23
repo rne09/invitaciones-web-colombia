@@ -26,7 +26,7 @@ const DATOS = {
   dressCode: [],
   dressCodeNota: "El color azul estara reservado para los papas. Te agradecemos elegir otro tono para acompanarnos.",
 
-  whatsapp: "573000000000",
+  whatsapp: "573025299255",
   whatsappMensaje: "Hola, soy {nombre} y confirmo mi asistencia al Baby Shower de Mateo",
 
   fraseIntro: "Mientras Dios prepara el dia de mi llegada con mucho amor...",
