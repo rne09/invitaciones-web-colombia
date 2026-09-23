@@ -1,0 +1,64 @@
+{
+  "novio": "Mateo",
+  "novia": "Caroll",
+  "evento": "Boda",
+  "selloInicial": "C & M",
+  "fechaISO": "2026-10-31T15:00",
+  "diaSemana": "Sábado",
+  "diaNumero": "31",
+  "mes": "Octubre",
+  "anio": "2026",
+  "horaCeremonia": "3:00 PM",
+  "lugarCeremonia": "Parroquia Inmaculada Concepción",
+  "direccionCeremonia": "Plaza Alfonso López, centro histórico de Valledupar, Cesar",
+  "mapaCeremonia": "https://www.google.com/maps/search/?api=1&query=Parroquia%20Inmaculada%20Concepcion%20Plaza%20Alfonso%20Lopez%20Valledupar%20Cesar",
+  "horaRecepcion": "6:00 PM",
+  "lugarRecepcion": "Casa Campo Victoria",
+  "direccionRecepcion": "Dg. 10 N, Valledupar, Cesar",
+  "mapaRecepcion": "https://maps.app.goo.gl/VFvinnwFn3CYG6zPA",
+  "dressCodeTitulo": "Formal",
+  "dressCodeNota": "Mujeres: vestido largo, unicolor.\nHombres: camisa manga larga y pantalón.",
+  "whatsapp": "573025299255",
+  "whatsappMensaje": "Hola, Caroll y Mateo. Soy {nombre} y confirmo con mucha alegría mi asistencia a su boda. Muchas gracias por la invitación; será un gusto acompañarlos en este día tan especial.",
+  "fraseIntro": "Tenemos el honor de invitarte a celebrar el inicio de nuestra vida juntos. Tu presencia hará parte de un día que guardaremos para siempre.",
+  "fraseConfirmar": "Agradecemos confirmar tu asistencia para preparar cada detalle con mucho cariño.",
+  "fraseRegalos": "Lluvia de sobres",
+  "fraseCierre": "¡Te esperamos!",
+  "timeline": [
+    {
+      "hora": "3:00 PM",
+      "texto": "Eucaristía"
+    },
+    {
+      "hora": "6:00 PM",
+      "texto": "Recepción"
+    },
+    {
+      "hora": "6:30 PM",
+      "texto": "Entrada de novios"
+    },
+    {
+      "hora": "7:00 PM",
+      "texto": "Brindis y cena"
+    },
+    {
+      "hora": "8:30 PM",
+      "texto": "Primer baile"
+    },
+    {
+      "hora": "9:00 PM",
+      "texto": "Ramo"
+    },
+    {
+      "hora": "9:30 PM",
+      "texto": "Apertura de pista de baile"
+    }
+  ],
+  "fotos": [
+    "img/foto-1-web.webp",
+    "img/foto-2-web.webp",
+    "img/foto-3-web.webp"
+  ],
+  "musica": "img/musica.mp3",
+  "volumenInicial": 0.5
+}

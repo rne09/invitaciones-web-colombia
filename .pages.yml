@@ -1,0 +1,110 @@
+# Editor de contenido: https://app.pagescms.org
+media:
+  - name: boda
+    label: Fotos boda Sobre Dorado
+    input: plantillas/boda-caroll-mateo/img
+    output: img
+  - name: baby
+    label: Fotos baby shower Azul Toile
+    input: plantillas/baby-shower-thiago/img
+    output: img
+
+content:
+  - name: sitio
+    label: Precios y WhatsApp de la página
+    type: file
+    path: data/sitio.json
+    format: json
+    fields:
+      - { name: whatsapp, label: "WhatsApp del negocio (con 57, sin + ni espacios)", type: string, required: true }
+      - { name: instagram, label: Enlace de Instagram, type: string }
+      - name: precios
+        label: Precios
+        type: object
+        list: true
+        fields:
+          - { name: nombre, label: Nombre del paquete, type: string }
+          - { name: precio, label: Precio, type: string }
+          - { name: incluye, label: Qué incluye, type: string, list: true }
+
+  - name: boda
+    label: "Plantilla boda: Sobre Dorado"
+    type: file
+    path: plantillas/boda-caroll-mateo/datos.json
+    format: json
+    fields:
+      - { name: novia, label: Nombre de la novia, type: string }
+      - { name: novio, label: Nombre del novio, type: string }
+      - { name: evento, label: Tipo de evento, type: string }
+      - { name: selloInicial, label: Iniciales del sello, type: string }
+      - { name: fechaISO, label: "Fecha y hora para la cuenta regresiva (AAAA-MM-DDTHH:MM, ej. 2026-10-31T15:00)", type: string }
+      - { name: diaSemana, label: Día de la semana, type: string }
+      - { name: diaNumero, label: Día (número), type: string }
+      - { name: mes, label: Mes, type: string }
+      - { name: anio, label: Año, type: string }
+      - { name: horaCeremonia, label: Hora de la ceremonia, type: string }
+      - { name: lugarCeremonia, label: Lugar de la ceremonia, type: string }
+      - { name: direccionCeremonia, label: Dirección de la ceremonia, type: string }
+      - { name: mapaCeremonia, label: Enlace de Google Maps (ceremonia), type: string }
+      - { name: horaRecepcion, label: Hora de la recepción, type: string }
+      - { name: lugarRecepcion, label: Lugar de la recepción, type: string }
+      - { name: direccionRecepcion, label: Dirección de la recepción, type: string }
+      - { name: mapaRecepcion, label: Enlace de Google Maps (recepción), type: string }
+      - { name: dressCodeTitulo, label: Código de vestimenta, type: string }
+      - { name: dressCodeNota, label: Nota de vestimenta, type: text }
+      - { name: whatsapp, label: "WhatsApp para confirmar (con 57, sin + ni espacios)", type: string }
+      - { name: whatsappMensaje, label: "Mensaje de confirmación ({nombre} se cambia por el invitado)", type: text }
+      - { name: fraseIntro, label: Frase de bienvenida, type: text }
+      - { name: fraseConfirmar, label: Frase para confirmar, type: text }
+      - { name: fraseRegalos, label: Frase de regalos, type: text }
+      - { name: fraseCierre, label: Frase de cierre, type: string }
+      - name: timeline
+        label: Minuto a minuto
+        type: object
+        list: true
+        fields:
+          - { name: hora, label: Hora, type: string }
+          - { name: texto, label: Actividad, type: string }
+      - { name: fotos, label: Fotos de la galería, type: image, list: true, options: { media: boda } }
+      - { name: musica, label: Música (mp3), type: file, options: { media: boda, extensions: [mp3] } }
+      - { name: volumenInicial, label: Volumen inicial (0 a 1), type: number }
+
+  - name: baby
+    label: "Plantilla baby shower: Azul Toile"
+    type: file
+    path: plantillas/baby-shower-thiago/datos.json
+    format: json
+    fields:
+      - { name: bebe, label: Nombre del bebé, type: string }
+      - { name: evento, label: Tipo de evento, type: string }
+      - { name: mama, label: Nombre de la mamá, type: string }
+      - { name: papa, label: Nombre del papá, type: string }
+      - { name: selloInicial, label: "Letra del sello (vacío = inicial del bebé)", type: string }
+      - { name: fechaISO, label: "Fecha y hora para la cuenta regresiva (AAAA-MM-DDTHH:MM, ej. 2026-08-15T10:30)", type: string }
+      - { name: diaSemana, label: Día de la semana, type: string }
+      - { name: diaNumero, label: Día (número), type: string }
+      - { name: mes, label: Mes, type: string }
+      - { name: anio, label: Año, type: string }
+      - { name: hora, label: Hora, type: string }
+      - { name: lugarNombre, label: Lugar, type: string }
+      - { name: lugarDireccion, label: Dirección, type: text }
+      - { name: lugarMapa, label: Enlace de Google Maps, type: string }
+      - { name: dressCode, label: "Colores del dress code (ej. #c9939b)", type: string, list: true }
+      - { name: dressCodeNota, label: Nota de vestimenta, type: text }
+      - { name: whatsapp, label: "WhatsApp para confirmar (con 57, sin + ni espacios)", type: string }
+      - { name: whatsappMensaje, label: "Mensaje de confirmación ({nombre} se cambia por el invitado)", type: text }
+      - { name: fraseIntro, label: Frase de inicio, type: text }
+      - { name: fraseInvitacion, label: Frase de invitación, type: text }
+      - { name: fraseConfirmar, label: Frase para confirmar, type: text }
+      - { name: fraseRegalos1, label: Frase de regalos 1, type: text }
+      - { name: fraseRegalos2, label: Frase de regalos 2, type: text }
+      - { name: fraseCierre, label: Frase de cierre, type: string }
+      - { name: fotoPapas, label: Foto de los papás, type: image, options: { media: baby } }
+      - { name: fotoUltrasonido, label: Foto de ecografía (opcional), type: image, options: { media: baby } }
+      - { name: musica, label: Música (mp3), type: file, options: { media: baby, extensions: [mp3] } }
+      - { name: volumenInicial, label: Volumen inicial (0 a 1), type: number }
+      - { name: patron, label: Fondo con patrón, type: image, options: { media: baby } }
+      - { name: patronTamano, label: Tamaño del patrón (px), type: number }
+      - { name: arco, label: Imagen del arco de portada, type: image, options: { media: baby } }
+      - { name: fondoToile, label: Color de fondo, type: string }
+      - { name: mostrarMono, label: Mostrar monito, type: boolean }

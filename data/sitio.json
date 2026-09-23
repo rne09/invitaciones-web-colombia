@@ -1,0 +1,9 @@
+{
+  "whatsapp": "573025299255",
+  "instagram": "https://www.instagram.com/invitacioneswebcolombia/",
+  "precios": [
+    { "nombre": "Básica", "precio": "$50.000", "incluye": ["Plantilla con tus datos", "Música, mapa y confirmación"] },
+    { "nombre": "Personalizada", "precio": "$90.000+", "incluye": ["Tus fotos y colores", "Diseño a tu gusto"] },
+    { "nombre": "Premium", "precio": "$180.000+", "incluye": ["Lista de invitados y mesas", "Galería de fotos"] }
+  ]
+}
