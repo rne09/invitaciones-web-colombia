@@ -6,7 +6,7 @@ window.TEMPLATE_CATALOG = [
     package: "Personalizado",
     price: "Desde $90.000",
     href: "../invitaciones-web-bodas/",
-    demoHref: "../plantillas/boda-caroll-mateo/",
+    demoHref: "../plantillas/boda-juliana-pedro/",
     preview: "preview--wedding"
   },
   {

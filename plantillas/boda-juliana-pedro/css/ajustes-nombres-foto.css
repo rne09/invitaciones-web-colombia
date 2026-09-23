@@ -208,7 +208,7 @@
   border:0;
   border-radius:inherit;
 }
-.foto-despues-separador video{
+.foto-despues-separador video, .foto-despues-separador img{
   display:block;
   width:100%;
   height:auto;

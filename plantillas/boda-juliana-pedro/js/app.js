@@ -114,11 +114,11 @@
       const item = document.createElement("button");
       item.type = "button";
       item.className = "carrusel__item";
-      item.setAttribute("aria-label", `Ver foto ${i + 1} de Mateo y Carol en grande`);
+      item.setAttribute("aria-label", `Ver foto ${i + 1} de ${DATOS.novia} y ${DATOS.novio} en grande`);
 
       const img = document.createElement("img");
       img.src = src;
-      img.alt = `Foto ${i + 1} de Mateo y Carol`;
+      img.alt = `Foto ${i + 1} de ${DATOS.novia} y ${DATOS.novio}`;
       img.loading = i === 0 ? "eager" : "lazy";
       img.decoding = "async";
       img.className = "galeria__foto";
@@ -292,7 +292,7 @@
     const fotos = DATOS.fotos || [];
     if (!img || !fotos.length) return;
     img.src = fotos[fotoActual];
-    img.alt = `Foto ${fotoActual + 1} de Mateo y Carol`;
+    img.alt = `Foto ${fotoActual + 1} de ${DATOS.novia} y ${DATOS.novio}`;
     if (contador) contador.textContent = `${fotoActual + 1} / ${fotos.length}`;
   }
 
@@ -328,7 +328,9 @@
   }
 
   function arrancarCuenta() {
-    const destino = new Date(DATOS.fechaISO).getTime();
+    let destino = new Date(DATOS.fechaISO).getTime();
+    /* Plantilla de muestra: la cuenta regresiva nunca se vence (se reinicia cada 60 dias). */
+    if (DATOS.muestra) { const ciclo = 60 * 864e5; destino = (Math.floor(Date.now() / ciclo) + 1) * ciclo + ciclo / 2; }
     const bloque = $(".bloque--cuenta");
     if (Number.isNaN(destino)) {
       if (bloque) bloque.hidden = true;
