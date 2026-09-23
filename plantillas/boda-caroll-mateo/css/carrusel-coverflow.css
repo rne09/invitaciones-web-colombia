@@ -1,0 +1,96 @@
+/* ==========================================================================
+   GALERIA MOVIL CONTINUA — MATEO & CAROL
+   Movimiento horizontal suave, sin giros 3D ni saltos entre tarjetas.
+   ========================================================================== */
+
+.bloque--galeria .carrusel-wrap{
+  overflow:visible;
+  margin-left:-8px;
+  margin-right:-8px;
+}
+
+.bloque--galeria .galeria{
+  gap:14px;
+  padding:10px 38px 18px;
+  scroll-snap-type:none;
+  scroll-padding-inline:0;
+  scroll-behavior:auto;
+  overscroll-behavior-x:contain;
+  -webkit-overflow-scrolling:touch;
+}
+
+/* Marcos deliberadamente mas pequenos: se percibe como una tira de fotos
+   en movimiento y no como una diapositiva que ocupa toda la pantalla. */
+.bloque--galeria .carrusel__item{
+  flex:0 0 58%;
+  width:58%;
+  height:clamp(245px,42svh,350px);
+  padding:7px;
+  scroll-snap-align:none;
+  scroll-snap-stop:normal;
+  border-radius:14px;
+  transform:none!important;
+  opacity:1!important;
+  filter:none!important;
+  animation:none!important;
+  transition:border-color .25s ease,box-shadow .25s ease;
+  box-shadow:0 10px 24px rgba(70,50,25,.11);
+}
+
+.bloque--galeria .carrusel__item .galeria__foto{
+  border-radius:9px;
+  transition:none;
+}
+
+.bloque--galeria .carrusel__item:focus-visible{
+  outline:2px solid var(--dorado);
+  outline-offset:3px;
+}
+
+.bloque--galeria .carrusel-btn{
+  top:50%;
+  width:36px;
+  height:36px;
+  font-size:24px;
+  background:rgba(255,252,245,.88);
+  backdrop-filter:blur(7px);
+}
+.bloque--galeria .carrusel-btn--prev{left:0}
+.bloque--galeria .carrusel-btn--next{right:0}
+
+.bloque--galeria .carrusel-puntos{
+  margin-top:7px;
+}
+
+@media (max-width:420px){
+  .bloque--galeria .galeria{
+    gap:11px;
+    padding-left:32px;
+    padding-right:32px;
+  }
+
+  .bloque--galeria .carrusel__item{
+    flex-basis:56%;
+    width:56%;
+    height:clamp(225px,39svh,315px);
+    padding:6px;
+  }
+}
+
+@media (min-width:720px){
+  .bloque--galeria .galeria{
+    gap:18px;
+    padding-left:50px;
+    padding-right:50px;
+  }
+
+  .bloque--galeria .carrusel__item{
+    flex-basis:46%;
+    width:46%;
+    height:clamp(265px,44vh,390px);
+  }
+}
+
+@media (prefers-reduced-motion:reduce){
+  .bloque--galeria .galeria{scroll-behavior:auto}
+}

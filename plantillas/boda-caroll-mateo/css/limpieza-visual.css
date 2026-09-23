@@ -1,0 +1,171 @@
+/* ==========================================================================
+   LIMPIEZA VISUAL — MATEO & CAROL
+   Menos adornos repetidos, mas aire y una papeleria mas elegante.
+   ========================================================================== */
+
+/* Hoja: sin el marco dorado fuerte. La textura de opalina queda protagonista. */
+.hoja{
+  border:0!important;
+  outline:0!important;
+  box-shadow:0 14px 38px rgba(74,55,34,.09)!important;
+}
+.hoja::before,
+.hoja::after{display:none!important}
+
+/* Conservamos las flores de las esquinas, pero mucho mas discretas. */
+.decoracion-esquina{opacity:.70!important}
+.decoracion-esquina--superior{width:190px!important;top:-24px!important;left:-38px!important}
+.decoracion-esquina--inferior{width:205px!important;right:-44px!important;bottom:-28px!important}
+
+/* Ya existen destellos CSS: las ilustraciones extra recargaban el papel. */
+.destellos-ilustrados{display:none!important}
+
+/* El ramo bajo los nombres repetia demasiado la decoracion. */
+.ornamento-encabezado{display:none!important}
+
+/* Solo se conservan los separadores principales. */
+.hoja > .separador-floral:not(.separador-floral--principal){display:none!important}
+.separador-floral--cierre{display:none!important}
+.separador-floral--principal{
+  display:block!important;
+  width:min(78%,330px)!important;
+  max-height:82px!important;
+  margin:10px auto 16px!important;
+  opacity:.86!important;
+}
+
+/* ========================= FOTO DE APERTURA INTERIOR =========================
+   Reutiliza una foto existente para que al abrir la carta el inicio no quede seco. */
+.bloque--intro::before{display:none!important}
+
+/* Iconos de seccion mas pequeños y con mas aire alrededor. */
+.icono-seccion{width:92px!important;height:92px!important;margin-bottom:12px!important}
+.icono-seccion--grande{width:108px!important;height:108px!important}
+.icono-seccion--reloj{width:100px!important;height:100px!important}
+.icono-seccion--lugar{width:105px!important;height:105px!important}
+.icono-seccion--dress{width:112px!important;height:112px!important}
+.icono-seccion--regalo{width:104px!important;height:104px!important}
+
+/* Estas ilustraciones no aportaban informacion nueva. */
+.bloque--galeria > .icono-seccion,
+.bloque--confirmar > .icono-seccion,
+.bloque--timeline > .icono-seccion,
+.pastel-cierre,
+.rsvp-ilustrado{display:none!important}
+
+/* ========================= MINUTO A MINUTO LIMPIO ========================= */
+.timeline{
+  max-width:330px!important;
+  gap:0!important;
+  margin-top:18px!important;
+}
+.timeline__icono{display:none!important}
+.timeline__item{
+  grid-template-columns:82px 1fr!important;
+  gap:10px!important;
+  min-height:0!important;
+  padding:11px 0!important;
+  align-items:center!important;
+  border-bottom:1px solid rgba(179,137,68,.12);
+}
+.timeline__item:last-child{border-bottom:0}
+.timeline__item time{
+  text-align:right!important;
+  padding-right:7px;
+  font-size:10px!important;
+  letter-spacing:.04em!important;
+}
+.timeline__item span{
+  padding-left:17px!important;
+  font-size:18px!important;
+  line-height:1.42!important;
+}
+.timeline__item span::before{
+  width:6px!important;
+  height:6px!important;
+  top:.57em!important;
+  box-shadow:0 0 0 3px rgba(195,154,83,.08)!important;
+}
+
+/* ========================= GALERIA REALMENTE SIN MARCOS =========================
+   El contenedor ya no impone altura, fondo ni borde. La propia foto define
+   la altura de cada elemento, por lo que desaparece la caja vacia que se veia. */
+.bloque--galeria .carrusel-wrap{
+  margin-left:-14px!important;
+  margin-right:-14px!important;
+}
+.bloque--galeria .galeria{
+  gap:16px!important;
+  padding:10px 18px 18px!important;
+  align-items:center!important;
+}
+.bloque--galeria .carrusel__item{
+  flex:0 0 72%!important;
+  width:72%!important;
+  height:auto!important;
+  min-height:0!important;
+  max-height:none!important;
+  padding:0!important;
+  border:0!important;
+  outline:0!important;
+  border-radius:0!important;
+  background:none!important;
+  background-color:transparent!important;
+  background-image:none!important;
+  box-shadow:none!important;
+  overflow:visible!important;
+  align-self:center!important;
+}
+.bloque--galeria .carrusel__item .galeria__foto,
+.bloque--galeria .carrusel__item.es-horizontal .galeria__foto,
+.bloque--galeria .carrusel__item.es-vertical .galeria__foto{
+  display:block!important;
+  width:100%!important;
+  height:auto!important;
+  max-width:100%!important;
+  max-height:none!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  border:0!important;
+  outline:0!important;
+  border-radius:8px!important;
+  box-shadow:0 6px 15px rgba(65,45,20,.10)!important;
+}
+
+/* Cierre mas sencillo. */
+.cierre-visual{padding-top:20px!important}
+
+@media (max-width:420px){
+  .decoracion-esquina--superior{width:160px!important;opacity:.64!important}
+  .decoracion-esquina--inferior{width:170px!important;opacity:.64!important}
+  .icono-seccion{width:84px!important;height:84px!important}
+  .icono-seccion--grande{width:98px!important;height:98px!important}
+  .icono-seccion--lugar{width:96px!important;height:96px!important}
+  .icono-seccion--dress{width:102px!important;height:102px!important}
+  .timeline__item{grid-template-columns:72px 1fr!important;padding:10px 0!important}
+  .timeline__item span{font-size:17px!important}
+
+  .bloque--intro::before{
+    width:100%;
+    aspect-ratio:4/5;
+    margin:-20px auto 30px;
+    border-radius:14px;
+  }
+
+  .bloque--galeria .galeria{
+    gap:14px!important;
+    padding-left:14px!important;
+    padding-right:14px!important;
+  }
+  .bloque--galeria .carrusel__item{
+    flex-basis:72%!important;
+    width:72%!important;
+  }
+}
+
+@media (min-width:720px){
+  .bloque--galeria .carrusel__item{
+    flex-basis:58%!important;
+    width:58%!important;
+  }
+}

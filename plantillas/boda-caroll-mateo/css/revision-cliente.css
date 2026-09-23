@@ -1,0 +1,253 @@
+/* Revision final solicitada por el cliente: nombres consistentes + sello PNG real. */
+
+/* Caroll y Mateo comparten exactamente la misma familia, tamaño, peso y color. */
+.portada__nombres .nombre-caroll,
+.portada__nombres .nombre-mateo,
+.nombres-interior .nombre-caroll,
+.nombres-interior .nombre-mateo{
+  font-family:var(--f-script)!important;
+  font-size:inherit!important;
+  font-weight:400!important;
+  font-style:normal!important;
+  color:inherit!important;
+  line-height:1!important;
+  letter-spacing:0!important;
+  text-transform:none!important;
+}
+
+/* La M de Mateo sigue usando EXACTAMENTE la misma fuente.
+   Solo se aumenta ligeramente para que su forma se lea inequívocamente como mayúscula. */
+.portada__nombres .nombre-mateo::first-letter,
+.nombres-interior .nombre-mateo::first-letter{
+  font-family:inherit!important;
+  font-size:1.20em!important;
+  font-weight:inherit!important;
+  font-style:inherit!important;
+  color:inherit!important;
+  text-transform:uppercase!important;
+  line-height:.82!important;
+}
+
+/* Centrado robusto de toda la portada. */
+.portada{
+  justify-items:center!important;
+  align-items:center!important;
+}
+.portada__contenido{
+  width:min(calc(100vw - 30px),560px)!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+  padding-left:0!important;
+  padding-right:0!important;
+  align-items:center!important;
+  text-align:center!important;
+}
+
+/* Portada vertical aprobada: nombres sobre la pareja y sobre debajo de ellos. */
+.portada__eyebrow{
+  position:absolute!important;
+  top:9%!important;
+  left:50%!important;
+  transform:translateX(-50%)!important;
+  width:100%!important;
+  margin:0!important;
+}
+.portada__nombres{
+  position:absolute!important;
+  top:12%!important;
+  left:50%!important;
+  transform:translateX(-50%)!important;
+  width:100%!important;
+  margin:0!important;
+  font-family:"Alex Brush","Great Vibes","Pinyon Script",cursive!important;
+  font-size:clamp(76px,22vw,132px)!important;
+  line-height:.82!important;
+  gap:2px!important;
+  z-index:4!important;
+}
+.portada__nombres .nombre-caroll,
+.portada__nombres .nombre-mateo{
+  font-family:"Alex Brush","Great Vibes","Pinyon Script",cursive!important;
+  font-size:inherit!important;
+  line-height:inherit!important;
+  font-weight:400!important;
+}
+.portada__nombres .nombre-mateo::first-letter{
+  font-family:inherit!important;
+  font-size:inherit!important;
+  line-height:inherit!important;
+  text-transform:none!important;
+}
+.portada__nombres .amp-ajustado{
+  font-family:"Alex Brush","Great Vibes","Pinyon Script",cursive!important;
+  font-size:.36em!important;
+  line-height:1!important;
+  margin:0!important;
+}
+.nombres-interior .nombre-caroll,
+.nombres-interior .nombre-mateo,
+.nombres-interior .amp-ajustado{
+  font-family:"Alex Brush","Great Vibes","Pinyon Script",cursive!important;
+}
+.nombres-interior .nombre-mateo::first-letter{
+  font-family:inherit!important;
+  font-size:inherit!important;
+  text-transform:none!important;
+}
+.abrir-carta{
+  position:absolute!important;
+  left:50%!important;
+  bottom:10%!important;
+  transform:translateX(-50%)!important;
+  width:min(62vw,210px)!important;
+  height:135px!important;
+  margin:0!important;
+  z-index:5!important;
+}
+
+/* El botón/contenedor queda centrado y el sobre se ancla al 50% exacto. */
+.abrir-carta{
+  align-self:center!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+.abrir-carta__sobre{
+  left:50%!important;
+  right:auto!important;
+  width:90%!important;
+  height:125px!important;
+  margin:0!important;
+  transform:translateX(-50%)!important;
+  animation:sobre-boda-flota-centrado 3.5s ease-in-out infinite!important;
+}
+@keyframes sobre-boda-flota-centrado{
+  0%,100%{transform:translateX(-50%) translateY(0)}
+  50%{transform:translateX(-50%) translateY(-4px)}
+}
+.abrir-carta.abierto .abrir-carta__sobre{
+  animation:none!important;
+  transform:translateX(-50%)!important;
+}
+
+.invitacion{
+  overflow-x:hidden!important;
+}
+.hoja{
+  left:auto!important;
+  right:auto!important;
+  transform:none!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+
+/* Sello aprobado: imagen real PNG. */
+.abrir-carta__sello{
+  width:90px!important;
+  height:90px!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:none!important;
+  box-shadow:none!important;
+  filter:drop-shadow(0 7px 8px rgba(50,27,7,.34));
+  color:transparent!important;
+  font-size:0!important;
+  line-height:0!important;
+  overflow:visible!important;
+}
+.abrir-carta__sello img{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  max-width:none!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  opacity:1!important;
+  visibility:visible!important;
+  pointer-events:none!important;
+}
+.abrir-carta__sello::before,
+.abrir-carta__sello::after{
+  display:none!important;
+}
+
+/* El pulso acompaña el nuevo diámetro del sello sin taparlo. */
+.abrir-carta::after{
+  width:92px!important;
+  height:92px!important;
+  border-color:rgba(239,216,159,.68)!important;
+}
+
+.abrir-carta.abierto .abrir-carta__sello{
+  transform:translate(-50%,-50%) scale(.28) rotate(-6deg)!important;
+  opacity:0!important;
+}
+
+/* Ajuste final: vertical compacta y horizontal a todo el ancho. */
+.bloque--galeria .carrusel__item,
+.bloque--galeria .carrusel__item.es-vertical{
+  flex:0 0 72%!important;
+  width:72%!important;
+  height:auto!important;
+  min-height:0!important;
+  max-height:none!important;
+}
+.bloque--galeria .carrusel__item .galeria__foto,
+.bloque--galeria .carrusel__item.es-vertical .galeria__foto{
+  width:100%!important;
+  height:auto!important;
+  max-width:100%!important;
+  max-height:none!important;
+  object-fit:contain!important;
+}
+
+/* La horizontal ocupa todo el ancho visible del carrusel. */
+.bloque--galeria .carrusel__item.es-horizontal{
+  width:calc(100% - 2px)!important;
+  flex-basis:calc(100% - 2px)!important;
+  height:auto!important;
+  max-height:none!important;
+  align-self:center!important;
+}
+.bloque--galeria .carrusel__item.es-horizontal .galeria__foto{
+  width:100%!important;
+  height:auto!important;
+  max-width:100%!important;
+  max-height:none!important;
+  object-fit:contain!important;
+}
+
+@media (max-width:420px){
+  .portada__contenido{
+    width:100%!important;
+    max-width:100%!important;
+  }
+  .abrir-carta{
+    width:min(62vw,210px)!important;
+    bottom:9%!important;
+    height:130px!important;
+  }
+  .portada__nombres{
+    top:12%!important;
+    font-size:clamp(72px,21vw,104px)!important;
+  }
+  .abrir-carta__sobre{
+    left:50%!important;
+    right:auto!important;
+    width:88%!important;
+    height:120px!important;
+  }
+  .abrir-carta__sello{
+    width:84px!important;
+    height:84px!important;
+  }
+  .abrir-carta::after{
+    width:86px!important;
+    height:86px!important;
+  }
+  .hoja{
+    width:min(calc(100vw - 18px),var(--ancho))!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+  }
+}

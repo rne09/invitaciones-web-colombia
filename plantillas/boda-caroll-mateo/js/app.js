@@ -1,9 +1,9 @@
-
-const DATOS = (function(){var x=new XMLHttpRequest();x.open("GET","datos.json?t="+Date.now(),false);x.send();return JSON.parse(x.responseText);})();
 (function () {
   "use strict";
+
   const $ = (sel) => document.querySelector(sel);
   const $$ = (sel) => Array.from(document.querySelectorAll(sel));
+
   function pintarTextos() {
     $$("[data-campo]").forEach((el) => {
       const valor = DATOS[el.dataset.campo];
@@ -17,21 +17,26 @@ const DATOS = (function(){var x=new XMLHttpRequest();x.open("GET","datos.json?t=
     });
     document.title = `${DATOS.evento || "Invitación"} - ${DATOS.novio || ""} & ${DATOS.novia || ""}`;
   }
+
   function pintarEnlaces() {
     const ceremonia = $("#btnMapaCeremonia");
     const recepcion = $("#btnMapaRecepcion");
     if (ceremonia) ceremonia.href = DATOS.mapaCeremonia || "#";
     if (recepcion) recepcion.href = DATOS.mapaRecepcion || "#";
+
     const wa = $("#btnWhatsapp");
     const nombreInvitado = $("#nombreInvitado");
     const bloqueConfirmar = $(".bloque--confirmar");
     const num = (DATOS.whatsapp || "").replace(/\D/g, "");
+
     if (!wa || !num) {
       if (wa) wa.hidden = true;
       if (bloqueConfirmar) bloqueConfirmar.hidden = true;
       return;
     }
+
     if (bloqueConfirmar) bloqueConfirmar.hidden = false;
+
     const actualizar = () => {
       const nombre = nombreInvitado ? nombreInvitado.value.trim() : "";
       const base = DATOS.whatsappMensaje || "";
@@ -40,6 +45,7 @@ const DATOS = (function(){var x=new XMLHttpRequest();x.open("GET","datos.json?t=
         : base.replace("soy {nombre} y ", "").replace("Soy {nombre} y ", "");
       wa.href = `https://wa.me/${num}?text=${encodeURIComponent(mensaje)}`;
     };
+
     if (nombreInvitado) {
       try {
         const guardado = localStorage.getItem("bodaNombreInvitado");
@@ -52,6 +58,7 @@ const DATOS = (function(){var x=new XMLHttpRequest();x.open("GET","datos.json?t=
     }
     actualizar();
   }
+
   function iconoTimeline(texto) {
     const t = String(texto || "").toLowerCase();
     if (t.includes("eucarist") || t.includes("ceremon")) return "img/iglesia.webp";
@@ -62,13 +69,15 @@ const DATOS = (function(){var x=new XMLHttpRequest();x.open("GET","datos.json?t=
     if (t.includes("ramo")) return "img/flores-separadores.webp";
     return "img/anillos.webp";
   }
+
   function pintarTimeline() {
     const cont = $("#timeline");
     if (!cont) return;
     cont.innerHTML = "";
-    (DATOS.timeline || []).forEach(({hora, texto}) => {
+    (DATOS.timeline || []).forEach(([hora, texto]) => {
       const item = document.createElement("div");
       item.className = "timeline__item";
+
       const icono = document.createElement("div");
       icono.className = "timeline__icono";
       icono.setAttribute("aria-hidden", "true");
@@ -78,29 +87,35 @@ const DATOS = (function(){var x=new XMLHttpRequest();x.open("GET","datos.json?t=
       img.loading = "lazy";
       img.decoding = "async";
       icono.appendChild(img);
+
       const time = document.createElement("time");
       time.textContent = hora;
       const span = document.createElement("span");
       span.textContent = texto;
+
       item.append(icono, time, span);
       cont.appendChild(item);
     });
   }
+
   let fotoActual = 0;
   let carruselActual = 0;
   let carruselTimer = null;
+
   function pintarGaleria() {
     const cont = $("#galeria");
     const puntos = $("#carruselPuntos");
     if (!cont) return;
     cont.innerHTML = "";
     if (puntos) puntos.innerHTML = "";
+
     const fotos = DATOS.fotos || [];
     fotos.forEach((src, i) => {
       const item = document.createElement("button");
       item.type = "button";
       item.className = "carrusel__item";
       item.setAttribute("aria-label", `Ver foto ${i + 1} de Mateo y Carol en grande`);
+
       const img = document.createElement("img");
       img.src = src;
       img.alt = `Foto ${i + 1} de Mateo y Carol`;
@@ -112,9 +127,11 @@ const DATOS = (function(){var x=new XMLHttpRequest();x.open("GET","datos.json?t=
         item.classList.toggle("es-vertical", vertical);
         item.classList.toggle("es-horizontal", !vertical);
       });
+
       item.appendChild(img);
       item.addEventListener("click", () => abrirLightbox(i));
       cont.appendChild(item);
+
       if (puntos) {
         const punto = document.createElement("button");
         punto.type = "button";
@@ -124,20 +141,24 @@ const DATOS = (function(){var x=new XMLHttpRequest();x.open("GET","datos.json?t=
         puntos.appendChild(punto);
       }
     });
+
     if (!fotos.length) {
       const bloque = cont.closest(".bloque");
       if (bloque) bloque.hidden = true;
       return;
     }
+
     actualizarPuntos(0);
     prepararCarrusel();
     prepararLightbox();
   }
+
   function actualizarPuntos(indice) {
     $$(".carrusel-punto").forEach((punto, i) => {
       punto.classList.toggle("activo", i === indice);
     });
   }
+
   function irAFotoCarrusel(indice, reiniciar = false) {
     const cont = $("#galeria");
     const items = $$("#galeria .carrusel__item");
@@ -150,14 +171,17 @@ const DATOS = (function(){var x=new XMLHttpRequest();x.open("GET","datos.json?t=
     actualizarPuntos(carruselActual);
     if (reiniciar) reiniciarCarruselAutomatico();
   }
+
   function prepararCarrusel() {
     const cont = $("#galeria");
     const prev = $("#prevFoto");
     const next = $("#nextFoto");
     const items = $$("#galeria .carrusel__item");
     if (!cont || !items.length) return;
+
     prev?.addEventListener("click", () => irAFotoCarrusel(carruselActual - 1, true));
     next?.addEventListener("click", () => irAFotoCarrusel(carruselActual + 1, true));
+
     let rafPendiente = false;
     cont.addEventListener("scroll", () => {
       if (rafPendiente) return;
@@ -179,12 +203,15 @@ const DATOS = (function(){var x=new XMLHttpRequest();x.open("GET","datos.json?t=
         actualizarPuntos(mejor);
       });
     }, { passive: true });
+
     ["pointerdown", "touchstart", "wheel"].forEach((evento) => {
       cont.addEventListener(evento, reiniciarCarruselAutomatico, { passive: true });
     });
+
     window.addEventListener("resize", () => irAFotoCarrusel(carruselActual));
     iniciarCarruselAutomatico();
   }
+
   function iniciarCarruselAutomatico() {
     detenerCarruselAutomatico();
     if ((DATOS.fotos || []).length < 2) return;
@@ -195,15 +222,18 @@ const DATOS = (function(){var x=new XMLHttpRequest();x.open("GET","datos.json?t=
       irAFotoCarrusel(carruselActual + 1);
     }, 4800);
   }
+
   function detenerCarruselAutomatico() {
     if (carruselTimer) {
       clearInterval(carruselTimer);
       carruselTimer = null;
     }
   }
+
   function reiniciarCarruselAutomatico() {
     iniciarCarruselAutomatico();
   }
+
   function prepararLightbox() {
     const lightbox = $("#lightbox");
     const fondo = $("#lightboxFondo");
@@ -211,10 +241,12 @@ const DATOS = (function(){var x=new XMLHttpRequest();x.open("GET","datos.json?t=
     const prev = $("#lbPrev");
     const next = $("#lbNext");
     if (!lightbox) return;
+
     fondo?.addEventListener("click", cerrarLightbox);
     cerrar?.addEventListener("click", cerrarLightbox);
     prev?.addEventListener("click", () => cambiarFotoLightbox(-1));
     next?.addEventListener("click", () => cambiarFotoLightbox(1));
+
     let inicioX = null;
     lightbox.addEventListener("touchstart", (e) => {
       inicioX = e.changedTouches?.[0]?.clientX ?? null;
@@ -227,6 +259,7 @@ const DATOS = (function(){var x=new XMLHttpRequest();x.open("GET","datos.json?t=
       if (Math.abs(delta) > 55) cambiarFotoLightbox(delta > 0 ? -1 : 1);
     }, { passive: true });
   }
+
   function abrirLightbox(indice) {
     const lightbox = $("#lightbox");
     if (!lightbox || !(DATOS.fotos || []).length) return;
@@ -237,6 +270,7 @@ const DATOS = (function(){var x=new XMLHttpRequest();x.open("GET","datos.json?t=
     detenerCarruselAutomatico();
     $("#cerrarLightbox")?.focus();
   }
+
   function cerrarLightbox() {
     const lightbox = $("#lightbox");
     if (!lightbox || lightbox.hidden) return;
@@ -244,12 +278,14 @@ const DATOS = (function(){var x=new XMLHttpRequest();x.open("GET","datos.json?t=
     document.body.classList.remove("modal-abierto");
     iniciarCarruselAutomatico();
   }
+
   function cambiarFotoLightbox(paso) {
     const total = (DATOS.fotos || []).length;
     if (!total) return;
     fotoActual = (fotoActual + paso + total) % total;
     pintarFotoLightbox();
   }
+
   function pintarFotoLightbox() {
     const img = $("#lightboxImg");
     const contador = $("#lightboxContador");
@@ -259,9 +295,11 @@ const DATOS = (function(){var x=new XMLHttpRequest();x.open("GET","datos.json?t=
     img.alt = `Foto ${fotoActual + 1} de Mateo y Carol`;
     if (contador) contador.textContent = `${fotoActual + 1} / ${fotos.length}`;
   }
+
   const audio = $("#audio");
   const btnMus = $("#btnMusica");
   const controlMus = $("#controlMusica");
+
   function prepararMusica() {
     if (!DATOS.musica || !audio || !btnMus) {
       if (controlMus) controlMus.hidden = true;
@@ -274,6 +312,7 @@ const DATOS = (function(){var x=new XMLHttpRequest();x.open("GET","datos.json?t=
     audio.addEventListener("play", () => marcarMusica(true));
     audio.addEventListener("pause", () => marcarMusica(false));
   }
+
   function marcarMusica(sonando) {
     if (!btnMus) return;
     btnMus.classList.toggle("sonando", sonando);
@@ -281,11 +320,13 @@ const DATOS = (function(){var x=new XMLHttpRequest();x.open("GET","datos.json?t=
     if (texto) texto.textContent = sonando ? "Pause" : "Play";
     btnMus.setAttribute("aria-label", sonando ? "Pausar música" : "Reproducir música");
   }
+
   function reproducir() {
     if (!audio || !DATOS.musica) return;
     const intento = audio.play();
     if (intento && intento.catch) intento.catch(() => {});
   }
+
   function arrancarCuenta() {
     const destino = new Date(DATOS.fechaISO).getTime();
     const bloque = $(".bloque--cuenta");
@@ -293,9 +334,11 @@ const DATOS = (function(){var x=new XMLHttpRequest();x.open("GET","datos.json?t=
       if (bloque) bloque.hidden = true;
       return;
     }
+
     const dd = $("#cDias"), hh = $("#cHoras"), mm = $("#cMin"), ss = $("#cSeg");
     const dos = (n) => String(n).padStart(2, "0");
     let reloj = null;
+
     function tick() {
       const falta = destino - Date.now();
       if (falta <= 0) {
@@ -309,17 +352,21 @@ const DATOS = (function(){var x=new XMLHttpRequest();x.open("GET","datos.json?t=
       mm.textContent = dos(Math.floor(seg % 3600 / 60));
       ss.textContent = dos(seg % 60);
     }
+
     tick();
     reloj = setInterval(tick, 1000);
   }
+
   function prepararApertura() {
     const portada = $("#portada");
     const invitacion = $("#invitacion");
     const abrir = $("#abrirSobre");
     const volver = $("#btnVolverPortada");
     if (!portada || !invitacion || !abrir) return;
+
     let abierta = false;
     document.body.classList.add("bloqueado");
+
     function mostrar() {
       if (abierta) return;
       abierta = true;
@@ -335,6 +382,7 @@ const DATOS = (function(){var x=new XMLHttpRequest();x.open("GET","datos.json?t=
         observarBloques();
       }, 1200);
     }
+
     function regresar() {
       abierta = false;
       portada.hidden = false;
@@ -345,9 +393,11 @@ const DATOS = (function(){var x=new XMLHttpRequest();x.open("GET","datos.json?t=
       document.body.classList.add("bloqueado");
       window.scrollTo(0, 0);
     }
+
     abrir.addEventListener("click", mostrar);
     volver?.addEventListener("click", regresar);
   }
+
   function observarBloques() {
     const bloques = $$(".revelar");
     if (!("IntersectionObserver" in window)) {
@@ -364,6 +414,7 @@ const DATOS = (function(){var x=new XMLHttpRequest();x.open("GET","datos.json?t=
     }, { threshold: 0.01, rootMargin: "0px 0px 18% 0px" });
     bloques.forEach((b) => obs.observe(b));
   }
+
   document.addEventListener("keydown", (e) => {
     const lightbox = $("#lightbox");
     if (!lightbox || lightbox.hidden) return;
@@ -371,13 +422,16 @@ const DATOS = (function(){var x=new XMLHttpRequest();x.open("GET","datos.json?t=
     if (e.key === "ArrowLeft") cambiarFotoLightbox(-1);
     if (e.key === "ArrowRight") cambiarFotoLightbox(1);
   });
+
   document.addEventListener("visibilitychange", () => {
     if (!document.hidden) reiniciarCarruselAutomatico();
   });
+
   function paso(nombre, fn) {
     try { fn(); }
     catch (e) { console.error("[boda] fallo en " + nombre, e); }
   }
+
   paso("textos", pintarTextos);
   paso("enlaces", pintarEnlaces);
   paso("timeline", pintarTimeline);
@@ -385,188 +439,4 @@ const DATOS = (function(){var x=new XMLHttpRequest();x.open("GET","datos.json?t=
   paso("cuenta", arrancarCuenta);
   paso("musica", prepararMusica);
   paso("apertura", prepararApertura);
-})();
-(function () {
-  "use strict";
-  function iniciarGaleriaContinua() {
-    const galeria = document.querySelector("#galeria");
-    if (!galeria || galeria.dataset.movimientoContinuo === "1") return;
-    const items = galeria.querySelectorAll(".carrusel__item");
-    if (items.length < 2) {
-      requestAnimationFrame(iniciarGaleriaContinua);
-      return;
-    }
-    galeria.dataset.movimientoContinuo = "1";
-    const scrollToNativo = galeria.scrollTo.bind(galeria);
-    const prefersReduced = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
-    let direccion = 1;
-    let velocidad = 0;
-    const velocidadBase = prefersReduced ? 0 : 18; // px/segundo: movimiento intencionalmente lento
-    let ultimoTiempo = performance.now();
-    let pausaHasta = 0;
-    let permitirSaltoHasta = 0;
-    let animacionManual = 0;
-    function maxScroll() {
-      return Math.max(0, galeria.scrollWidth - galeria.clientWidth);
-    }
-    function pausar(ms = 2300) {
-      pausaHasta = performance.now() + ms;
-    }
-    function marcarControlManual() {
-      permitirSaltoHasta = performance.now() + 1000;
-      pausar(2600);
-    }
-    function cancelarAnimacionManual() {
-      if (!animacionManual) return;
-      cancelAnimationFrame(animacionManual);
-      animacionManual = 0;
-    }
-    function easeInOutCubic(t) {
-      return t < 0.5
-        ? 4 * t * t * t
-        : 1 - Math.pow(-2 * t + 2, 3) / 2;
-    }
-    function desplazarManual(destino, duracion = 720) {
-      cancelarAnimacionManual();
-      const limite = maxScroll();
-      const final = Math.max(0, Math.min(limite, destino));
-      const inicio = galeria.scrollLeft;
-      const distancia = final - inicio;
-      if (Math.abs(distancia) < 1) return;
-      const comienzo = performance.now();
-      function frame(ahora) {
-        const progreso = Math.min(1, (ahora - comienzo) / duracion);
-        galeria.scrollLeft = inicio + distancia * easeInOutCubic(progreso);
-        if (progreso < 1) animacionManual = requestAnimationFrame(frame);
-        else animacionManual = 0;
-      }
-      animacionManual = requestAnimationFrame(frame);
-    }
-    galeria.scrollTo = function (opciones, y) {
-      if (typeof opciones === "object" && opciones !== null && Number.isFinite(opciones.left)) {
-        if (opciones.behavior === "smooth") {
-          if (performance.now() <= permitirSaltoHasta) {
-            desplazarManual(opciones.left);
-          }
-          return;
-        }
-      }
-      if (typeof opciones === "number" && Number.isFinite(opciones)) {
-        scrollToNativo(opciones, Number.isFinite(y) ? y : 0);
-        return;
-      }
-      scrollToNativo(opciones);
-    };
-    document.querySelector("#prevFoto")?.addEventListener("click", marcarControlManual, true);
-    document.querySelector("#nextFoto")?.addEventListener("click", marcarControlManual, true);
-    document.querySelector("#carruselPuntos")?.addEventListener("click", marcarControlManual, true);
-    ["pointerdown", "touchstart", "wheel"].forEach((evento) => {
-      galeria.addEventListener(evento, () => {
-        cancelarAnimacionManual();
-        pausar(2800);
-      }, { passive: true });
-    });
-    function mover(ahora) {
-      const dt = Math.min(0.05, Math.max(0, (ahora - ultimoTiempo) / 1000));
-      ultimoTiempo = ahora;
-      const invitacion = document.querySelector("#invitacion");
-      const lightbox = document.querySelector("#lightbox");
-      const visible = invitacion?.classList.contains("visible") && (!lightbox || lightbox.hidden);
-      if (!prefersReduced && visible && ahora >= pausaHasta && !animacionManual) {
-        const limite = maxScroll();
-        if (limite > 1) {
-          if (galeria.scrollLeft >= limite - 0.5 && direccion > 0) direccion = -1;
-          if (galeria.scrollLeft <= 0.5 && direccion < 0) direccion = 1;
-          const objetivo = direccion * velocidadBase;
-          const suavizado = Math.min(1, dt * 2.6);
-          velocidad += (objetivo - velocidad) * suavizado;
-          let siguiente = galeria.scrollLeft + velocidad * dt;
-          if (siguiente < 0) siguiente = 0;
-          if (siguiente > limite) siguiente = limite;
-          galeria.scrollLeft = siguiente;
-        }
-      } else {
-        velocidad *= Math.max(0, 1 - dt * 4);
-      }
-      requestAnimationFrame(mover);
-    }
-    requestAnimationFrame(mover);
-  }
-  if (document.readyState === "complete") iniciarGaleriaContinua();
-  else window.addEventListener("load", iniciarGaleriaContinua, { once: true });
-})();
-(function () {
-  "use strict";
-  function ordenarNombres(selector) {
-    const bloque = document.querySelector(selector);
-    if (!bloque || bloque.dataset.ordenNombres === "1") return;
-    const caroll = bloque.querySelector('[data-campo="novia"]');
-    const mateo = bloque.querySelector('[data-campo="novio"]');
-    let amp = bloque.querySelector(".amp");
-    if (!amp) {
-      amp = Array.from(bloque.children).find((el) => !el.hasAttribute("data-campo"));
-    }
-    if (!caroll || !mateo || !amp) return;
-    caroll.classList.add("nombre-caroll");
-    mateo.classList.add("nombre-mateo");
-    amp.classList.add("amp-ajustado");
-    mateo.textContent = "Mateo";
-    bloque.append(caroll, amp, mateo);
-    bloque.classList.add("nombres-ordenados");
-    bloque.dataset.ordenNombres = "1";
-  }
-  function actualizarTextosEstaticos() {
-    document.title = "Boda Caroll & Mateo";
-    const descripcion = document.querySelector('meta[name="description"]');
-    if (descripcion) descripcion.content = "Invitación a la boda de Caroll y Mateo. 31 de octubre de 2026, Valledupar.";
-    const ogTitulo = document.querySelector('meta[property="og:title"]');
-    if (ogTitulo) ogTitulo.content = "Caroll & Mateo";
-    const portada = document.querySelector(".portada");
-    if (portada) portada.setAttribute("aria-label", "Portada de la invitación de Caroll y Mateo");
-    const fotoPortada = document.querySelector(".portada__foto");
-    if (fotoPortada) fotoPortada.alt = "Caroll y Mateo";
-    const abrir = document.querySelector("#abrirSobre");
-    if (abrir) abrir.setAttribute("aria-label", "Abrir invitación de Caroll y Mateo");
-    const galeria = document.querySelector("#galeria");
-    if (galeria) galeria.setAttribute("aria-label", "Galería de Caroll y Mateo");
-  }
-  function limpiarContenidoGenerado() {
-    document.querySelectorAll(".timeline__icono").forEach((icono) => icono.remove());
-    document.querySelectorAll("#galeria .carrusel__item").forEach((item, i) => {
-      item.setAttribute("aria-label", `Ver foto ${i + 1} de Caroll y Mateo en grande`);
-    });
-    document.querySelectorAll("#galeria .galeria__foto").forEach((img, i) => {
-      img.alt = `Foto ${i + 1} de Caroll y Mateo`;
-    });
-  }
-  function agregarFotoInterior() {
-    const intro = document.querySelector(".bloque--intro");
-    if (!intro || document.querySelector(".foto-despues-separador")) return;
-    const marco = document.createElement("div");
-    marco.className = "foto-despues-separador revelar";
-    const img = document.createElement("img");
-    img.src = "img/foto-2-web.webp";
-    img.alt = "Caroll y Mateo";
-    img.loading = "eager";
-    img.decoding = "async";
-    marco.appendChild(img);
-    intro.insertAdjacentElement("afterend", marco);
-    requestAnimationFrame(() => marco.classList.add("dentro"));
-  }
-  function aplicarAjustes() {
-    ordenarNombres(".portada__nombres");
-    ordenarNombres(".nombres-interior");
-    actualizarTextosEstaticos();
-    agregarFotoInterior();
-    limpiarContenidoGenerado();
-    requestAnimationFrame(() => {
-      actualizarTextosEstaticos();
-      limpiarContenidoGenerado();
-    });
-  }
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", aplicarAjustes, { once:true });
-  } else {
-    aplicarAjustes();
-  }
 })();
