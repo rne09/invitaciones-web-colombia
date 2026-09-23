@@ -2604,3 +2604,10 @@ h1,h2{
 .simple-how span .ic{ width:18px; height:18px; }
 .simple-card span{ display:inline-flex; align-items:center; gap:4px; }
 .float-wa .ic{ width:28px; height:28px; }
+
+/* Miniaturas en telefono */
+.phone{ position:relative; aspect-ratio:9/18; padding:7px; border-radius:26px; background:#1d1f24; box-shadow:0 10px 24px rgba(23,21,17,.18), inset 0 0 0 1.5px #3a3d44; }
+.phone::before{ content:""; position:absolute; top:12px; left:50%; width:30%; height:9px; transform:translateX(-50%); border-radius:9px; background:#1d1f24; z-index:1; }
+.phone img{ width:100%; height:100%; object-fit:cover; object-position:top; border-radius:20px; background:#f3eee6; }
+.simple-card{ padding:10px 10px 12px; }
+.simple-card:hover .phone{ transform:translateY(-3px); transition:transform .2s; }

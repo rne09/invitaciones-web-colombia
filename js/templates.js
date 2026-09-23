@@ -1,12 +1,22 @@
 window.TEMPLATE_CATALOG = [
   {
+    name: "Sobre Dorado",
+    event: "Boda",
+    style: "Romantico",
+    package: "Personalizado",
+    price: "Desde $90.000",
+    href: "../invitaciones-web-bodas/",
+    demoHref: "../plantillas/boda-caroll-mateo/",
+    preview: "preview--wedding"
+  },
+  {
     name: "Azul Toile",
     event: "Baby Shower",
     style: "Infantil elegante",
     package: "Basico",
     price: "Desde $50.000",
     href: "../invitaciones-baby-shower/",
-    demoHref: "../demos/baby-shower-azul/",
+    demoHref: "../plantillas/baby-shower-thiago/",
     preview: "preview--baby"
   },
   {
