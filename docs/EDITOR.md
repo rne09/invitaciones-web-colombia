@@ -7,7 +7,7 @@ El editor es **Pages CMS** (gratis). Guarda los cambios en GitHub y Netlify publ
 - La primera vez: *Sign in with GitHub* con la cuenta dueña del repositorio y autoriza la app de Pages CMS para el repositorio `rne09/invitaciones-web-colombia`.
 
 ## Invitar a otra persona
-En el editor, entra a **Settings → Collaborators**, escribe su correo e invita. Le llega un enlace por correo y entra sin contraseña ni cuenta de GitHub. Para quitarle el acceso, bórrala de la misma lista.
+En el editor, entra a **Collaborators** (menú lateral), escribe su correo e invita. Le llega un enlace por correo y entra sin contraseña ni cuenta de GitHub. Para quitarle el acceso, bórrala de la misma lista.
 
 ## Qué se puede editar
 - **Precios y WhatsApp de la página**: número del negocio, Instagram y los 3 paquetes.
