@@ -161,7 +161,32 @@
     });
   }
 
+  function cargarSitio() {
+    const base = document.querySelector('script[src$="js/app.js"]').getAttribute("src").replace("js/app.js", "");
+    fetch(base + "data/sitio.json", { cache: "no-cache" })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((sitio) => {
+        if (!sitio) return;
+        if (sitio.whatsapp) config.whatsapp = String(sitio.whatsapp).replace(/\D/g, "");
+        actualizarWhatsApp();
+        (sitio.precios || []).forEach((precio, i) => {
+          const card = document.querySelector('[data-precio="' + i + '"]');
+          if (!card) return;
+          const set = (k, v) => { const el = card.querySelector('[data-p="' + k + '"]'); if (el && v) el.textContent = v; };
+          set("nombre", precio.nombre);
+          set("precio", precio.precio);
+          const ul = card.querySelector('[data-p="incluye"]');
+          if (ul && Array.isArray(precio.incluye)) {
+            ul.innerHTML = "";
+            precio.incluye.forEach((t) => { const li = document.createElement("li"); li.textContent = t; ul.appendChild(li); });
+          }
+        });
+      })
+      .catch(() => {});
+  }
+
   actualizarWhatsApp();
+  cargarSitio();
   prepararPedido();
   prepararCatalogo();
 })();
