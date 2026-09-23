@@ -2,7 +2,7 @@
 media:
   - name: boda
     label: Fotos boda Sobre Dorado
-    input: plantillas/boda-caroll-mateo/img
+    input: plantillas/boda-juliana-pedro/img
     output: img
   - name: baby
     label: Fotos baby shower Azul Toile
@@ -30,7 +30,7 @@ content:
   - name: boda
     label: "Plantilla boda: Sobre Dorado"
     type: file
-    path: plantillas/boda-caroll-mateo/datos.json
+    path: plantillas/boda-juliana-pedro/datos.json
     format: json
     fields:
       - { name: novia, label: Nombre de la novia, type: string }
@@ -38,6 +38,7 @@ content:
       - { name: evento, label: Tipo de evento, type: string }
       - { name: selloInicial, label: Iniciales del sello, type: string }
       - { name: fechaISO, label: "Fecha y hora para la cuenta regresiva (AAAA-MM-DDTHH:MM, ej. 2026-10-31T15:00)", type: string }
+      - { name: muestra, label: "Es plantilla de muestra (la cuenta regresiva nunca se vence)", type: boolean }
       - { name: diaSemana, label: Día de la semana, type: string }
       - { name: diaNumero, label: Día (número), type: string }
       - { name: mes, label: Mes, type: string }
@@ -81,6 +82,7 @@ content:
       - { name: papa, label: Nombre del papá, type: string }
       - { name: selloInicial, label: "Letra del sello (vacío = inicial del bebé)", type: string }
       - { name: fechaISO, label: "Fecha y hora para la cuenta regresiva (AAAA-MM-DDTHH:MM, ej. 2026-08-15T10:30)", type: string }
+      - { name: muestra, label: "Es plantilla de muestra (la cuenta regresiva nunca se vence)", type: boolean }
       - { name: diaSemana, label: Día de la semana, type: string }
       - { name: diaNumero, label: Día (número), type: string }
       - { name: mes, label: Mes, type: string }

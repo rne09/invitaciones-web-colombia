@@ -178,7 +178,9 @@
      5. Cuenta regresiva
      --------------------------------------------------------------- */
   function arrancarCuenta() {
-    const destino = new Date(DATOS.fechaISO).getTime();
+    let destino = new Date(DATOS.fechaISO).getTime();
+    /* Plantilla de muestra: la cuenta regresiva nunca se vence (se reinicia cada 60 dias). */
+    if (DATOS.muestra) { const ciclo = 60 * 864e5; destino = (Math.floor(Date.now() / ciclo) + 1) * ciclo + ciclo / 2; }
     const bloque  = $(".bloque--cuenta");
     if (isNaN(destino)) { if (bloque) bloque.hidden = true; return; }
 

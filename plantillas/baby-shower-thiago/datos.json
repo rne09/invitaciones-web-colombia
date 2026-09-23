@@ -31,5 +31,6 @@
   "patronTamano": 720,
   "arco": "img/arco-portada-limpio.webp",
   "fondoToile": "#fdfdfb",
-  "mostrarMono": true
+  "mostrarMono": true,
+  "muestra": true
 }
