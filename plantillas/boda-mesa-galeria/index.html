@@ -22,7 +22,7 @@
   })();
 </script>
 </head>
-<body class="cerrado">
+<body class="cerrado iconos--circulo">
 
 <section class="portada" id="portada" aria-label="Portada">
   <div class="arte"></div>
@@ -48,6 +48,7 @@
     <p class="eti">Celebra con nosotros</p>
     <h2 class="nombre" data-campo="nombre"></h2>
     <p class="frase">Una mesa larga, velas encendidas y la gente que más queremos. Así soñamos nuestra boda.</p>
+    <p class="saludo" id="saludoInvitado" hidden><b></b><span></span></p>
   </header>
 
   <div class="separador revelar" aria-hidden="true"></div>
@@ -85,17 +86,32 @@
   <section class="revelar">
     <div class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><ellipse cx="24" cy="22" rx="16" ry="6"/><path d="M24 28v12M16 42h16M8 22v8M40 22v8"/></svg></div>
     <h3 class="tit">Encuentra tu mesa</h3>
-    <p class="sub">Escribe el código que llegó con tu invitación</p>
-    <input class="campo" id="codigoMesa" type="text" placeholder="Ej: LAURA24" autocomplete="off">
-    <p class="resultado" id="resultadoMesa"></p>
+    <p class="sub">Escribe el código de tu invitación o tu nombre</p>
+    <input class="campo" id="codigoMesa" type="text" placeholder="Ej: FAMGOMEZ o Carolina" autocomplete="off">
+    <div class="resultado" id="resultadoMesa"></div>
     <button class="boton boton--claro" id="btnMesa" type="button">Buscar mi mesa</button>
   </section>
   <div class="separador revelar" aria-hidden="true"></div>
   <section class="revelar">
     <div class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="12" width="36" height="28" rx="4"/><path d="M17 12l3-5h8l3 5"/><circle cx="24" cy="26" r="7"/></svg></div>
     <h3 class="tit">Galería de invitados</h3>
-    <p class="sub">El día de la boda podrás subir aquí tus fotos y ver las de todos.</p>
-    <span class="boton boton--claro" aria-disabled="true">Disponible el día del evento</span>
+    <p class="sub">Comparte las fotos que tomes en la boda. ¡Todos podrán verlas aquí!</p>
+    <input class="campo" id="autorFoto" type="text" placeholder="Tu nombre" autocomplete="name">
+    <label class="boton boton-subir">📸 Subir mis fotos<input id="subirFotos" type="file" accept="image/*" multiple></label>
+    <p class="estado" id="estadoGaleria">Cargando fotos…</p>
+    <div class="galeria" id="galeria"></div>
+  </section>
+  <div class="separador revelar" aria-hidden="true"></div>
+  <section class="revelar">
+    <div class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 36V10l22-4v26"/><circle cx="13" cy="36" r="5"/><circle cx="35" cy="32" r="5"/><path d="M18 17l22-4"/></svg></div>
+    <h3 class="tit">Nuestra playlist</h3>
+    <p class="sub">La música que sonará en la fiesta. ¿Falta tu canción? ¡Sugiérela!</p>
+    <div class="playlist" id="playlist"></div>
+    <a class="boton boton--claro" id="abrirPlaylist" href="#" target="_blank" rel="noopener">Abrir playlist</a>
+    <div class="dos-campos"><input class="campo" id="cancion" type="text" placeholder="Canción"><input class="campo" id="artista" type="text" placeholder="Artista"></div>
+    <button class="boton" id="btnCancion" type="button">Sugerir canción</button>
+    <p class="estado" id="estadoCancion"></p>
+    <ul class="canciones" id="listaCanciones"></ul>
   </section>
   <div class="separador revelar" aria-hidden="true"></div>
   <section class="revelar">
@@ -105,6 +121,7 @@
     <label class="oculto" for="nombreInvitado">Tu nombre</label>
     <input class="campo" id="nombreInvitado" type="text" placeholder="Escribe tu nombre" autocomplete="name">
     <p class="error" id="errorNombre" hidden>Escribe tu nombre para confirmar</p>
+    <select class="selector" id="cuposInvitado" aria-label="Cuántos asisten"><option value="1">1 persona</option><option value="2">2 personas</option></select>
     <button class="boton" id="btnConfirmar" type="button">Confirmar por WhatsApp</button>
     <p class="nota">Invitación personal. Celebración para adultos.</p>
   </section>
@@ -118,5 +135,6 @@
 <audio id="audio" preload="auto" loop></audio>
 <script src="js/datos.js"></script>
 <script src="js/app.js"></script>
+<script src="js/premium.js"></script>
 </body>
 </html>

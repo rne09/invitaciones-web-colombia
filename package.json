@@ -1,0 +1,9 @@
+{
+  "name": "invitaciones-web-colombia",
+  "private": true,
+  "description": "Sitio y funciones Premium (galería de invitados y canciones) de Invitaciones Web Colombia",
+  "type": "module",
+  "dependencies": {
+    "@netlify/blobs": "^11.1.1"
+  }
+}

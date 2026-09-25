@@ -1,5 +1,27 @@
 window.TEMPLATE_CATALOG = [
   {
+    name: "Premium Olivo",
+    event: "Boda",
+    style: "Jardin",
+    package: "Premium",
+    price: "Desde $180.000",
+    href: "../invitaciones-web-bodas/",
+    demoHref: "../plantillas/boda-premium-olivo/",
+    preview: "preview--wedding",
+    thumb: "../assets/miniaturas/boda-premium-olivo.webp"
+  },
+  {
+    name: "Premium Toile Azul",
+    event: "Boda",
+    style: "Clasico",
+    package: "Premium",
+    price: "Desde $180.000",
+    href: "../invitaciones-web-bodas/",
+    demoHref: "../plantillas/boda-premium-toile/",
+    preview: "preview--wedding",
+    thumb: "../assets/miniaturas/boda-premium-toile.webp"
+  },
+  {
     name: "Esmeralda y Lazo",
     event: "Quinceanos",
     style: "Elegante",

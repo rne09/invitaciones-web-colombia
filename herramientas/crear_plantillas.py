@@ -17,6 +17,7 @@ ICONOS = {
     "mesa": '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><ellipse cx="24" cy="22" rx="16" ry="6"/><path d="M24 28v12M16 42h16M8 22v8M40 22v8"/></svg>',
     "galeria": '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="12" width="36" height="28" rx="4"/><path d="M17 12l3-5h8l3 5"/><circle cx="24" cy="26" r="7"/></svg>',
     "voto": '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M24 40S7 30 7 18a9 9 0 0 1 17-4 9 9 0 0 1 17 4c0 12-17 22-17 22z"/></svg>',
+    "musica": '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 36V10l22-4v26"/><circle cx="13" cy="36" r="5"/><circle cx="35" cy="32" r="5"/><path d="M18 17l22-4"/></svg>',
     "itinerario": '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="24" cy="24" r="17"/><path d="M24 13v11l7 5"/></svg>',
 }
 
@@ -65,6 +66,13 @@ def construir(p):
     shutil.copy(os.path.join(MUSICA, p["musica"] + ".mp3"), os.path.join(dest, "img", "musica.mp3"))
     shutil.copy(os.path.join(MOTOR, "estilos.css"), os.path.join(dest, "css", "estilos.css"))
     shutil.copy(os.path.join(MOTOR, "app.js"), os.path.join(dest, "js", "app.js"))
+    if p.get("premium"):
+        shutil.copy(os.path.join(MOTOR, "premium.js"), os.path.join(dest, "js", "premium.js"))
+    if p.get("munequito"):
+        m = Image.open(io.BytesIO(urllib.request.urlopen(p["munequito"]).read())).convert("RGBA")
+        m = m.crop(m.getchannel("A").getbbox())
+        m.thumbnail((700, 700), Image.LANCZOS)
+        m.save(os.path.join(dest, "img", "munequito.webp"), quality=88)
 
     datosjs = {
         "nombre": p["nombre"], "evento": p["evento"], "fechaISO": p["fechaISO"], "fechaTexto": p["fechaTexto"],
@@ -74,6 +82,8 @@ def construir(p):
         "musica": "img/musica.mp3", "apertura": p["apertura"], "particulas": p["particulas"],
         "colores": p.get("colores"), "muestra": True,
     }
+    if p.get("premium"):
+        datosjs["premium"] = p["premium"]
     if p.get("lugar2"):
         datosjs.update({"lugar2": p["lugar2"][0], "direccion2": p["lugar2"][1],
                         "mapa2": "https://www.google.com/maps/search/?api=1&query=" + urllib.request.quote(p["ciudad"])})
@@ -121,18 +131,30 @@ def construir(p):
     <p class="sub">{p["regalo"][1]}</p>''')
     if p.get("premium"):
         s += seccion("mesa", '''    <h3 class="tit">Encuentra tu mesa</h3>
-    <p class="sub">Escribe el código que llegó con tu invitación</p>
-    <input class="campo" id="codigoMesa" type="text" placeholder="Ej: LAURA24" autocomplete="off">
-    <p class="resultado" id="resultadoMesa"></p>
+    <p class="sub">Escribe el código de tu invitación o tu nombre</p>
+    <input class="campo" id="codigoMesa" type="text" placeholder="Ej: FAMGOMEZ o Carolina" autocomplete="off">
+    <div class="resultado" id="resultadoMesa"></div>
     <button class="boton boton--claro" id="btnMesa" type="button">Buscar mi mesa</button>''')
         s += seccion("galeria", '''    <h3 class="tit">Galería de invitados</h3>
-    <p class="sub">El día de la boda podrás subir aquí tus fotos y ver las de todos.</p>
-    <span class="boton boton--claro" aria-disabled="true">Disponible el día del evento</span>''')
+    <p class="sub">Comparte las fotos que tomes en la boda. ¡Todos podrán verlas aquí!</p>
+    <input class="campo" id="autorFoto" type="text" placeholder="Tu nombre" autocomplete="name">
+    <label class="boton boton-subir">📸 Subir mis fotos<input id="subirFotos" type="file" accept="image/*" multiple></label>
+    <p class="estado" id="estadoGaleria">Cargando fotos…</p>
+    <div class="galeria" id="galeria"></div>''')
+        s += seccion("musica", '''    <h3 class="tit">Nuestra playlist</h3>
+    <p class="sub">La música que sonará en la fiesta. ¿Falta tu canción? ¡Sugiérela!</p>
+    <div class="playlist" id="playlist"></div>
+    <a class="boton boton--claro" id="abrirPlaylist" href="#" target="_blank" rel="noopener">Abrir playlist</a>
+    <div class="dos-campos"><input class="campo" id="cancion" type="text" placeholder="Canción"><input class="campo" id="artista" type="text" placeholder="Artista"></div>
+    <button class="boton" id="btnCancion" type="button">Sugerir canción</button>
+    <p class="estado" id="estadoCancion"></p>
+    <ul class="canciones" id="listaCanciones"></ul>''')
     s += seccion("confirmar", f'''    <h3 class="tit">Confirma tu asistencia</h3>
     <p class="sub">{p.get("confirmaTexto", "Nos encantará saber que vienes.")}</p>
     <label class="oculto" for="nombreInvitado">Tu nombre</label>
     <input class="campo" id="nombreInvitado" type="text" placeholder="Escribe tu nombre" autocomplete="name">
-    <p class="error" id="errorNombre" hidden>Escribe tu nombre para confirmar</p>
+    <p class="error" id="errorNombre" hidden>Escribe tu nombre para confirmar</p>''' + ('''
+    <select class="selector" id="cuposInvitado" aria-label="Cuántos asisten"><option value="1">1 persona</option><option value="2">2 personas</option></select>''' if p.get("premium") else "") + f'''
     <button class="boton" id="btnConfirmar" type="button">Confirmar por WhatsApp</button>''' +
                  (f'\n    <p class="nota">{p["nota"]}</p>' if p.get("nota") else ""))
     s += f'''  <div class="separador revelar" aria-hidden="true"></div>
@@ -143,6 +165,11 @@ def construir(p):
 '''
 
     v = p["vars"]
+    mun = p.get("munequito")
+    mun_portada = f'  <img class="munequito" src="img/munequito.webp" alt="" style="--mun-top:{p.get("munTop", "8%")}">\n' if mun and p.get("munPortada", True) else ""
+    cabecera = '<img class="munequito munequito--hoja" src="img/munequito.webp" alt="">' if mun else '<div class="arco" role="img" aria-label=""></div>'
+    saludo = '\n    <p class="saludo" id="saludoInvitado" hidden><b></b><span></span></p>' if p.get("premium") else ""
+    premium_js = '\n<script src="js/premium.js"></script>' if p.get("premium") else ""
     raiz = ";".join(f"--{k}:{val}" for k, val in v.items())
     rasca = ""
     if p["apertura"] == "rasca":
@@ -174,7 +201,7 @@ def construir(p):
   }})();
 </script>
 </head>
-<body class="cerrado">
+<body class="cerrado iconos--{p.get("iconos", "linea")}">
 
 <section class="portada{" portada--rasca" if p["apertura"] == "rasca" else ""}" id="portada" aria-label="Portada">
   <div class="arte"></div>
@@ -186,7 +213,7 @@ def construir(p):
     <h1 class="portada__nombre">{p["nombre"]}</h1>
     <p class="portada__fecha">{p["fechaCorta"]}</p>
   </div>
-{rasca}  <div class="manito" aria-hidden="true">👆</div>
+{mun_portada}{rasca}  <div class="manito" aria-hidden="true">👆</div>
   <p class="portada__pista">{pista}</p>
 {boton}</section>
 
@@ -195,17 +222,17 @@ def construir(p):
   <button class="musica" id="musica" type="button" aria-label="Pausar o reproducir música">♪</button>
 
   <header class="inicio">
-    <div class="arco" role="img" aria-label=""></div>
+    {cabecera}
     <p class="eti">{p["eti"]}</p>
     <h2 class="nombre" data-campo="nombre"></h2>{sub}
-    <p class="frase">{p["frase"]}</p>
+    <p class="frase">{p["frase"]}</p>{saludo}
   </header>
 
 {s}</main>
 
 <audio id="audio" preload="auto" loop></audio>
 <script src="js/datos.js"></script>
-<script src="js/app.js"></script>
+<script src="js/app.js"></script>{premium_js}
 </body>
 </html>
 '''

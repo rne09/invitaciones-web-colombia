@@ -162,6 +162,18 @@
       a.style.transform = "scale(1.35)"; a.style.opacity = "0";
       await espera(900);
     },
+    async horizontal() {
+      const a = pieza(0, 0, W(), H() / 2, "mitad"), b = pieza(0, H() / 2, W(), H() / 2, "mitad");
+      await cuadro();
+      a.style.transform = "translateY(-102%)"; b.style.transform = "translateY(102%)";
+      await espera(1400);
+    },
+    async arco() {
+      const a = pieza(0, 0, W(), H(), "arco-zoom");
+      await cuadro();
+      a.style.transform = "scale(3.2)"; a.style.opacity = "0";
+      await espera(1300);
+    },
     async iris() {
       const a = pieza(0, 0, W(), H(), "iris");
       await cuadro();
@@ -265,11 +277,6 @@
     estallido(50);
     whatsapp("¡Hola! Mi voto para la revelación es: " + b.dataset.voto + " 🎉");
   }));
-  const mesa = $("#btnMesa");
-  if (mesa) mesa.addEventListener("click", () => {
-    const c = $("#codigoMesa").value.trim();
-    $("#resultadoMesa").textContent = c ? "¡Te esperamos en la mesa " + ((c.length % 9) + 1) + "! 🥂" : "Escribe el código de tu invitación";
-  });
 
   // ---------- Aparición suave ----------
   const obs = new IntersectionObserver((es) => es.forEach((e) => {

@@ -10,3 +10,6 @@ build/
 
 # Local Netlify folder
 .netlify
+
+herramientas/_musica/
+__pycache__/

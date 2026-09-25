@@ -19,9 +19,21 @@ def tema(fondo, fondo2, tinta, titulo_color, acento, acento_texto, boton_texto, 
             "tit": tit, "brillo": brillo, "sombra-texto": sombra}
 
 
+INVITADOS = [
+    {"codigo": "FAMGOMEZ", "nombre": "Familia Gómez Ríos", "mesa": 1, "cupos": 4},
+    {"codigo": "CAROLINA", "nombre": "Carolina Pérez", "mesa": 2, "cupos": 1},
+    {"codigo": "TIOSJUAN", "nombre": "Juan y Marta Herrera", "mesa": 1, "cupos": 2},
+    {"codigo": "AMIGOSU", "nombre": "Daniel Castro", "mesa": 5, "cupos": 2},
+    {"codigo": "ABUELOS", "nombre": "Abuelos Martínez", "mesa": 1, "cupos": 2},
+    {"codigo": "PADRINOS", "nombre": "Andrea y Luis Mora", "mesa": 3, "cupos": 2},
+    {"codigo": "OFICINA", "nombre": "Valentina Suárez", "mesa": 6, "cupos": 1},
+    {"codigo": "PRIMOS", "nombre": "Primos Díaz", "mesa": 4, "cupos": 3}
+]
+
+
 PLANTILLAS = [
     # ------------------------------ BODAS ------------------------------
-    dict(slug="boda-elegante-floral", tarjeta="Elegante Floral", categoria="Boda", musica="boda-floral",
+    dict(slug="boda-elegante-floral", iconos="suave", tarjeta="Elegante Floral", categoria="Boda", musica="boda-floral",
          imagen="https://img.recraft.ai/_067W9zPoGut-v_MoW9biufdz2sIlKlWTut3SyGPPRg/rs:fit:768:1344:0/raw:1/plain/abs://external/images/9db3f0b0-7c47-4b20-b35b-28964ee950e0",
          titulo="Nuestra boda · Isabella & Tomás", eti="Nos casamos", nombre="Isabella & Tomás", evento="nuestra boda",
          fechaISO="2027-02-20T16:00:00-05:00", fechaTexto="Sábado 20 de febrero", anioHora="2027 · 4:00 p. m.", fechaCorta="20 · 02 · 2027",
@@ -36,7 +48,7 @@ PLANTILLAS = [
          vars=tema("#fbf7f2", "#fdeee9", "#4a3b38", "#5b3a40", "#b76e79", "#8a4a55", "#fff", '"Pinyon Script",cursive', '"Cormorant Garamond",serif',
                    "#5b3a40", claro("rgba(251,247,242,.94)"), "54px", "58px", "40px", "#e8b4bc", "none")),
 
-    dict(slug="boda-minimal-ivory", tarjeta="Minimal Ivory", categoria="Boda", musica="boda-ivory",
+    dict(slug="boda-minimal-ivory", iconos="linea", tarjeta="Minimal Ivory", categoria="Boda", musica="boda-ivory",
          imagen="https://img.recraft.ai/3JRs4u7BEBGPR-KKG-MzqXRJ17zuXolObAEk_WlFPYw/rs:fit:768:1344:0/raw:1/plain/abs://external/images/5814ce00-7bdb-40dc-b1f2-081a21c36cf6",
          titulo="Sara & Martín · Nuestra boda", eti="Nuestra boda", nombre="Sara & Martín", evento="nuestra boda",
          fechaISO="2027-04-10T17:00:00-05:00", fechaTexto="Sábado 10 de abril", anioHora="2027 · 5:00 p. m.", fechaCorta="10 · 04 · 27",
@@ -49,7 +61,7 @@ PLANTILLAS = [
          vars=tema("#f6f2ea", "#fbf8f2", "#2e2c29", "#2e2c29", "#a88b5c", "#86683a", "#fff", '"Italiana",serif', '"Jost",sans-serif',
                    "#2e2c29", claro("rgba(246,242,234,.93)"), "48px", "46px", "32px", "#cdb58a", "none")),
 
-    dict(slug="boda-mesa-galeria", tarjeta="Mesa y Galería", categoria="Boda (Premium)", musica="boda-mesa",
+    dict(slug="boda-mesa-galeria", iconos="circulo", tarjeta="Mesa y Galería", categoria="Boda (Premium)", musica="boda-mesa",
          imagen="https://img.recraft.ai/6CE7yDinC35iyKxblRlhlzbTuLvsvHay5BFQn-edKdA/rs:fit:768:1344:0/raw:1/plain/abs://external/images/21cb67f0-6d9d-4873-aa4a-ab4a1c304486",
          titulo="Laura & Andrés · Boda", eti="Celebra con nosotros", nombre="Laura & Andrés", evento="nuestra boda",
          fechaISO="2027-06-05T18:00:00-05:00", fechaTexto="Sábado 5 de junio", anioHora="2027 · 6:00 p. m.", fechaCorta="05 · 06 · 2027",
@@ -57,14 +69,14 @@ PLANTILLAS = [
          frase="Una mesa larga, velas encendidas y la gente que más queremos. Así soñamos nuestra boda.",
          vestir={"lineas": [("Código", "Formal"), ("Tip", "Tacón ancho: ¡es en jardín!")]},
          regalo=("Lluvia de sobres", "Si deseas darnos un detalle, habrá un cofre especial en la recepción."),
-         premium=True, nota="Invitación personal. Celebración para adultos.", cierre="¡Nos vemos en la mesa!",
+         premium={"evento": "demo-laura-andres", "invitados": INVITADOS, "playlist": {"app": "spotify", "url": "https://open.spotify.com/playlist/37i9dQZF1DX10zKzsJ2jva"}}, nota="Invitación personal. Celebración para adultos.", cierre="¡Nos vemos en la mesa!",
          apertura="fotos", particulas="luciernagas", motivo="hoja", pista="Toca para abrir",
          fuentes=["Marcellus", "Allura"],
          vars=tema("#f3eee6", "#f9f3e8", "#2f2a24", "#3a2c1e", "#9c6b3c", "#7d5128", "#fff", '"Allura",cursive', '"Marcellus",serif',
                    "#fbeed8", oscuro("rgba(28,20,12,.86)"), "60px", "60px", "44px", "#ffd98a", "0 3px 16px rgba(0,0,0,.6)")),
 
     # ------------------------------ 15 AÑOS ------------------------------
-    dict(slug="quince-rosa-dorado", tarjeta="Rosa Dorado", categoria="15 años", musica="quince-rosa",
+    dict(slug="quince-rosa-dorado", iconos="rombo", tarjeta="Rosa Dorado", categoria="15 años", musica="quince-rosa",
          imagen="https://img.recraft.ai/WrceC0n832vIm68Y3i-xVm0vVuW8W2kIGdMRXQ0_ANI/rs:fit:768:1344:0/raw:1/plain/abs://external/images/4bf03986-e73f-44a2-b372-87a0b3b3af6e",
          titulo="Mis 15 años · Mariana", eti="Mis 15 años", nombre="Mariana", evento="mis 15 años",
          fechaISO="2027-01-23T19:00:00-05:00", fechaTexto="Sábado 23 de enero", anioHora="2027 · 7:00 p. m.", fechaCorta="23 · 01 · 2027",
@@ -79,7 +91,7 @@ PLANTILLAS = [
          vars=tema("#fff6f6", "#ffe9ee", "#4a2f35", "#6d3444", "#c77d8c", "#9b4f5f", "#fff", '"Parisienne",cursive', '"Cormorant Garamond",serif',
                    "#fff", oscuro("rgba(120,52,72,.72)"), "64px", "60px", "40px", "#f7c1cc", "0 3px 14px rgba(90,20,40,.5)")),
 
-    dict(slug="quince-noches-gala", tarjeta="Noches de Gala", categoria="15 años", musica="quince-gala",
+    dict(slug="quince-noches-gala", iconos="rombo", tarjeta="Noches de Gala", categoria="15 años", musica="quince-gala",
          imagen="https://img.recraft.ai/WdgnyriwPpS3Hqohu3ME7SURVuu0kPUR5j1UoSKJl6M/rs:fit:768:1344:0/raw:1/plain/abs://external/images/7c3acd1d-e736-4ec8-bc86-63f5baa94d27",
          titulo="Noche de gala · Daniela XV", eti="Mis 15 años", nombre="Daniela", evento="mi noche de gala de 15 años",
          fechaISO="2027-05-15T20:00:00-05:00", fechaTexto="Sábado 15 de mayo", anioHora="2027 · 8:00 p. m.", fechaCorta="15 · 05 · 2027",
@@ -95,7 +107,7 @@ PLANTILLAS = [
                    "#f3e6c4", oscuro("rgba(8,12,28,.9)"), "66px", "62px", "40px", "#f3e6c4")),
 
     # ------------------------------ BABY SHOWER ------------------------------
-    dict(slug="baby-safari-suave", tarjeta="Safari Suave", categoria="Baby shower", musica="baby-safari",
+    dict(slug="baby-safari-suave", iconos="suave", tarjeta="Safari Suave", categoria="Baby shower", musica="baby-safari",
          imagen="https://img.recraft.ai/mtwf20Mwwu_RsOe7imG8Rd573x-dv3Qsa-lgVB9rKKc/rs:fit:768:1344:0/raw:1/plain/abs://external/images/c3c8fed4-9347-4dc5-8da4-4b17016c0647",
          titulo="Baby shower de Emiliano", eti="Baby shower", nombre="Emiliano", subnombre="viene en camino", evento="el baby shower de Emiliano",
          fechaISO="2027-03-06T15:00:00-05:00", fechaTexto="Sábado 6 de marzo", anioHora="2027 · 3:00 p. m.", fechaCorta="06 · 03 · 2027",
@@ -109,7 +121,7 @@ PLANTILLAS = [
                    "#4d5b3f", claro("rgba(248,245,238,.95)"), "52px", "48px", "32px", "#b9c9a4", "none")),
 
     # ------------------------------ REVELACIÓN ------------------------------
-    dict(slug="revelacion-dulce", tarjeta="Dulce Revelación", categoria="Revelación de género", musica="revelacion",
+    dict(slug="revelacion-dulce", iconos="circulo", munequito="https://img.recraft.ai/mT3D-CM7ar9x4VwStI8at1k-g_M-xwPeUIC_POIPPV0/rs:fit:1024:1024:0/raw:1/plain/abs://external/images/15c4036b-5bbf-4ec9-8a9f-d3bd2b93b831", munPortada=False, tarjeta="Dulce Revelación", categoria="Revelación de género", musica="revelacion",
          imagen="https://img.recraft.ai/KY2Efm8wiy4Z92OBEvi8-esZ_SP8RCAz_oCn1GTB2yY/rs:fit:768:1344:0/raw:1/plain/abs://external/images/5c25c4da-f341-4eb1-b0c9-503a1bfc191b",
          titulo="¿Niño o niña? · Revelación", eti="Revelación de género", nombre="¿Niño o niña?", subnombre="Familia Rojas Díaz", evento="la revelación de nuestro bebé",
          fechaISO="2027-02-13T16:00:00-05:00", fechaTexto="Sábado 13 de febrero", anioHora="2027 · 4:00 p. m.", fechaCorta="13 · 02 · 2027",
@@ -124,7 +136,7 @@ PLANTILLAS = [
                    "#454062", claro("rgba(247,245,251,.93)"), "54px", "52px", "38px", "#f2a7c3", "none")),
 
     # ------------------------------ BAUTIZO ------------------------------
-    dict(slug="bautizo-clasico-suave", tarjeta="Clásico Suave", categoria="Bautizo", musica="bautizo-nubes",
+    dict(slug="bautizo-clasico-suave", iconos="arco", munequito="https://img.recraft.ai/pO-damF1T9N4YSmJLDGazPxeekpl5pKKKp26Es-mApk/rs:fit:1024:1024:0/raw:1/plain/abs://external/images/ca53b2fa-d9f7-4a7d-ba5f-2c7ff39f2629", munTop="9%", tarjeta="Clásico Suave", categoria="Bautizo", musica="bautizo-nubes",
          imagen="https://img.recraft.ai/43IfLKGnjjyKzv2T8OCHwLLFRnU3kfuZGI7Rv2zFdus/rs:fit:768:1344:0/raw:1/plain/abs://external/images/0727bc6c-3a2a-4978-bae7-14ba0f9ba0bf",
          titulo="Mi bautizo · Samuel", eti="Mi bautizo", nombre="Samuel", evento="mi bautizo",
          fechaISO="2027-01-30T10:00:00-05:00", fechaTexto="Sábado 30 de enero", anioHora="2027 · 10:00 a. m.", fechaCorta="30 · 01 · 2027",
@@ -138,7 +150,7 @@ PLANTILLAS = [
          vars=tema("#f4f8fb", "#e6eff7", "#33485a", "#33485a", "#7da2c1", "#4a7090", "#fff", '"Alex Brush",cursive', '"Cormorant Garamond",serif',
                    "#2f4a60", claro("rgba(244,248,251,.94)"), "64px", "62px", "42px", "#ffffff", "none")),
 
-    dict(slug="bautizo-capilla-blanca", tarjeta="Capilla Blanca", categoria="Bautizo", musica="bautizo-capilla",
+    dict(slug="bautizo-capilla-blanca", iconos="arco", munequito="https://img.recraft.ai/bexyuZ-XC9bDo_Ln9a1KGlh7-nNaWGnSR9vvwAc9xEQ/rs:fit:1024:1024:0/raw:1/plain/abs://external/images/e820b7e7-2643-40bb-bfda-7b1d403e0f31", munPortada=False, tarjeta="Capilla Blanca", categoria="Bautizo", musica="bautizo-capilla",
          imagen="https://img.recraft.ai/K1fhT000bA39t3dynpPKHR4_NRfTwx51QNNmOgjflKw/rs:fit:768:1344:0/raw:1/plain/abs://external/images/a62f3b54-0275-4f15-beab-e57ed92e5de1",
          titulo="Mi bautizo · Isabella", eti="Mi bautizo", nombre="Isabella", evento="mi bautizo",
          fechaISO="2027-03-20T11:00:00-05:00", fechaTexto="Sábado 20 de marzo", anioHora="2027 · 11:00 a. m.", fechaCorta="20 · 03 · 2027",
@@ -154,7 +166,7 @@ PLANTILLAS = [
                    "#4c5a46", claro("rgba(251,250,246,.95)"), "70px", "68px", "46px", "#e8c4c0", "none")),
 
     # ------------------------------ PRIMERA COMUNIÓN ------------------------------
-    dict(slug="comunion-luz-dorada", tarjeta="Blanco Comunión", categoria="Primera comunión", musica="comunion",
+    dict(slug="comunion-luz-dorada", iconos="arco", munequito="https://img.recraft.ai/uIjBcS2pSOp6G2MPBfHBZ65Mz5_sw_xHSp_7WsauQfY/rs:fit:1024:1024:0/raw:1/plain/abs://external/images/674cf292-880e-4261-b555-211d61770744", munPortada=False, tarjeta="Blanco Comunión", categoria="Primera comunión", musica="comunion",
          imagen="https://img.recraft.ai/kSmgPQ1ySd9yJYyPmAvCdhTsXBZlmdtOjK6wdkgS7Tw/rs:fit:768:1344:0/raw:1/plain/abs://external/images/2325e3b4-9ce7-4740-bef4-ac086d194830",
          titulo="Mi primera comunión · Valeria", eti="Mi primera comunión", nombre="Valeria", evento="mi primera comunión",
          fechaISO="2027-05-22T09:00:00-05:00", fechaTexto="Sábado 22 de mayo", anioHora="2027 · 9:00 a. m.", fechaCorta="22 · 05 · 2027",
@@ -168,7 +180,7 @@ PLANTILLAS = [
                    "#5c4722", claro("rgba(252,250,245,.95)"), "78px", "76px", "54px", "#e8c77a", "none")),
 
     # ------------------------------ CUMPLEAÑOS ------------------------------
-    dict(slug="cumple-fiesta-globos", tarjeta="Fiesta Temática", categoria="Cumpleaños", musica="cumple-fiesta",
+    dict(slug="cumple-fiesta-globos", iconos="circulo", tarjeta="Fiesta Temática", categoria="Cumpleaños", musica="cumple-fiesta",
          imagen="https://img.recraft.ai/jWDO2CwvUISJoODpSfSSDnWirVzq9-1Cu4zXWK9OFAw/rs:fit:768:1344:0/raw:1/plain/abs://external/images/38744f81-1950-4c85-a4c6-1b734fb42236",
          titulo="¡Tomás cumple 8!", eti="¡Estás invitado!", nombre="Tomás", subnombre="cumple 8 años", evento="el cumpleaños de Tomás",
          fechaISO="2027-02-27T15:00:00-05:00", fechaTexto="Sábado 27 de febrero", anioHora="2027 · 3:00 p. m.", fechaCorta="27 · 02 · 2027",
@@ -183,7 +195,7 @@ PLANTILLAS = [
          vars=tema("#fffaf3", "#fff0dc", "#2d2a4a", "#2d2a4a", "#ff6b5b", "#d84a3a", "#fff", '"Lilita One",sans-serif', '"Nunito",sans-serif',
                    "#2d2a4a", claro("rgba(255,250,243,.95)"), "58px", "54px", "34px", "#ffc93c", "none")),
 
-    dict(slug="cumple-garden-party", tarjeta="Garden Party", categoria="Cumpleaños", musica="cumple-garden",
+    dict(slug="cumple-garden-party", iconos="suave", tarjeta="Garden Party", categoria="Cumpleaños", musica="cumple-garden",
          imagen="https://img.recraft.ai/AI1-tJI7H2ogo80Rbhewa43nunhZ4eS7PVhh-V2-a7M/rs:fit:768:1344:0/raw:1/plain/abs://external/images/fb0caa6f-b545-4a89-a2b0-84848749bd8f",
          titulo="Garden party · Los 30 de Camila", eti="Garden party", nombre="Camila", subnombre="celebra sus 30", evento="los 30 de Camila",
          fechaISO="2027-04-24T16:00:00-05:00", fechaTexto="Sábado 24 de abril", anioHora="2027 · 4:00 p. m.", fechaCorta="24 · 04 · 2027",
@@ -196,4 +208,37 @@ PLANTILLAS = [
          fuentes=["DM+Serif+Display:ital@0;1", "Caveat:wght@500;700"],
          vars=tema("#f7f6ee", "#fbeedd", "#3f4a3a", "#3f4a3a", "#e39b73", "#b8683f", "#fff", '"Caveat",cursive', '"DM Serif Display",serif',
                    "#3f4a3a", claro("rgba(247,246,238,.95)"), "68px", "66px", "44px", "#f6d27a", "none")),
+
+    # ------------------------------ BODAS PREMIUM (funcionales) ------------------------------
+    dict(slug="boda-premium-olivo", iconos="circulo", tarjeta="Premium Olivo", categoria="Boda (Premium)", musica="boda-floral",
+         imagen="https://img.recraft.ai/uqOpT_T0FEHEicXGeCrjm3v9h9-zrd7sSKONhYwZubQ/rs:fit:768:1344:0/raw:1/plain/abs://external/images/ba14dae5-d931-4919-93b5-e962f3dd0f6d",
+         titulo="Mariana & Felipe · Boda", eti="Nos casamos", nombre="Mariana & Felipe", evento="nuestra boda",
+         fechaISO="2027-09-18T16:30:00-05:00", fechaTexto="Sábado 18 de septiembre", anioHora="2027 · 4:30 p. m.", fechaCorta="18 · 09 · 2027",
+         lugar="Hacienda Los Olivos", direccion="Vía Turbaco, km 6", ciudad="Cartagena de Indias", titLugar="Ceremonia y recepción",
+         frase="Entre olivos y flores blancas prometeremos amarnos toda la vida. Tu lugar en nuestra mesa ya está listo.",
+         itinerario=[("4:30 p. m.", "Ceremonia"), ("6:00 p. m.", "Cóctel"), ("7:30 p. m.", "Cena"), ("9:00 p. m.", "¡Fiesta!")],
+         vestir={"lineas": [("Código", "Formal"), ("Evita", "El blanco y el verde oliva")], "colores": ["#e8e2d4", "#c9b79c", "#d9c2bd", "#aab7c4"]},
+         regalo=("Lluvia de sobres", "Tu compañía es nuestro mejor regalo; habrá un cofre para tu sobre en la recepción."),
+         premium={"evento": "demo-mariana-felipe", "invitados": INVITADOS, "playlist": {"app": "spotify", "url": "https://open.spotify.com/playlist/37i9dQZF1DX10zKzsJ2jva"}},
+         nota="Invitación personal e intransferible. Celebración para adultos.", cierre="¡Te esperamos!",
+         apertura="horizontal", particulas="petalos", motivo="hoja", colores=["#ffffff", "#e9efe1", "#cdd8bf"], pista="Toca el sello para abrir",
+         fuentes=["Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500", "Italianno"],
+         vars=tema("#f5f4ee", "#e9eee2", "#34392f", "#3f4d36", "#6f7f5a", "#56663f", "#fff", '"Italianno",cursive', '"Cormorant Garamond",serif',
+                   "#f4f1e6", oscuro("rgba(28,56,50,.88)"), "70px", "66px", "46px", "#e9efe1", "0 3px 14px rgba(0,0,0,.45)")),
+
+    dict(slug="boda-premium-toile", iconos="arco", tarjeta="Premium Toile Azul", categoria="Boda (Premium)", musica="boda-ivory",
+         imagen="https://img.recraft.ai/qdR4WI1cSsRrZt_oE6zeMLAOV2zoWOXmHYFW_QxGk2o/rs:fit:768:1344:0/raw:1/plain/abs://external/images/68441cfa-664c-4153-80c2-63c3167e0d9b",
+         titulo="Juliana & Sebastián · Boda", eti="Nuestra boda", nombre="Juliana & Sebastián", evento="nuestra boda",
+         fechaISO="2027-11-06T17:00:00-05:00", fechaTexto="Sábado 6 de noviembre", anioHora="2027 · 5:00 p. m.", fechaCorta="06 · 11 · 2027",
+         lugar="Club de la Villa", direccion="Carrera 5 # 12-30", ciudad="Barranquilla, Atlántico", titLugar="Celebración",
+         frase="Un lazo azul, una promesa y todas las personas que amamos. Queremos vivir este día contigo.",
+         vestir={"lineas": [("Código", "Etiqueta"), ("Damas", "Vestido largo"), ("Caballeros", "Traje oscuro")], "colores": ["#c9d6e8", "#e9e2d0", "#d6c9de"],
+                 "nota": "El azul claro está reservado para el cortejo."},
+         regalo=("Mesa de regalos", "Tenemos una lista en tiendas; pídenos el enlace o trae tu sobre el día de la boda."),
+         premium={"evento": "demo-juliana-sebastian", "invitados": INVITADOS, "playlist": {"app": "spotify", "url": "https://open.spotify.com/playlist/37i9dQZF1DX4sWSpwq3LiO"}},
+         nota="Invitación personal e intransferible.", cierre="¡Gracias por acompañarnos!",
+         apertura="arco", particulas="estrellas", motivo="flor", pista="Toca para abrir",
+         fuentes=["Playfair+Display:ital,wght@0,400;0,500;1,400", "Pinyon+Script"],
+         vars=tema("#f8f6f0", "#e6edf6", "#2b3a55", "#233b66", "#5b7fb3", "#3f629a", "#fff", '"Pinyon Script",cursive', '"Playfair Display",serif',
+                   "#233b66", claro("rgba(248,246,240,.0)"), "52px", "56px", "40px", "#9fb7da", "none")),
 ]
