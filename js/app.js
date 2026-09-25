@@ -106,7 +106,7 @@
     function card(item) {
       return [
         '<article class="template-card">',
-        '  <div class="template-card__preview ' + item.preview + '"></div>',
+        '  <div class="template-card__preview ' + item.preview + '"' + (item.thumb ? ' style="background:url(' + item.thumb + ') center top/cover"' : '') + '></div>',
         '  <div>',
         '    <p>' + item.event + ' · ' + item.package + '</p>',
         '    <h3>' + item.name + '</h3>',

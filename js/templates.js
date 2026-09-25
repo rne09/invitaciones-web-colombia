@@ -1,5 +1,16 @@
 window.TEMPLATE_CATALOG = [
   {
+    name: "Esmeralda y Lazo",
+    event: "Quinceanos",
+    style: "Elegante",
+    package: "Personalizado",
+    price: "Desde $90.000",
+    href: "../invitaciones-web-quinceanos/",
+    demoHref: "../plantillas/quince-esmeralda/",
+    preview: "preview--quince",
+    thumb: "../assets/miniaturas/quince-esmeralda.webp"
+  },
+  {
     name: "Sobre Dorado",
     event: "Boda",
     style: "Romantico",
@@ -7,7 +18,8 @@ window.TEMPLATE_CATALOG = [
     price: "Desde $90.000",
     href: "../invitaciones-web-bodas/",
     demoHref: "../plantillas/boda-juliana-pedro/",
-    preview: "preview--wedding"
+    preview: "preview--wedding",
+    thumb: "../assets/miniaturas/boda-juliana-pedro.webp"
   },
   {
     name: "Azul Toile",
@@ -17,7 +29,8 @@ window.TEMPLATE_CATALOG = [
     price: "Desde $70.000",
     href: "../invitaciones-baby-shower/",
     demoHref: "../plantillas/baby-shower-thiago/",
-    preview: "preview--baby"
+    preview: "preview--baby",
+    thumb: "../assets/miniaturas/baby-shower-thiago.webp"
   },
   {
     name: "Elegante Floral",
@@ -26,8 +39,9 @@ window.TEMPLATE_CATALOG = [
     package: "Personalizado",
     price: "Desde $90.000",
     href: "../invitaciones-web-bodas/",
-    demoHref: "../plantillas/boda-editorial/",
-    preview: "preview--wedding"
+    demoHref: "../plantillas/boda-elegante-floral/",
+    preview: "preview--wedding",
+    thumb: "../assets/miniaturas/boda-elegante-floral.webp"
   },
   {
     name: "Rosa Dorado",
@@ -36,8 +50,9 @@ window.TEMPLATE_CATALOG = [
     package: "Personalizado",
     price: "Desde $90.000",
     href: "../invitaciones-web-quinceanos/",
-    demoHref: "../plantillas/quince-glam/",
-    preview: "preview--quince"
+    demoHref: "../plantillas/quince-rosa-dorado/",
+    preview: "preview--quince",
+    thumb: "../assets/miniaturas/quince-rosa-dorado.webp"
   },
   {
     name: "Clasico Suave",
@@ -46,8 +61,9 @@ window.TEMPLATE_CATALOG = [
     package: "Basico",
     price: "Desde $70.000",
     href: "../invitaciones-bautizo/",
-    demoHref: "../plantillas/bautizo-capilla/",
-    preview: "preview--bautizo"
+    demoHref: "../plantillas/bautizo-clasico-suave/",
+    preview: "preview--bautizo",
+    thumb: "../assets/miniaturas/bautizo-clasico-suave.webp"
   },
   {
     name: "Blanco Comunion",
@@ -56,8 +72,9 @@ window.TEMPLATE_CATALOG = [
     package: "Basico",
     price: "Desde $70.000",
     href: "../invitaciones-primera-comunion/",
-    demoHref: "../plantillas/primera-comunion/",
-    preview: "preview--comunion"
+    demoHref: "../plantillas/comunion-luz-dorada/",
+    preview: "preview--comunion",
+    thumb: "../assets/miniaturas/comunion-luz-dorada.webp"
   },
   {
     name: "Dulce Revelacion",
@@ -66,8 +83,9 @@ window.TEMPLATE_CATALOG = [
     package: "Basico",
     price: "Desde $70.000",
     href: "../invitaciones-revelacion-genero/",
-    demoHref: "../plantillas/revelacion-celeste-rosa/",
-    preview: "preview--revelacion"
+    demoHref: "../plantillas/revelacion-dulce/",
+    preview: "preview--revelacion",
+    thumb: "../assets/miniaturas/revelacion-dulce.webp"
   },
   {
     name: "Fiesta Tematica",
@@ -76,8 +94,9 @@ window.TEMPLATE_CATALOG = [
     package: "Personalizado",
     price: "Desde $90.000",
     href: "../invitaciones-cumpleanos/",
-    demoHref: "../plantillas/cumple-garden/",
-    preview: "preview--cumple"
+    demoHref: "../plantillas/cumple-fiesta-globos/",
+    preview: "preview--cumple",
+    thumb: "../assets/miniaturas/cumple-fiesta-globos.webp"
   },
   {
     name: "Boda Premium",
@@ -86,8 +105,9 @@ window.TEMPLATE_CATALOG = [
     package: "Premium",
     price: "Desde $180.000",
     href: "../invitaciones-web-bodas/",
-    demoHref: "../plantillas/boda-editorial/",
-    preview: "preview--premium"
+    demoHref: "../plantillas/boda-mesa-galeria/",
+    preview: "preview--premium",
+    thumb: "../assets/miniaturas/boda-mesa-galeria.webp"
   },
   {
     name: "Minimal Ivory",
@@ -96,8 +116,9 @@ window.TEMPLATE_CATALOG = [
     package: "Personalizado",
     price: "Desde $90.000",
     href: "../invitaciones-web-bodas/",
-    demoHref: "../plantillas/boda-editorial/",
-    preview: "preview--comunion"
+    demoHref: "../plantillas/boda-minimal-ivory/",
+    preview: "preview--comunion",
+    thumb: "../assets/miniaturas/boda-minimal-ivory.webp"
   },
   {
     name: "Noches de Gala",
@@ -106,8 +127,9 @@ window.TEMPLATE_CATALOG = [
     package: "Personalizado",
     price: "Desde $90.000",
     href: "../invitaciones-web-quinceanos/",
-    demoHref: "../plantillas/quince-glam/",
-    preview: "preview--premium"
+    demoHref: "../plantillas/quince-noches-gala/",
+    preview: "preview--premium",
+    thumb: "../assets/miniaturas/quince-noches-gala.webp"
   },
   {
     name: "Safari Suave",
@@ -116,8 +138,9 @@ window.TEMPLATE_CATALOG = [
     package: "Basico",
     price: "Desde $70.000",
     href: "../invitaciones-baby-shower/",
-    demoHref: "../plantillas/baby-safari/",
-    preview: "preview--baby"
+    demoHref: "../plantillas/baby-safari-suave/",
+    preview: "preview--baby",
+    thumb: "../assets/miniaturas/baby-safari-suave.webp"
   },
   {
     name: "Garden Party",
@@ -126,8 +149,9 @@ window.TEMPLATE_CATALOG = [
     package: "Basico",
     price: "Desde $70.000",
     href: "../invitaciones-cumpleanos/",
-    demoHref: "../plantillas/cumple-garden/",
-    preview: "preview--cumple"
+    demoHref: "../plantillas/cumple-garden-party/",
+    preview: "preview--cumple",
+    thumb: "../assets/miniaturas/cumple-garden-party.webp"
   },
   {
     name: "Capilla Blanca",
@@ -136,8 +160,9 @@ window.TEMPLATE_CATALOG = [
     package: "Personalizado",
     price: "Desde $90.000",
     href: "../invitaciones-bautizo/",
-    demoHref: "../plantillas/bautizo-capilla/",
-    preview: "preview--comunion"
+    demoHref: "../plantillas/bautizo-capilla-blanca/",
+    preview: "preview--comunion",
+    thumb: "../assets/miniaturas/bautizo-capilla-blanca.webp"
   },
   {
     name: "Mesa & Galeria",
@@ -146,7 +171,8 @@ window.TEMPLATE_CATALOG = [
     package: "Premium",
     price: "Desde $180.000",
     href: "../invitaciones-web-bodas/",
-    demoHref: "../plantillas/boda-editorial/",
-    preview: "preview--premium"
+    demoHref: "../plantillas/boda-mesa-galeria/",
+    preview: "preview--premium",
+    thumb: "../assets/miniaturas/boda-mesa-galeria.webp"
   }
 ];
