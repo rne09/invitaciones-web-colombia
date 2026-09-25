@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mis 15 años · Valentina</title>
+<meta name="description" content="Te invito a celebrar mis 15 años. Sábado 13 de marzo, 7:00 p. m.">
+<meta name="theme-color" content="#0b3d30">
+<meta property="og:title" content="Mis 15 años · Valentina">
+<meta property="og:description" content="Sábado 13 de marzo · 7:00 p. m. · Salón Jardín Real">
+<meta property="og:image" content="img/lazo-0.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/lazo-0.webp">
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body class="cerrado">
+
+<section class="portada" id="portada" aria-label="Portada">
+  <img class="cuadro cuadro--0" src="img/lazo-0.webp" alt="">
+  <video class="cuadro cuadro--1" id="videoLazo" src="img/lazo.mp4" muted playsinline preload="auto" poster="img/lazo-0.webp"></video>
+  <img class="cuadro cuadro--2" src="img/lazo-2.webp" alt="">
+  <div class="puerta puerta--izq" aria-hidden="true"></div>
+  <div class="puerta puerta--der" aria-hidden="true"></div>
+  <div class="portada__sombra"></div>
+  <div class="estrellas estrellas--portada" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="manito" aria-hidden="true">👆</div>
+  <div class="portada__texto">
+    <img class="tiara" src="img/tiara.webp" alt="">
+    <p class="portada__eti">Mis 15 años</p>
+    <h1 class="portada__nombre">Valentina</h1>
+  </div>
+  <p class="portada__pista">Toca el lazo para abrir</p>
+  <button class="portada__boton" id="abrir" type="button" aria-label="Abrir la invitación"></button>
+</section>
+
+<main class="invitacion" id="invitacion">
+  <div class="estrellas estrellas--hoja" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <button class="musica" id="musica" type="button" aria-label="Pausar música">♪</button>
+
+  <header class="inicio">
+    <img class="flores" src="img/flores.webp" alt="">
+    <p class="eti">Mis 15 años</p>
+    <h2 class="nombre" data-campo="nombre"></h2>
+    <p class="frase">Hay momentos que se esperan toda la vida.<br>Me encantaría que me acompañes.</p>
+  </header>
+
+  <div class="separador revelar" aria-hidden="true"></div>
+  <section class="tarjeta revelar">
+    <img class="ico" src="img/icono-calendario.webp" alt="">
+    <p class="dato" data-campo="fechaTexto"></p>
+    <p class="sub" data-campo="anioHora"></p>
+    <div class="cuenta">
+      <div><b id="cDias">00</b><span>días</span></div>
+      <div><b id="cHoras">00</b><span>horas</span></div>
+      <div><b id="cMin">00</b><span>min</span></div>
+      <div><b id="cSeg">00</b><span>seg</span></div>
+    </div>
+  </section>
+
+  <div class="separador revelar" aria-hidden="true"></div>
+  <section class="tarjeta revelar">
+    <img class="ico" src="img/icono-lugar.webp" alt="">
+    <h3 class="tit">Lugar</h3>
+    <p class="dato" data-campo="lugar"></p>
+    <p class="sub" data-campo="ciudad"></p>
+    <a class="boton" id="btnMapa" href="#" target="_blank" rel="noopener">Ver ubicación</a>
+  </section>
+
+  <div class="separador revelar" aria-hidden="true"></div>
+  <section class="tarjeta revelar">
+    <img class="ico" src="img/icono-vestido.webp" alt="">
+    <h3 class="tit">Vestimenta</h3>
+    <div class="vestir">
+      <div class="linea"><b>Mujeres</b><span>Vestido</span></div>
+      <div class="linea"><b>Hombres</b><span>Camisa y pantalón clásico</span></div>
+    </div>
+    <p class="reservado-tit">Invitados</p>
+    <div class="puntos"><i class="punto" style="background:#f4c9cf"></i><i class="punto" style="background:#d9c8ec"></i><i class="punto" style="background:#f8d5bd"></i><i class="punto" style="background:#c7dcf2"></i><i class="punto" style="background:#f6ebb8"></i></div>
+    <p class="sub reserva-txt">Te sugerimos colores pastel.</p>
+    <p class="reservado-tit">Color reservado</p>
+    <div class="puntos"><i class="punto punto--verde"></i></div>
+    <p class="sub reserva-txt">El verde, en todos sus tonos, es exclusivo de la quinceañera.</p>
+  </section>
+
+  <div class="separador revelar" aria-hidden="true"></div>
+  <section class="tarjeta revelar">
+    <img class="ico" src="img/icono-sobre.webp" alt="">
+    <h3 class="tit">Lluvia de sobres</h3>
+    <p class="sub">Tu presencia es mi mejor regalo; si deseas darme un detalle, habrá un lugar especial para tu sobre.</p>
+  </section>
+
+  <div class="separador revelar" aria-hidden="true"></div>
+  <section class="tarjeta revelar">
+    <img class="ico" src="img/icono-brindis.webp" alt="">
+    <h3 class="tit">Confirma tu asistencia</h3>
+    <p class="sub">Me encantará saber que vienes.</p>
+    <label class="oculto" for="nombreInvitado">Tu nombre</label>
+    <input class="campo" id="nombreInvitado" type="text" placeholder="Escribe tu nombre" autocomplete="name">
+    <p class="error" id="errorNombre" hidden>Escribe tu nombre para confirmar</p>
+    <button class="boton" id="btnConfirmar" type="button">Confirmar por WhatsApp</button>
+    <p class="nota">Con mucho cariño, esta noche la hemos pensado para compartir entre adultos. ¡Gracias por entenderlo! 🤍</p>
+  </section>
+
+  <div class="separador revelar" aria-hidden="true"></div>
+  <footer class="cierre revelar">
+    <p class="tit tit--grande">¡Te espero!</p>
+    <p class="nombre nombre--cierre" data-campo="nombre"></p>
+  </footer>
+</main>
+
+<audio id="audio" preload="auto" loop></audio>
+<script src="js/datos.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
