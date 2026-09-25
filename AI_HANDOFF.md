@@ -10,17 +10,14 @@ Repositorio:
 https://github.com/rne09/invitaciones-web-colombia
 ```
 
-Sitio actual en GitHub Pages:
+Sitio actual (Netlify, deploy automatico desde `main`):
 
 ```text
-https://rne09.github.io/invitaciones-web-colombia/
+https://invitacioneswebcolombia.netlify.app/
 ```
 
-Version verificada mas reciente:
-
-```text
-https://rne09.github.io/invitaciones-web-colombia/?v=a156f1f
-```
+Invitaciones de clientes: carpeta `clientes/` (excluida de git), cada una en su
+propio sitio Netlify. Ver tabla en `README.md`.
 
 ## Que existe ahora
 
@@ -46,6 +43,8 @@ Plantillas demo:
 
 - `/demos/baby-shower-azul/`
 - `/plantillas/boda-editorial/`
+- `/plantillas/quince-esmeralda/` (completa: lazo en video + puertas 3D)
+- `/plantillas/boda-juliana-pedro/` (completa)
 - `/plantillas/quince-glam/`
 - `/plantillas/baby-safari/`
 - `/plantillas/bautizo-capilla/`
@@ -78,9 +77,9 @@ docs/                      Planeacion e investigacion
 
 ## Pendientes importantes
 
-1. Cambiar el WhatsApp temporal `573000000000` en `js/config.js`.
-2. Definir marca final, dominio e Instagram comercial.
-3. Conectar Netlify al repo o decidir seguir en GitHub Pages.
+1. Elegir logo final (opciones en `assets/marca/recraft/`).
+2. Definir dominio propio.
+3. Reglas del dueno: nunca pedir contrasenas; todo dentro de `G:\invitaciones-web-colombia`; nada personal del dueno en publicaciones; maximo 2 fuentes por diseno; mostrar maqueta antes de programar.
 4. Convertir las plantillas demo en plantillas completas tipo `demos/baby-shower-azul`.
 5. Crear backend real para admin:
    - login

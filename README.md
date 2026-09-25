@@ -20,21 +20,21 @@ docs/04-siguiente-fase-admin.md
 
 ## Estado actual
 
-MVP estatico publicable.
-
-URL publica:
+Sitio publicado en Netlify (deploy automatico desde `main` en GitHub):
 
 ```text
-https://rne09.github.io/invitaciones-web-colombia/
+https://invitacioneswebcolombia.netlify.app/
 ```
 
-Documento principal:
-
-```text
-docs/01-estructura-web.md
-docs/02-nombre-seo.md
-docs/03-mapa-contenido.md
-```
+- Marca: **Invitaciones Web | Animadas** - Instagram `@invitacioneswebcolombia`.
+- WhatsApp comercial: `573025299255` (en `js/config.js`).
+- Colores: esmeralda `#134843`, champan `#f5e3bd`, terracota `#e8744a`.
+  Fuentes: Playfair Display + Montserrat.
+- Precios: Basica $70.000 - Personalizada desde $90.000 - Premium desde $180.000
+  (Premium: invitados suben fotos y sugieren canciones; aun por construir).
+- Todo el proyecto vive en `G:\invitaciones-web-colombia`. No guardar en el Escritorio.
+- `instagram/` y `clientes/` estan en `.git/info/exclude`: nunca se suben al repo
+  (datos privados de clientes y material de redes).
 
 ## Orden de trabajo
 
@@ -64,6 +64,41 @@ docs/03-mapa-contenido.md
 - `PROJECT_BRIEF.md` para contexto rapido.
 - `TODO.md` como tablero de pendientes.
 
+## Plantillas publicadas
+
+| Evento | Carpeta | Nota |
+|---|---|---|
+| Boda | `plantillas/boda-juliana-pedro/` | Muestra completa con imagenes IA |
+| Boda | `plantillas/boda-editorial/` | Conceptual, por rehacer |
+| 15 anos | `plantillas/quince-esmeralda/` | **Nueva.** Terciopelo con lazo que se desata (video) y se abre en dos puertas. Datos ficticios (Valentina) |
+| 15 anos | `plantillas/quince-glam/` | Conceptual, por rehacer |
+| Baby shower | `plantillas/baby-shower-thiago/`, `plantillas/baby-safari/` | |
+| Otros | `bautizo-capilla`, `primera-comunion`, `revelacion-celeste-rosa`, `cumple-garden` | Conceptuales |
+
+Las plantillas de muestra usan `muestra: true` en `js/datos.js` para que la
+cuenta regresiva nunca se venza.
+
+## Invitaciones de clientes
+
+Se guardan en `clientes/<evento>/` (fuera de git) y cada una se publica como
+sitio propio de Netlify:
+
+| Cliente | Enlace | Sitio Netlify |
+|---|---|---|
+| XV Juliana Sofia | https://xv-juliana-sofia.netlify.app | `36958838-e444-4a77-83b1-ae8e64e63930` |
+
+Publicar (copiar solo `index.html css js img`, nunca `diseno/`):
+
+```bash
+netlify deploy --prod --dir <carpeta-copia> --site <site-id>
+```
+
+Ojo: los sitios nuevos de Netlify salen **privados**. Hacerlos publicos con:
+
+```bash
+netlify api updateSite --data '{"site_id":"<id>","body":{"sso_login":false}}'
+```
+
 ## Siguiente paso recomendado
 
 Convertir las plantillas conceptuales en demos completas vendibles, empezando por:
@@ -73,9 +108,3 @@ Convertir las plantillas conceptuales en demos completas vendibles, empezando po
 3. `plantillas/primera-comunion/`
 
 Luego construir backend real para el admin.
-
-Nota: antes de publicar, reemplazar el numero temporal `573000000000` por el
-WhatsApp comercial real.
-
-Tambien reemplazar el dominio provisional `https://invitacionesweb.co/` en
-`sitemap.xml` y `robots.txt` cuando se defina el dominio final.

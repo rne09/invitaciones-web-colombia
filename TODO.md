@@ -26,24 +26,33 @@ Este archivo sirve como tablero simple para una IA o colaborador. A medida que s
 - [x] Crear plantilla demo de primera comunion.
 - [x] Agregar favicon, manifest y paginas basicas de politicas/terminos.
 - [x] Agregar guardado local y exportacion JSON al admin demo.
+- [x] Instagram @invitacioneswebcolombia configurado (bio, 3 publicaciones, Reel, 6 destacadas).
+- [x] Precios nuevos: Basica 70.000 / Personalizada 90.000+ / Premium 180.000+.
+- [x] Muestra de boda Juliana & Pedro con imagenes IA.
+- [x] Plantilla XV "Esmeralda y Lazo" (`plantillas/quince-esmeralda/`).
+- [x] Primera invitacion de cliente publicada: XV Juliana Sofia (xv-juliana-sofia.netlify.app).
 
 ## Falta por hacer
 
-- [ ] Confirmar nombre definitivo de marca.
-- [ ] Confirmar usuario de Instagram.
+- [x] Confirmar nombre definitivo de marca.
+- [x] Confirmar usuario de Instagram.
 - [ ] Comprar o definir dominio final.
-- [ ] Cambiar `573000000000` por el WhatsApp comercial real en `js/config.js`.
+- [x] Cambiar `573000000000` por el WhatsApp comercial real en `js/config.js`.
 - [ ] Cambiar dominio provisional `https://invitacionesweb.co` en `sitemap.xml`, `robots.txt` y `js/config.js`.
-- [ ] Crear logo final.
-- [ ] Crear favicon.
+- [ ] Crear logo final: elegir entre las 3 opciones de Recraft en `assets/marca/recraft/` (recomendada la 1).
+- [ ] Cambiar el WhatsApp del perfil de Instagram (aun dice 302 478 5637); se hace desde el celular.
+- [ ] Construir funciones Premium: invitados suben fotos y sugieren canciones.
+- [ ] Rehacer plantillas conceptuales (boda-editorial, quince-glam, etc.).
+- [ ] Cambiar musica de `plantillas/quince-esmeralda/` por una sin derechos de autor.
+- [x] Crear favicon.
 - [ ] Crear imagen Open Graph final para compartir en WhatsApp.
 - [ ] Crear mas demos reales por categoria con imagenes/fotos finales.
 - [ ] Convertir cada demo en plantilla reutilizable desde datos JSON.
 - [ ] Reemplazar textos legales base por textos revisados por el negocio.
 - [ ] Revisar textos comerciales finales con tono de marca.
 - [ ] Agregar politicas de cambios, tiempos de entrega y pagos.
-- [ ] Publicar en Netlify.
-- [ ] Conectar Netlify con GitHub para deploy automatico.
+- [x] Publicar en Netlify.
+- [x] Conectar Netlify con GitHub para deploy automatico.
 - [ ] Crear admin funcional con login real.
 - [ ] Crear base de datos para eventos, plantillas e invitados.
 - [ ] Crear subida de archivos para fotos y musica.
@@ -57,9 +66,9 @@ Este archivo sirve como tablero simple para una IA o colaborador. A medida que s
 ## Riesgos o problemas abiertos
 
 - [ ] El admin actual no es seguro: es solo maqueta.
-- [ ] El WhatsApp es temporal.
+- [x] El WhatsApp es temporal.
 - [ ] El dominio es provisional.
-- [ ] La marca aun no esta verificada en Instagram/dominio.
+- [x] La marca aun no esta verificada en Instagram/dominio.
 - [ ] Solo existe una demo real; las demas tarjetas son conceptuales.
 - [ ] La demo usa assets generados y derivados; antes de venta masiva conviene crear biblioteca propia por categoria.
 
