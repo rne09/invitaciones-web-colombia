@@ -108,3 +108,21 @@ Convertir las plantillas conceptuales en demos completas vendibles, empezando po
 3. `plantillas/primera-comunion/`
 
 Luego construir backend real para el admin.
+
+## Boda Premium (funcional)
+
+Plantillas: `plantillas/boda-premium-olivo/`, `plantillas/boda-premium-toile/`, `plantillas/boda-mesa-galeria/`.
+
+- **Galería de invitados:** los invitados suben fotos (se comprimen en el celular a 1600 px) y todos las ven.
+  Se guardan en Netlify Blobs (tienda `galeria-invitados`) mediante `netlify/functions/fotos.mjs` → `/api/fotos`.
+  Solo quien subió una foto puede borrarla. Para borrar como administrador: variable de entorno `CLAVE_ADMIN` en Netlify.
+- **Mesas y cupos:** lista `premium.invitados` en `js/datos.js` (`codigo`, `nombre`, `mesa`, `cupos`).
+  Enlace personal por invitado: `https://.../?i=CODIGO` → saludo con su nombre, cupos y mesa; la confirmación
+  por WhatsApp incluye cuántos asisten y la mesa. También pueden buscar su mesa por código o nombre.
+- **Playlist:** `premium.playlist = { app: "spotify" | "youtube" | "apple", url }` (se incrusta sola).
+  Los invitados sugieren canciones (`/api/canciones`, tienda `canciones-invitados`).
+- **Para un cliente:** copiar la plantilla a `clientes/<evento>/`, cambiar `premium.evento` por un id único
+  (ej. `boda-ana-luis-2027`), cargar la lista de invitados, y agregar en `datos.js`
+  `"api": "https://invitacioneswebcolombia.netlify.app/api"` (porque el sitio del cliente es otro dominio).
+- Pixieset no sirve para fotos de invitados (no permite subidas públicas y exigiría exponer la cuenta);
+  se usa solo como enlace al álbum profesional.
