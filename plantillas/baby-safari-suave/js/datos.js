@@ -19,5 +19,13 @@ const DATOS = {
     "#e3d3b5",
     "#c9dbe6"
   ],
-  "muestra": true
+  "muestra": true,
+  "voladores": [
+    {
+      "src": "img/v-mariposa.webp",
+      "tipo": "vuela",
+      "mira": "no",
+      "aleteo": "ala"
+    }
+  ]
 };

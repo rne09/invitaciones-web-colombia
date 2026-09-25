@@ -14,7 +14,7 @@ img{display:block;max-width:100%}
 .portada.sin-arte .arte,.portada.sin-arte .portada__velo{visibility:hidden}
 .portada.fuera{opacity:0;transition:opacity .45s;pointer-events:none}
 .escena{position:absolute;inset:0;perspective:1400px;pointer-events:none}
-.portada__texto{position:absolute;left:24px;right:24px;bottom:calc(118px + env(safe-area-inset-bottom));text-align:center;color:var(--portada-texto);z-index:3;transition:opacity .35s}
+.portada__texto{position:absolute;left:var(--margen-texto,24px);right:var(--margen-texto,24px);bottom:calc(var(--texto-abajo,118px) + env(safe-area-inset-bottom));text-align:center;color:var(--portada-texto);z-index:3;transition:opacity .35s}
 .portada__eti{font-size:13px;letter-spacing:.38em;font-weight:700;text-transform:uppercase}
 .portada__nombre{font-family:var(--titulo);font-weight:400;font-size:var(--nombre-portada);line-height:1.05;margin-top:6px;text-shadow:var(--sombra-texto)}
 .portada__fecha{font-size:16px;letter-spacing:.2em;margin-top:8px;font-weight:600;text-transform:uppercase}
@@ -177,3 +177,9 @@ body.cerrado .musica{display:none}
 .dos-campos .campo{margin-top:14px}
 .mitad{transition:transform 1.4s cubic-bezier(.7,0,.3,1);box-shadow:0 0 30px rgba(0,0,0,.3)}
 .arco-zoom{transform-origin:50% 62%;transition:transform 1.3s cubic-bezier(.6,0,.4,1),opacity 1.1s ease .15s}
+.volador{position:absolute;left:0;top:0;height:auto;pointer-events:none;filter:drop-shadow(0 4px 6px rgba(0,0,0,.12));z-index:2}
+.volador--ala{animation:ala .3s ease-in-out infinite alternate}
+@keyframes ala{to{scale:.45 1}}
+.volador--zumbido{animation:zumbido .12s linear infinite alternate}
+@keyframes zumbido{to{translate:0 -3px}}
+.particulas--hoja .volador{opacity:.85}

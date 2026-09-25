@@ -107,7 +107,7 @@ PLANTILLAS = [
                    "#f3e6c4", oscuro("rgba(8,12,28,.9)"), "66px", "62px", "40px", "#f3e6c4")),
 
     # ------------------------------ BABY SHOWER ------------------------------
-    dict(slug="baby-safari-suave", iconos="suave", tarjeta="Safari Suave", categoria="Baby shower", musica="baby-safari",
+    dict(slug="baby-safari-suave", voladores=["mariposa"], iconos="suave", tarjeta="Safari Suave", categoria="Baby shower", musica="baby-safari",
          imagen="https://img.recraft.ai/mtwf20Mwwu_RsOe7imG8Rd573x-dv3Qsa-lgVB9rKKc/rs:fit:768:1344:0/raw:1/plain/abs://external/images/c3c8fed4-9347-4dc5-8da4-4b17016c0647",
          titulo="Baby shower de Emiliano", eti="Baby shower", nombre="Emiliano", subnombre="viene en camino", evento="el baby shower de Emiliano",
          fechaISO="2027-03-06T15:00:00-05:00", fechaTexto="Sábado 6 de marzo", anioHora="2027 · 3:00 p. m.", fechaCorta="06 · 03 · 2027",
@@ -121,7 +121,7 @@ PLANTILLAS = [
                    "#4d5b3f", claro("rgba(248,245,238,.95)"), "52px", "48px", "32px", "#b9c9a4", "none")),
 
     # ------------------------------ REVELACIÓN ------------------------------
-    dict(slug="revelacion-dulce", iconos="circulo", munequito="https://img.recraft.ai/mT3D-CM7ar9x4VwStI8at1k-g_M-xwPeUIC_POIPPV0/rs:fit:1024:1024:0/raw:1/plain/abs://external/images/15c4036b-5bbf-4ec9-8a9f-d3bd2b93b831", munPortada=False, tarjeta="Dulce Revelación", categoria="Revelación de género", musica="revelacion",
+    dict(slug="revelacion-dulce", voladores=["globo-azul", "globo-rosa"], iconos="circulo", munequito="https://img.recraft.ai/mT3D-CM7ar9x4VwStI8at1k-g_M-xwPeUIC_POIPPV0/rs:fit:1024:1024:0/raw:1/plain/abs://external/images/15c4036b-5bbf-4ec9-8a9f-d3bd2b93b831", munPortada=False, tarjeta="Dulce Revelación", categoria="Revelación de género", musica="revelacion",
          imagen="https://img.recraft.ai/KY2Efm8wiy4Z92OBEvi8-esZ_SP8RCAz_oCn1GTB2yY/rs:fit:768:1344:0/raw:1/plain/abs://external/images/5c25c4da-f341-4eb1-b0c9-503a1bfc191b",
          titulo="¿Niño o niña? · Revelación", eti="Revelación de género", nombre="¿Niño o niña?", subnombre="Familia Rojas Díaz", evento="la revelación de nuestro bebé",
          fechaISO="2027-02-13T16:00:00-05:00", fechaTexto="Sábado 13 de febrero", anioHora="2027 · 4:00 p. m.", fechaCorta="13 · 02 · 2027",
@@ -180,35 +180,6 @@ PLANTILLAS = [
                    "#5c4722", claro("rgba(252,250,245,.95)"), "78px", "76px", "54px", "#e8c77a", "none")),
 
     # ------------------------------ CUMPLEAÑOS ------------------------------
-    dict(slug="cumple-fiesta-globos", iconos="circulo", tarjeta="Fiesta Temática", categoria="Cumpleaños", musica="cumple-fiesta",
-         imagen="https://img.recraft.ai/jWDO2CwvUISJoODpSfSSDnWirVzq9-1Cu4zXWK9OFAw/rs:fit:768:1344:0/raw:1/plain/abs://external/images/38744f81-1950-4c85-a4c6-1b734fb42236",
-         titulo="¡Tomás cumple 8!", eti="¡Estás invitado!", nombre="Tomás", subnombre="cumple 8 años", evento="el cumpleaños de Tomás",
-         fechaISO="2027-02-27T15:00:00-05:00", fechaTexto="Sábado 27 de febrero", anioHora="2027 · 3:00 p. m.", fechaCorta="27 · 02 · 2027",
-         lugar="Salón Fiesta Mágica", direccion="Avenida Circunvalar # 40-18", ciudad="Montería, Córdoba",
-         frase="¡Globos, torta, juegos y mucha diversión! Ven a celebrar conmigo un año más de aventuras.",
-         itinerario=[("3:00 p. m.", "Juegos y show"), ("4:30 p. m.", "Piñata"), ("5:00 p. m.", "¡Torta!")],
-         vestir={"lineas": [("Ropa", "Cómoda para jugar y saltar")]},
-         regalo=("Regalos", "¡Tu presencia es el mejor regalo! 🎁"),
-         confirmaTexto="Confírmale a mamá para guardarte tu sorpresa.", cierre="¡Te espero para jugar!",
-         apertura="globo", particulas="confeti", motivo="globo", colores=["#ff6b5b", "#ffc93c", "#2ec4b6", "#9b5de5"], pista="Toca para reventar el globo",
-         fuentes=["Lilita+One", "Nunito:ital,wght@0,400;0,600;0,700;1,400"],
-         vars=tema("#fffaf3", "#fff0dc", "#2d2a4a", "#2d2a4a", "#ff6b5b", "#d84a3a", "#fff", '"Lilita One",sans-serif', '"Nunito",sans-serif',
-                   "#2d2a4a", claro("rgba(255,250,243,.95)"), "58px", "54px", "34px", "#ffc93c", "none")),
-
-    dict(slug="cumple-garden-party", iconos="suave", tarjeta="Garden Party", categoria="Cumpleaños", musica="cumple-garden",
-         imagen="https://img.recraft.ai/AI1-tJI7H2ogo80Rbhewa43nunhZ4eS7PVhh-V2-a7M/rs:fit:768:1344:0/raw:1/plain/abs://external/images/fb0caa6f-b545-4a89-a2b0-84848749bd8f",
-         titulo="Garden party · Los 30 de Camila", eti="Garden party", nombre="Camila", subnombre="celebra sus 30", evento="los 30 de Camila",
-         fechaISO="2027-04-24T16:00:00-05:00", fechaTexto="Sábado 24 de abril", anioHora="2027 · 4:00 p. m.", fechaCorta="24 · 04 · 2027",
-         lugar="Casa Jardín", direccion="Vía al Rodadero, km 2", ciudad="Santa Marta, Magdalena",
-         frase="Flores, limonada, buena música y mi gente favorita. Ven a celebrar mis 30 bajo los árboles.",
-         vestir={"lineas": [("Código", "Casual elegante"), ("Tip", "Colores pastel y zapato cómodo para el césped")],
-                 "colores": ["#f3c6a5", "#f6e3a1", "#c8d8b0", "#d9c7e3"]},
-         regalo=("Regalos", "Lo que más quiero es verte ahí. Si deseas traer algo, ¡una planta será perfecta! 🌿"),
-         cierre="¡Nos vemos en el jardín!", apertura="iris", particulas="luciernagas", motivo="flor", pista="Toca para abrir",
-         fuentes=["DM+Serif+Display:ital@0;1", "Caveat:wght@500;700"],
-         vars=tema("#f7f6ee", "#fbeedd", "#3f4a3a", "#3f4a3a", "#e39b73", "#b8683f", "#fff", '"Caveat",cursive', '"DM Serif Display",serif',
-                   "#3f4a3a", claro("rgba(247,246,238,.95)"), "68px", "66px", "44px", "#f6d27a", "none")),
-
     # ------------------------------ BODAS PREMIUM (funcionales) ------------------------------
     dict(slug="boda-premium-olivo", iconos="circulo", tarjeta="Premium Olivo", categoria="Boda (Premium)", musica="boda-floral",
          imagen="https://img.recraft.ai/uqOpT_T0FEHEicXGeCrjm3v9h9-zrd7sSKONhYwZubQ/rs:fit:768:1344:0/raw:1/plain/abs://external/images/ba14dae5-d931-4919-93b5-e962f3dd0f6d",
@@ -242,3 +213,17 @@ PLANTILLAS = [
          vars=tema("#f8f6f0", "#e6edf6", "#2b3a55", "#233b66", "#5b7fb3", "#3f629a", "#fff", '"Pinyon Script",cursive', '"Playfair Display",serif',
                    "#233b66", claro("rgba(248,246,240,.0)"), "52px", "56px", "40px", "#9fb7da", "none")),
 ]
+
+
+R_ = "https://img.recraft.ai/"
+# clave: (url sin fondo, tipo de vuelo, hacia dónde mira la imagen, animación)
+VOLADORES = {
+    "abeja": (R_ + "rOgkOY4YDqscvneiMuRRDiR7frb2GNt_1JIpUYebLJ4/rs:fit:1024:1024:0/raw:1/plain/abs://external/images/2ca51bbe-19c2-4bc3-862d-a9253d788b73", "vuela", "izq", "zumbido"),
+    "mariposa": (R_ + "LyG7vqVYWDEBvi7edLiz2ZhPLSryqVjWMhAYBPH_pLQ/rs:fit:1024:1024:0/raw:1/plain/abs://external/images/c7ba91db-363b-4456-8458-4a1f4536c54a", "vuela", "no", "ala"),
+    "globo-azul": (R_ + "KEsQNikIfLc8xq77hVY8d_D6XxZpYvys4F4lwa8B4Wc/rs:fit:1024:1024:0/raw:1/plain/abs://external/images/a494344b-9ebf-4f14-9ab5-1b5772f8048f", "sube", "no", ""),
+    "globo-rosa": (R_ + "veC-kocMG3K8Pfi2nrVt-Pmtle4NUOIYk8M9yaCfIiw/rs:fit:1024:1024:0/raw:1/plain/abs://external/images/55af170e-c060-4cb7-86c4-87d561b07617", "sube", "no", ""),
+    "avion": (R_ + "B5Xeu5PzyEWnDt3UXYCmUnpVeXIMNlMJpImD5aKYL3U/rs:fit:1024:1024:0/raw:1/plain/abs://external/images/a20fd309-b70a-4d0e-a0a1-ba012a240af3", "vuela", "der", ""),
+}
+
+from plantillas_nuevas import NUEVAS  # noqa: E402
+PLANTILLAS += NUEVAS

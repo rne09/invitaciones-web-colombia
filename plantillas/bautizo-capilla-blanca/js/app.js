@@ -35,6 +35,35 @@
   particulas($(".particulas--portada"), DATOS.particulas, 18);
   particulas($(".particulas--hoja"), DATOS.particulas, 12);
 
+  // ---------- Muñequitos que vuelan (solo invitaciones infantiles) ----------
+  function volar(el, v, primera) {
+    const w = innerWidth, h = innerHeight, marcos = [];
+    if (v.tipo === "sube") {
+      const x = azar(0.05, 0.85) * w;
+      for (let k = 0; k <= 4; k++) marcos.push({ transform: `translate(${x + Math.sin(k * 1.7) * 40}px, ${h + 60 - (h + 180) * k / 4}px) rotate(${azar(-10, 10)}deg)` });
+    } else {
+      const derecha = Math.random() < 0.5;
+      const espejo = (v.mira === "izq") === derecha ? -1 : 1;
+      const x0 = derecha ? -90 : w + 90, x1 = derecha ? w + 90 : -90;
+      for (let k = 0; k <= 5; k++) marcos.push({ transform: `translate(${x0 + (x1 - x0) * k / 5}px, ${azar(0.05, 0.88) * h}px) rotate(${azar(-14, 14)}deg) scaleX(${espejo})` });
+    }
+    const anim = el.animate(marcos, { duration: azar(13000, 22000), delay: primera ? azar(0, 7000) : azar(500, 4000), easing: "ease-in-out", fill: "both" });
+    anim.onfinish = () => volar(el, v, false);
+  }
+  function voladores(caja, n) {
+    if (!caja || !DATOS.voladores || !DATOS.voladores.length) return;
+    for (let i = 0; i < n; i++) {
+      const v = DATOS.voladores[i % DATOS.voladores.length];
+      const el = document.createElement("img");
+      el.src = v.src; el.alt = ""; el.className = "volador" + (v.aleteo ? " volador--" + v.aleteo : "");
+      el.style.width = azar(v.tipo === "sube" ? 42 : 40, v.tipo === "sube" ? 64 : 62).toFixed(0) + "px";
+      caja.appendChild(el);
+      volar(el, v, true);
+    }
+  }
+  voladores($(".particulas--portada"), 6);
+  voladores($(".particulas--hoja"), 5);
+
   function estallido(cantidad) {
     const caja = document.createElement("div");
     caja.className = "estallido";

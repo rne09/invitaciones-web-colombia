@@ -20,5 +20,19 @@ const DATOS = {
     "#ffffff",
     "#c7b8ef"
   ],
-  "muestra": true
+  "muestra": true,
+  "voladores": [
+    {
+      "src": "img/v-globo-azul.webp",
+      "tipo": "sube",
+      "mira": "no",
+      "aleteo": ""
+    },
+    {
+      "src": "img/v-globo-rosa.webp",
+      "tipo": "sube",
+      "mira": "no",
+      "aleteo": ""
+    }
+  ]
 };

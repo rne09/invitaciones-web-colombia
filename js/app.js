@@ -105,7 +105,8 @@
 
     function card(item) {
       return [
-        '<article class="template-card">',
+        '<article class="template-card' + (item.package === "Premium" ? ' template-card--premium' : '') + '">',
+        (item.package === "Premium" ? '  <em class="insignia-premium">Premium</em>' : ''),
         '  <div class="template-card__preview ' + item.preview + '"' + (item.thumb ? ' style="background:url(' + item.thumb + ') center top/cover"' : '') + '></div>',
         '  <div>',
         '    <p>' + item.event + ' · ' + item.package + '</p>',

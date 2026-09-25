@@ -68,6 +68,17 @@ def construir(p):
     shutil.copy(os.path.join(MOTOR, "app.js"), os.path.join(dest, "js", "app.js"))
     if p.get("premium"):
         shutil.copy(os.path.join(MOTOR, "premium.js"), os.path.join(dest, "js", "premium.js"))
+    if p.get("voladores"):
+        from plantillas_config import VOLADORES
+        lista = []
+        for clave in p["voladores"]:
+            url, tipo, mira, aleteo = VOLADORES[clave]
+            m = Image.open(io.BytesIO(urllib.request.urlopen(url).read())).convert("RGBA")
+            m = m.crop(m.getchannel("A").getbbox())
+            m.thumbnail((180, 180), Image.LANCZOS)
+            m.save(os.path.join(dest, "img", f"v-{clave}.webp"), quality=86)
+            lista.append({"src": f"img/v-{clave}.webp", "tipo": tipo, "mira": mira, "aleteo": aleteo})
+        p["_voladores"] = lista
     if p.get("munequito"):
         m = Image.open(io.BytesIO(urllib.request.urlopen(p["munequito"]).read())).convert("RGBA")
         m = m.crop(m.getchannel("A").getbbox())
@@ -84,6 +95,8 @@ def construir(p):
     }
     if p.get("premium"):
         datosjs["premium"] = p["premium"]
+    if p.get("_voladores"):
+        datosjs["voladores"] = p["_voladores"]
     if p.get("lugar2"):
         datosjs.update({"lugar2": p["lugar2"][0], "direccion2": p["lugar2"][1],
                         "mapa2": "https://www.google.com/maps/search/?api=1&query=" + urllib.request.quote(p["ciudad"])})

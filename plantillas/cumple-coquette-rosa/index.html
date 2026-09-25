@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Isabella cumple 20</title>
+<meta name="description" content="Mi cumpleaños · Sábado 20 de febrero · Invitación de muestra de Invitaciones Web Colombia">
+<meta name="theme-color" content="#fcf8f2">
+<meta property="og:title" content="Isabella cumple 20">
+<meta property="og:image" content="img/portada.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Corinthia:wght@400;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/portada.webp">
+<link rel="stylesheet" href="css/estilos.css">
+<style>:root{--fondo:#fcf8f2;--fondo2:#fdebee;--tinta:#4d3439;--tinta-titulo:#9b4a5a;--acento:#d88a9a;--acento-texto:#a4556a;--boton-texto:#fff;--titulo:"Corinthia",cursive;--texto:"Lora",serif;--portada-texto:#9b4a5a;--velo:linear-gradient(180deg,rgba(255,255,255,0) 48%,rgba(252,248,242,.9) 78%,rgba(252,248,242,.9) 100%);--nombre-portada:78px;--nombre:76px;--tit:54px;--brillo:#f4c6cf;--sombra-texto:none}</style>
+<script>
+  (function () {
+    var r = document.documentElement.style, u = function (f) { return 'url("' + new URL(f, location.href).href + '")'; };
+    r.setProperty("--arte", u("img/portada.webp"));
+    r.setProperty("--separador", u("img/separador.svg"));
+  })();
+</script>
+</head>
+<body class="cerrado iconos--suave">
+
+<section class="portada" id="portada" aria-label="Portada">
+  <div class="arte"></div>
+  <div class="portada__velo"></div>
+  <div class="escena" id="escena"></div>
+  <div class="particulas particulas--portada" aria-hidden="true"></div>
+  <div class="portada__texto">
+    <p class="portada__eti">Happy birthday</p>
+    <h1 class="portada__nombre">Isabella</h1>
+    <p class="portada__fecha">20 · 02 · 2027</p>
+  </div>
+  <div class="manito" aria-hidden="true">👆</div>
+  <p class="portada__pista">Toca para abrir</p>
+  <button class="portada__boton" id="abrir" type="button" aria-label="Abrir la invitación"></button>
+</section>
+
+<main class="invitacion" id="invitacion">
+  <div class="particulas particulas--hoja" aria-hidden="true"></div>
+  <button class="musica" id="musica" type="button" aria-label="Pausar o reproducir música">♪</button>
+
+  <header class="inicio">
+    <div class="arco" role="img" aria-label=""></div>
+    <p class="eti">Happy birthday</p>
+    <h2 class="nombre" data-campo="nombre"></h2>
+    <p class="subnombre">mis 20 años</p>
+    <p class="frase">Lacitos, torta de corazón y mis personas favoritas. ¡Ven a celebrar mis 20 conmigo! 🎀</p>
+  </header>
+
+  <div class="separador revelar" aria-hidden="true"></div>
+  <section class="revelar">
+    <div class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="7" y="10" width="34" height="30" rx="5"/><path d="M7 19h34M16 6v8M32 6v8"/><path d="M21 29l3 3 6-7"/></svg></div>
+    <p class="dato" data-campo="fechaTexto"></p>
+    <p class="sub" data-campo="anioHora"></p>
+    <div class="cuenta"><div><b id="cDias">00</b><span>días</span></div><div><b id="cHoras">00</b><span>horas</span></div><div><b id="cMin">00</b><span>min</span></div><div><b id="cSeg">00</b><span>seg</span></div></div>
+  </section>
+  <div class="separador revelar" aria-hidden="true"></div>
+  <section class="revelar">
+    <div class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M24 43s13-12.5 13-23a13 13 0 0 0-26 0c0 10.5 13 23 13 23z"/><circle cx="24" cy="20" r="5"/></svg></div>
+    <h3 class="tit">Lugar</h3>
+    <p class="dato" data-campo="lugar"></p>
+    <p class="sub" data-campo="direccion"></p>
+    <p class="sub" data-campo="ciudad"></p>
+    <a class="boton" data-mapa="mapa" href="#" target="_blank" rel="noopener">Ver ubicación</a>
+  </section>
+  <div class="separador revelar" aria-hidden="true"></div>
+  <section class="revelar">
+    <div class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 6l-3 8 5 5-9 23h24l-9-23 5-5-3-8"/><path d="M19 6c2 3 8 3 10 0"/></svg></div>
+    <h3 class="tit">Vestimenta</h3>
+    <div>
+      <div class="linea"><b>Código</b><span>Coquette</span></div>
+      <div class="linea"><b>Colores</b><span>Rosa, blanco o crema</span></div>
+    </div>
+    <div class="puntos"><i class="punto" style="background:#f4c6cf"></i><i class="punto" style="background:#ffffff"></i><i class="punto" style="background:#f3e5d6"></i></div>
+  </section>
+  <div class="separador revelar" aria-hidden="true"></div>
+  <section class="revelar">
+    <div class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="18" width="32" height="24" rx="3"/><path d="M6 12h36v6H6zM24 12v30"/><path d="M24 12c-4-7-12-6-10-1 1 2 6 1 10 1zM24 12c4-7 12-6 10-1-1 2-6 1-10 1z"/></svg></div>
+    <h3 class="tit">Regalos</h3>
+    <p class="sub">Tu presencia es lo más lindo que me puedes dar 💗</p>
+  </section>
+  <div class="separador revelar" aria-hidden="true"></div>
+  <section class="revelar">
+    <div class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 12h32v22H20l-8 7v-7H8z"/><path d="M17 23l5 5 9-10"/></svg></div>
+    <h3 class="tit">Confirma tu asistencia</h3>
+    <p class="sub">Nos encantará saber que vienes.</p>
+    <label class="oculto" for="nombreInvitado">Tu nombre</label>
+    <input class="campo" id="nombreInvitado" type="text" placeholder="Escribe tu nombre" autocomplete="name">
+    <p class="error" id="errorNombre" hidden>Escribe tu nombre para confirmar</p>
+    <button class="boton" id="btnConfirmar" type="button">Confirmar por WhatsApp</button>
+  </section>
+  <div class="separador revelar" aria-hidden="true"></div>
+  <footer class="cierre revelar">
+    <p class="tit">¡Te espero!</p>
+    <p class="nombre" data-campo="nombre"></p>
+  </footer>
+</main>
+
+<audio id="audio" preload="auto" loop></audio>
+<script src="js/datos.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
