@@ -226,7 +226,7 @@ Opcion con fotografia:
 Invitaciones web + recuerdos digitales
 Bodas, 15 anos y eventos
 Galerias, RSVP, mesas y album profesional
-By @andersonrene_ph
+By @invitacioneswebcolombia
 ```
 
 ## Hashtags iniciales
