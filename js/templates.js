@@ -341,6 +341,16 @@ window.TEMPLATE_CATALOG = [
     "thumb": "../assets/miniaturas/comunion-velo-rosas.webp"
   },
   {
+    "name": "Oliva y Sello Dorado",
+    "event": "Cumpleanos",
+    "style": "Animada",
+    "package": "Personalizado",
+    "price": "Desde $90.000",
+    "href": "../invitaciones-cumpleanos/",
+    "demoHref": "../plantillas/cumple-oliva-sello/",
+    "preview": "preview--wedding"
+  },
+  {
     "name": "Lazo Vino",
     "event": "Cumpleanos",
     "style": "Animada",
