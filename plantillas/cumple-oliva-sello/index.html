@@ -1,69 +1,107 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cumpleaños Oliva y Sello Dorado | Invitaciones Web Colombia</title>
-  <meta name="description" content="Invitación digital animada con sobre, sello dorado y estilo botánico oliva.">
-  <meta name="robots" content="noindex, nofollow">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600&family=Parisienne&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/estilos.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cumpleaños · Ana Isabel</title>
+<meta name="description" content="Te invito a celebrar mi cumpleaños. 17 de octubre, 7:00 p. m.">
+<meta name="theme-color" content="#4f604f">
+<meta property="og:title" content="Cumpleaños · Ana Isabel">
+<meta property="og:description" content="17 de octubre · 7:00 p. m. · Mi residencia">
+<meta property="og:image" content="img/flores.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/papel-opalina.webp">
+<link rel="preload" as="image" href="img/flores.webp">
+<link rel="stylesheet" href="css/estilos.css">
 </head>
-<body class="bloqueada">
-  <main class="experiencia" id="experiencia">
-    <section class="portada" id="portada" aria-label="Abrir invitación">
-      <div class="ambiente ambiente--uno"></div>
-      <div class="ambiente ambiente--dos"></div>
-      <button class="sobre" id="abrirInvitacion" type="button" aria-label="Abrir invitación de Ana Isabel">
-        <span class="sobre__tarjeta" aria-hidden="true">
-          <span>Ana Isabel</span>
-        </span>
-        <span class="sobre__base" aria-hidden="true"></span>
-        <span class="sobre__ala sobre__ala--izq" aria-hidden="true"></span>
-        <span class="sobre__ala sobre__ala--der" aria-hidden="true"></span>
-        <span class="sobre__solapa" aria-hidden="true"></span>
-        <span class="sello" aria-hidden="true">
-          <span class="sello__flor"></span>
-        </span>
-      </button>
-      <p class="pista">Toca el sello para abrir</p>
-    </section>
+<body class="cerrado">
 
-    <section class="invitacion" id="invitacion" aria-label="Invitación de cumpleaños">
-      <article class="tarjeta">
-        <span class="ramo ramo--superior" aria-hidden="true"></span>
-        <span class="ramo ramo--inferior" aria-hidden="true"></span>
-        <span class="arco" aria-hidden="true"></span>
-        <div class="tarjeta__contenido">
-          <p class="frase">Las personas especiales hacen que los momentos simples se vuelvan inolvidables</p>
-          <span class="linea"></span>
-          <p class="anfitriona">Ana Vega</p>
-          <p class="invita">te invito a celebrar mi cumpleaños</p>
-          <h1><span>Ana Isabel</span><strong>Venera</strong></h1>
-          <div class="separador"><i></i><span>♡</span><i></i></div>
-          <div class="detalles">
-            <div>
-              <b>Fecha</b>
-              <span>17 de octubre</span>
-            </div>
-            <div>
-              <b>Hora</b>
-              <span>7:00 p. m.</span>
-            </div>
-            <div>
-              <b>Lugar</b>
-              <span>Mi residencia</span>
-            </div>
-          </div>
-          <div class="separador separador--dorado"><i></i><span>♡</span><i></i></div>
-          <p class="regalo">Tu presencia es mi mejor regalo; si deseas darme un detalle, habrá un lugar especial para tu regalo.</p>
-          <a class="boton" href="https://wa.me/573025299255?text=Confirmo%20mi%20asistencia%20al%20cumplea%C3%B1os%20de%20Ana%20Isabel" target="_blank" rel="noopener">Confirmar asistencia</a>
-        </div>
-      </article>
-    </section>
-  </main>
-  <script src="js/app.js"></script>
+<section class="portada" id="portada" aria-label="Portada">
+  <div class="mesa" aria-hidden="true"></div>
+  <div class="portada__flores portada__flores--sup" aria-hidden="true"></div>
+  <div class="portada__flores portada__flores--inf" aria-hidden="true"></div>
+  <button class="sobre" id="abrir" type="button" aria-label="Abrir invitación de Ana Isabel">
+    <span class="papel" aria-hidden="true">
+      <span class="papel__eti">Cumpleaños</span>
+      <span class="papel__nombre">Ana Isabel</span>
+    </span>
+    <span class="sobre__cuerpo" aria-hidden="true"></span>
+    <span class="sobre__pliegue sobre__pliegue--izq" aria-hidden="true"></span>
+    <span class="sobre__pliegue sobre__pliegue--der" aria-hidden="true"></span>
+    <span class="sobre__solapa" aria-hidden="true"></span>
+    <span class="sello" aria-hidden="true"><i></i></span>
+  </button>
+  <div class="manito" aria-hidden="true">Toca el sello</div>
+  <p class="portada__pista">Toca el sello para abrir</p>
+</section>
+
+<main class="invitacion" id="invitacion">
+  <div class="destellos" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+  <header class="inicio">
+    <img class="flores" src="img/flores.webp" alt="">
+    <p class="eti">Te invito a celebrar mi cumpleaños</p>
+    <h1 class="nombre"><span data-campo="nombre"></span><small data-campo="apellido"></small></h1>
+    <p class="frase">Las personas especiales hacen que los momentos simples se vuelvan inolvidables.</p>
+  </header>
+
+  <div class="separador revelar" aria-hidden="true"></div>
+  <section class="tarjeta revelar">
+    <img class="ico" src="img/icono-calendario.webp" alt="">
+    <p class="dato" data-campo="fechaTexto"></p>
+    <p class="sub" data-campo="anioHora"></p>
+    <div class="cuenta">
+      <div><b id="cDias">00</b><span>días</span></div>
+      <div><b id="cHoras">00</b><span>horas</span></div>
+      <div><b id="cMin">00</b><span>min</span></div>
+      <div><b id="cSeg">00</b><span>seg</span></div>
+    </div>
+  </section>
+
+  <div class="separador revelar" aria-hidden="true"></div>
+  <section class="tarjeta revelar">
+    <img class="ico" src="img/icono-reloj.webp" alt="">
+    <h2 class="tit">Hora</h2>
+    <p class="dato" data-campo="hora"></p>
+  </section>
+
+  <div class="separador revelar" aria-hidden="true"></div>
+  <section class="tarjeta revelar">
+    <img class="ico" src="img/icono-lugar.webp" alt="">
+    <h2 class="tit">Lugar</h2>
+    <p class="dato" data-campo="lugar"></p>
+    <p class="sub" data-campo="ciudad"></p>
+    <a class="boton" id="btnMapa" href="#" target="_blank" rel="noopener">Ver ubicación</a>
+  </section>
+
+  <div class="separador revelar" aria-hidden="true"></div>
+  <section class="tarjeta revelar">
+    <img class="ico" src="img/icono-sobre.webp" alt="">
+    <h2 class="tit">Detalle</h2>
+    <p class="sub" data-campo="regalo"></p>
+  </section>
+
+  <div class="separador revelar" aria-hidden="true"></div>
+  <section class="tarjeta revelar">
+    <img class="ico" src="img/icono-brindis.webp" alt="">
+    <h2 class="tit">Confirma tu asistencia</h2>
+    <p class="sub">Me encantará saber que vienes.</p>
+    <label class="oculto" for="nombreInvitado">Tu nombre</label>
+    <input class="campo" id="nombreInvitado" type="text" placeholder="Escribe tu nombre" autocomplete="name">
+    <p class="error" id="errorNombre" hidden>Escribe tu nombre para confirmar</p>
+    <button class="boton" id="btnConfirmar" type="button">Confirmar por WhatsApp</button>
+  </section>
+
+  <div class="separador revelar" aria-hidden="true"></div>
+  <footer class="cierre revelar">
+    <p class="tit tit--grande">¡Te espero!</p>
+    <p class="firma" data-campo="nombreCompleto"></p>
+  </footer>
+</main>
+
+<script src="js/datos.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 # Cumpleaños Oliva y Sello Dorado
 
-Plantilla de muestra sin música. Apertura con sobre, sello dorado floral y tarjeta vertical en tonos oliva, crema y dorado.
+Plantilla de muestra sin música, construida con la estructura de las tarjetas del catálogo: `datos.js`, portada animada, cuenta regresiva, secciones reveladas y confirmación por WhatsApp.
 
-Datos ficticios: Ana Isabel Venera.
+Recursos reutilizados desde `quince-esmeralda`: papel, flores, separador e iconos. No incluye audio.
