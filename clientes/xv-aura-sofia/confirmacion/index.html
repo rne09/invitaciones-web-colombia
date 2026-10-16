@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Confirmación · Aura Sofía</title>
+<meta name="description" content="Confirma tu asistencia a los 15 años de Aura Sofía.">
+<meta name="theme-color" content="#2a070b">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Pinyon+Script&family=Imperial+Script&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="../img/portada.webp">
+<link rel="stylesheet" href="../css/estilos.css?v=2">
+<style>
+:root{--fondo:#FBF6EA;--tinta:#2B1A12;--tinta-titulo:#A51A2A;--acento:#B8913A;--acento-texto:#6B4E17;--boton-texto:#FFF8EA;--titulo:"Pinyon Script",cursive;--texto:"Cormorant Garamond",serif;--portada-texto:#F0D687;--velo:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(70,16,24,.82) 78%,rgba(70,16,24,.9) 100%);--brillo:#C9A957;--sombra-texto:0 2px 12px rgba(0,0,0,.25)}
+:root{--arte:url("../img/portada.webp");}
+body{background:#FBF6EA}.portada{background:#46101a}.portada__pista{letter-spacing:.12em;padding:0 18px}.portada__boton{cursor:pointer}.pieza{background:transparent!important}.pieza__img{background:var(--arte) center/cover no-repeat!important}.pieza::after{background:var(--velo)!important}
+.portada--confirmacion{position:relative;inset:auto;min-height:100svh;overflow:auto;background:#46101a;padding:24px 16px 38px;display:flex;justify-content:center;align-items:flex-start}
+.portada--confirmacion .arte{position:fixed;inset:0;background:var(--arte) center/cover no-repeat;z-index:0;opacity:.78}.portada--confirmacion .portada__velo{position:fixed;inset:0;z-index:1;opacity:.72}
+.confirmacion__contenido{position:relative;z-index:3;width:min(100%,460px);margin:0 auto;text-align:center;color:var(--portada-texto);padding-bottom:8px}
+.portada--confirmacion .portada__eti{margin-top:3px}.portada--confirmacion .portada__nombre{font-size:64px}.portada--confirmacion .portada__fecha{font-size:15px}
+.portada--confirmacion .confirmacion__separador{margin:12px auto 10px;filter:brightness(1.35)}.portada--confirmacion .confirmacion__icono{margin:0 auto 6px;color:var(--portada-texto);width:42px;height:42px}
+.portada--confirmacion .confirmacion__titulo{font-size:42px;color:#ffe39a;margin-bottom:8px;text-shadow:0 2px 14px rgba(30,5,10,.9)}.portada--confirmacion .confirmacion__texto{font-size:18px;line-height:1.42;color:#fffdf5;text-shadow:0 2px 10px rgba(30,5,10,.95);max-width:390px}
+.portada--confirmacion .confirmacion__aviso{font-size:13px;color:var(--portada-texto);margin:14px auto 16px}.portada--confirmacion .confirmacion__cuadro{padding:21px 18px 23px;border-color:var(--portada-texto);background:rgba(43,10,16,.72);box-shadow:0 8px 24px rgba(0,0,0,.28)}
+.portada--confirmacion .confirmacion__cuadro .tit{font-size:35px;color:var(--portada-texto);margin-bottom:5px}.portada--confirmacion .confirmacion__cuadro .sub{font-size:17px;color:#fff8ea}.portada--confirmacion .campo{color:#fff8ea;border-color:var(--portada-texto)}.portada--confirmacion .campo::placeholder{color:#fff8ea}.portada--confirmacion .boton{margin-top:17px;padding:12px 24px}
+.portada--confirmacion .firma{font-size:34px;color:var(--portada-texto);margin-top:19px}.portada--confirmacion .confirmacion__pie{font-size:15px;color:#fff8ea;margin-top:12px}
+.musica-confirmacion{position:fixed;right:16px;bottom:16px;z-index:8;width:48px;height:48px;border:1px solid var(--portada-texto);border-radius:50%;background:rgba(70,16,24,.78);color:var(--portada-texto);font:24px var(--texto);cursor:pointer;box-shadow:0 6px 16px rgba(0,0,0,.3)}.musica-confirmacion.activa{animation:gira 4s linear infinite}@keyframes gira{to{transform:rotate(360deg)}}
+@media(max-width:430px){.portada--confirmacion{padding:18px 14px 28px}.portada--confirmacion .portada__nombre{font-size:52px}.portada--confirmacion .confirmacion__titulo{font-size:36px}.portada--confirmacion .confirmacion__texto{font-size:16px}.portada--confirmacion .confirmacion__aviso{font-size:12px}.portada--confirmacion .confirmacion__cuadro{padding:18px 14px 20px}}
+.confirmacion{max-width:460px;margin:0 auto;padding:45px 28px 80px;text-align:center;background:#FBF6EA url("../img/papel-opalina.webp") 0 0/512px repeat;min-height:100vh}
+.confirmacion[hidden]{display:none}.confirmacion__icono{width:54px;height:54px;margin:0 auto 18px;color:var(--acento)}
+.confirmacion__icono svg{width:100%;height:100%;stroke:currentColor;fill:none;stroke-width:1.5}
+.confirmacion__titulo{font:400 48px/1.08 var(--titulo);color:var(--tinta-titulo);margin:0 0 14px}
+.confirmacion__texto{font:500 20px/1.55 var(--texto);color:var(--tinta);margin:0 auto;max-width:370px}
+.confirmacion__aviso{font:700 14px/1.5 var(--texto);letter-spacing:.08em;text-transform:uppercase;color:var(--acento-texto);margin:24px auto 0;max-width:300px}
+.confirmacion__separador{width:220px;height:32px;margin:30px auto;background:url("../img/separador.svg") center/contain no-repeat}
+.confirmacion__cuadro{padding:28px 22px 30px;border:1px solid var(--acento);background:rgba(255,255,255,.28);box-shadow:0 10px 28px rgba(74,52,38,.08)}
+.confirmacion__cuadro .tit{font:400 40px/1.1 var(--titulo);color:var(--tinta-titulo);margin-bottom:8px}.confirmacion__cuadro .sub{font:18px/1.55;color:var(--tinta);margin-top:0}
+.campo{font:500 18px var(--texto)}.boton{border-radius:30px;background:var(--acento);color:var(--boton-texto);font-family:var(--texto);letter-spacing:.12em}
+.firma{font:400 38px/1.1 var(--titulo);color:var(--acento-texto);margin-top:34px}
+.confirmacion__pie{font:italic 17px/1.5 var(--texto);color:var(--tinta);margin:30px auto 0}
+.portada.abriendo .portada__texto,.portada.abriendo .portada__pista,.portada.abriendo .manito,.portada.abriendo .particulas{opacity:0;transition:opacity .3s}
+</style>
+</head>
+<body>
+<main class="portada portada--confirmacion" id="confirmacion" aria-label="Confirmación de asistencia">
+  <div class="arte"></div><div class="portada__velo"></div><div class="particulas particulas--portada" aria-hidden="true"></div>
+  <div class="confirmacion__contenido">
+    <p class="portada__eti">Mis 15 años</p><h1 class="portada__nombre">Aura Sofía</h1><p class="portada__fecha">24 · 10 · 2026</p>
+    <div class="confirmacion__separador" aria-hidden="true"></div>
+  <div class="confirmacion__icono" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M8 12h32v22H20l-8 7v-7H8z"/><path d="m17 23 5 5 9-10"/></svg></div>
+  <h1 class="confirmacion__titulo">Confirma tu asistencia</h1>
+  <p class="confirmacion__texto">¡Hola! Se acerca el gran día y estamos afinando los últimos detalles para celebrar los 15 años de Aura Sofía ✨. Queremos que pases una noche inolvidable con nosotros.</p>
+  <p class="confirmacion__aviso">Hoy es la fecha límite para asegurar tu lugar.<br>¡No te quedes fuera!</p>
+  <section class="confirmacion__cuadro" aria-label="Formulario de confirmación">
+    <h2 class="tit">¿Vas a acompañarnos?</h2><p class="sub">Escribe tu nombre para confirmar.</p>
+    <label class="oculto" for="nombreInvitado">Tu nombre</label><input class="campo" id="nombreInvitado" type="text" placeholder="Escribe tu nombre" autocomplete="name">
+    <p class="error" id="errorNombre" hidden>Escribe tu nombre para confirmar</p>
+    <button class="boton" id="btnConfirmar" type="button">Confirmar por WhatsApp</button>
+  </section>
+  <p class="firma">Aura Sofía</p><p class="confirmacion__pie">Dale aquí si vas a confirmar</p>
+  </div>
+</main>
+<button class="musica-confirmacion" id="musica" type="button" aria-label="Reproducir música" aria-pressed="false">♪</button>
+<audio id="audio" preload="auto" autoplay loop src="../img/musica.mp3"></audio>
+<script src="confirmacion.js"></script>
+</body>
+</html>
